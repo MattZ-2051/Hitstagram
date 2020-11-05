@@ -14,8 +14,9 @@ const Login = () => {
         dispatch(login(username, password))
     }
 
-    const handleDemoLogin = () => {
-
+    const handleDemoLogin = (e) => {
+        e.preventDefault()
+        dispatch(login('Demo-lition', 'password'))
     }
 
     return (
@@ -36,7 +37,6 @@ const Login = () => {
                     </div>
                 </form>
             </div>
-
         </div>
 
     )

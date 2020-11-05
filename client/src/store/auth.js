@@ -70,7 +70,7 @@ export const login = (username, password) => {
 
 export const signup = (fullName, username, password) => {
     return async (dispatch, getState) => {
-        const fetchWithCSRF = getState().authentication.csrf;
+        const fetchWithCSRF = getState().auth.csrf;
         const res = await fetchWithCSRF('/api/session/signup', {
             method: "POST",
             headers: { "Content-Type": "application/json" },

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux'
 import { Switch, Route, NavLink } from 'react-router-dom';
 import Login from './components/Login/Login';
+import Signup from './components/Signup/Signup';
 import { setCsrfFunc } from './store/auth';
 
 function App() {
@@ -40,8 +41,9 @@ function App() {
 
     return (
         <Switch>
-            <Route path='/login' component={Login} />
             <Route path="/" exact={true} />
+            <Route path='/sign-up' exact={true} component={Signup} />
+            <Route path='/login' exact={true} component={Login} />
         </Switch>
     );
 }
