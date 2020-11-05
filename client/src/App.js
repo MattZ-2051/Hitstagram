@@ -12,6 +12,7 @@ function App() {
     const [fetchWithCSRF, setFetchWithCSRF] = useState(() => fetch);
     const dispatch = useDispatch()
     const user = useSelector(state => state.auth.id)
+    const history = useHistory()
 
     useEffect(() => {
         async function restoreCSRF() {
@@ -42,12 +43,18 @@ function App() {
         dispatch(setCsrfFunc(fetchWithCSRF));
     }, [fetchWithCSRF, dispatch]);
 
+    if (!user) {
+        history.push('/login')
+        return <Login />
+    }
     return (
-        <Switch>
-            <Route path="/" exact={true} component={Home} />
-            <Route path='/sign-up' exact={true} component={Signup} />
-            <Route path='/login' exact={true} component={Login} />
-        </Switch>
+        <>
+            <Switch>
+                <Route path='/login' exact={true} component={Login} />
+                <Route path='/sign-up' exact={true} component={Signup} />
+                <Route path="/" exact={true} component={Home} />
+            </Switch>
+        </>
     );
 }
 
