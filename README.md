@@ -1,38 +1,38 @@
 Hitstagram
 
-Description - Hitstagram is an instagram clone but instead of posting pictures you post your favorite songs
+  Description - Hitstagram is an instagram clone but instead of posting pictures you post your favorite songs
 
-Feature's:
+  Feature's:
 
-- login/signup page that includes form with error handling
+  - login/signup page that includes form with error handling
 
-- Users can create posts that have the song they chose
+  - Users can create posts that have the song they chose
 
-- When a User clicks on a post the song from that post will play
+  - When a User clicks on a post the song from that post will play
 
-- User can follow other users
+  - User can follow other users
 
-- Users can like other people post
+  - Users can like other people post
 
-- Users can comment on post
+  - Users can comment on post
 
-- Users can logout
+  - Users can logout
 
-- Users can edit their profile and change their information
-Additional features:
+  - Users can edit their profile and change their information
+  Additional features:
 
-- Users can DM other users
+  - Users can DM other users
 
-- Users can send other users posts
+  - Users can send other users posts
 
-Tech Used:
+  Tech Used:
 
-- Python Django backend
+  - Python Django backend
 
-- React frontend
+  - React frontend
 
-- Postgresql
+  - Postgresql
 
-- AWS S3
+  - AWS S3
 
-- JWT tokens
+  - JWT tokens
