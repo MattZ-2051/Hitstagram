@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { Switch, Route, NavLink } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { Redirect, useHistory } from 'react-router-dom';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import { setCsrfFunc } from './store/auth';
-import HomePage from './components/Home/HomePage/HomePage';
+import Home from './components/Home/Home';
 
 function App() {
 
     const [fetchWithCSRF, setFetchWithCSRF] = useState(() => fetch);
     const dispatch = useDispatch()
     const user = useSelector(state => state.auth.id)
+    const history = useHistory()
 
     useEffect(() => {
         async function restoreCSRF() {
@@ -42,12 +43,18 @@ function App() {
         dispatch(setCsrfFunc(fetchWithCSRF));
     }, [fetchWithCSRF, dispatch]);
 
+    if (!user) {
+        history.push('/login')
+        return <Login />
+    }
     return (
-        <Switch>
-            <Route path="/" exact={true} component={HomePage} />
-            <Route path='/sign-up' exact={true} component={Signup} />
-            <Route path='/login' exact={true} component={Login} />
-        </Switch>
+        <>
+            <Switch>
+                <Route path='/login' exact={true} component={Login} />
+                <Route path='/sign-up' exact={true} component={Signup} />
+                <Route path="/" exact={true} component={Home} />
+            </Switch>
+        </>
     );
 }
 

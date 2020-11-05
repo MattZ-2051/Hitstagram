@@ -2,21 +2,25 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import './Login.css';
 import { login } from '../../store/auth';
+import { Redirect, useHistory } from 'react-router-dom';
 
 const Login = () => {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const dispatch = useDispatch()
+    const history = useHistory()
 
     const handleLogin = (e) => {
         e.preventDefault();
         dispatch(login(username, password))
+        history.push('/')
     }
 
     const handleDemoLogin = (e) => {
         e.preventDefault()
         dispatch(login('demo-lition', 'password'))
+        history.push('/')
     }
 
     return (
