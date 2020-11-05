@@ -5,14 +5,13 @@ import { Redirect, useHistory } from 'react-router-dom';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import { setCsrfFunc } from './store/auth';
-import HomePage from './components/Home/HomePage';
+import HomePage from './components/Home/HomePage/HomePage';
 
 function App() {
 
     const [fetchWithCSRF, setFetchWithCSRF] = useState(() => fetch);
     const dispatch = useDispatch()
     const user = useSelector(state => state.auth.id)
-    const history = useHistory()
 
     useEffect(() => {
         async function restoreCSRF() {
