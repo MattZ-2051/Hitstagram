@@ -14,9 +14,18 @@ const NavBar = () => {
     const history = useHistory()
     const userId = useSelector(state => state.auth.id)
 
-    const routeChange = () => {
+    const routeChangeProfile = () => {
         history.push(`/profile/${userId}`)
     }
+
+    const routeChangeHome = () => {
+        history.push('/')
+    }
+
+    const routeChangeExplore = () => {
+        history.push('/explore')
+    }
+
 
     return (
         <div className='navbar'>
@@ -27,16 +36,16 @@ const NavBar = () => {
                 <SearchBar />
             </div>
             <div className='navbar__homeBtn'>
-                <HomeIcon />
+                <HomeIcon onClick={routeChangeHome} />
             </div>
             <div className='navbar__exploreBtn'>
-                <ExploreIcon />
+                <ExploreIcon onClick={routeChangeExplore} />
             </div>
             <div className='navbar__uploadBtn'>
                 <AddAPhotoIcon />
             </div>
             <div className='navbar__profileBtn'>
-                <AccountCircleIcon onClick={routeChange} />
+                <AccountCircleIcon onClick={routeChangeProfile} />
             </div>
             <div className='/navbar__logoutBtn'>
                 <Logout />

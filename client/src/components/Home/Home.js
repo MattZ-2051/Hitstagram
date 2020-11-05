@@ -5,7 +5,6 @@ import HomePage from './HomePage/HomePage';
 const Home = () => {
     return (
         <div className='home-container'>
-            <NavBar />
             <HomePage />
         </div>
     )

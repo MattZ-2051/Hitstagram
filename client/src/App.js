@@ -7,6 +7,7 @@ import Signup from './components/Signup/Signup';
 import { setCsrfFunc } from './store/auth';
 import Home from './components/Home/Home';
 import Profile from './components/Profile/Profile';
+import NavBar from './components/Home/NavBar/NavBar';
 
 function App() {
 
@@ -49,12 +50,15 @@ function App() {
         return <Login />
     }
     return (
-        <Switch>
-            <Route path='/login' exact={true} component={Login} />
-            <Route path='/sign-up' exact={true} component={Signup} />
-            <Route path="/" exact={true} component={Home} />
-            <Route path='/profile/:id' exact={true} component={Profile} />
-        </Switch>
+        <>
+            <NavBar />
+            <Switch>
+                <Route path='/login' exact={true} component={Login} />
+                <Route path='/sign-up' exact={true} component={Signup} />
+                <Route path="/" exact={true} component={Home} />
+                <Route path='/profile/:id' exact={true} component={Profile} />
+            </Switch>
+        </>
     );
 }
 

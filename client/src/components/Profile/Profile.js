@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 const Profile = () => {
 
