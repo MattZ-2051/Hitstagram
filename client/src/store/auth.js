@@ -1,9 +1,13 @@
-import * as actionTypes from './actionTypes';
-import Cookie from 'js-cookie'
+import Cookies from 'js-cookie'
 
-export const authStart = () => {
+const SET_USER = 'FOODIE/AUTH/SET_USER'
+const REMOVE_USER = 'FOODIE/AUTH/REMOVE_USER'
+const SET_CSRF = 'FOODIE/AUTH/SET_CSRF'
+
+export const setUser = (user) => {
     return {
-        type: actionTypes.AUTH_START
+        type: SET_USER,
+        user
     }
 }
 
@@ -14,31 +18,18 @@ export const setCsrfFunc = (cb) => {
     }
 }
 
-export const authLogout = () => {
-    return {
-        type: actionTypes.AUTH_LOGOUT
-    }
-}
 
-export const authFail = error => {
+export const removeUser = () => {
     return {
-        type: actionTypes.AUTH_FAIL,
-        error: error
-    }
-}
-
-export const authSuccess = (user) => {
-    return {
-        type: actionTypes.AUTH_SUCCESS,
-        user
+        type: REMOVE_USER,
     }
 }
 
 export const logout = () => (dispatch, getState) => {
-    const fetchWithCSRF = getState().authentication.csrf;
+    const fetchWithCSRF = getState().auth.csrf;
     fetchWithCSRF(`/api/session/logout`, {
         method: 'POST'
-    }).then(() => dispatch(authLogout()));
+    }).then(() => dispatch(removeUser()));
 }
 
 function loadUser() {
@@ -57,10 +48,9 @@ function loadUser() {
     return {};
 }
 
-
 export const login = (username, password) => {
     return async (dispatch, getState) => {
-        const fetchWithCSRF = getState().authentication.csrf;
+        const fetchWithCSRF = getState().auth.csrf;
         const res = await fetchWithCSRF('/api/session/login', {
             method: "POST",
             headers: {
@@ -71,11 +61,12 @@ export const login = (username, password) => {
         })
         if (res.ok) {
             const { user } = await res.json();
-            dispatch(authSuccess(user));
+            dispatch(setUser(user));
         }
 
     }
 }
+
 
 export const signup = (fullName, username, password) => {
     return async (dispatch, getState) => {
@@ -85,16 +76,28 @@ export const signup = (fullName, username, password) => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ fullName, username, password })
         })
-
-        if (res.status === 400) {
-            const { errors } = await res.json();
-            dispatch(authFail(errors))
-        }
-
         if (res.ok) {
             const { user } = await res.json();
-            dispatch(authSuccess(user))
+            dispatch(setUser(user))
         }
 
+    }
+}
+
+const initialState = {
+    ...loadUser(),
+    csrf: fetch,
+}
+
+export default function reducer(state = initialState, action) {
+    switch (action.type) {
+        case SET_USER:
+            return { ...state, ...action.user }
+        case SET_CSRF:
+            return { ...state, csrf: action.cb }
+        case REMOVE_USER:
+            return { csrf: state.csrf }
+        default:
+            return state
     }
 }
