@@ -24,6 +24,8 @@ Hitstagram
   - Users can DM other users
 
   - Users can send other users posts
+  
+  - Users can go to an explore page which is just a page with users they follow and dont follow 
 
   Tech Used:
 
@@ -35,4 +37,3 @@ Hitstagram
 
   - AWS S3
 
-  - JWT tokens
