@@ -16,7 +16,7 @@ const Login = () => {
 
     const handleDemoLogin = (e) => {
         e.preventDefault()
-        dispatch(login('Demo-lition', 'password'))
+        dispatch(login('demo-lition', 'password'))
     }
 
     return (
@@ -37,6 +37,7 @@ const Login = () => {
                     </div>
                 </form>
             </div>
+            <a href='/sign-up'>Sign Up</a>
         </div>
 
     )
