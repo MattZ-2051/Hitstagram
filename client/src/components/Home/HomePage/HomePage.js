@@ -11,12 +11,13 @@ const HomePage = () => {
         dispatch(posts(user))
     }, [])
 
-
+    console.log(postData)
     return (
         <div className='homepage'>
             {postData.map((post, index) => {
                 return <Post data={post} key={index} />
             })}
+            <h1>testing</h1>
         </div>
     )
 }

@@ -23,9 +23,21 @@ with app.app_context():
 
     andoni_post = Post(caption='first post', img='https://images.unsplash.com/photo-1604667924562-2bda9938f3cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=701&q=80', user_id=4)
 
+    matt_post = Post(caption='matts post', img = 'https://unsplash.com/photos/2BugsxVlrMQ', user_id=6)
+
+    andoni_second_post = Post(caption='this is andoni second post', img='https://images.unsplash.com/photo-1604756436936-5de2b9707fa9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60', user_id=4)
+
+    scar_post = Post(caption='thjis is scars post', img='https://unsplash.com/photos/xRGyR8cAS_c', user_id=3)
+
+    andoni_comment = Comment(content='second comment, still testing!', post_id=2, user_id=4)
+
     matt_comment = Comment(content='first comment, testing!!!', post_id=1, user_id=6)
 
+    matt_follow = Follower(user_followed_id=4, user_id=6)
+
     andoni_follow = Follower(user_followed_id=6, user_id=4)
+
+    andoni_second_follow = Follower(user_followed_id=3, user_id=4)
 
     matt_like = Like(user_id=6, post_id=1)
 
@@ -36,8 +48,14 @@ with app.app_context():
     db.session.add(sam)
     db.session.add(matt)
     db.session.add(andoni_post)
+    db.session.add(andoni_second_post)
+    db.session.add(matt_post)
+    db.session.add(scar_post)
     db.session.add(matt_comment)
     db.session.add(andoni_follow)
+    db.session.add(andoni_second_follow)
     db.session.add(matt_like)
+    db.session.add(andoni_comment)
+    db.session.add(matt_follow)
 
     db.session.commit()
