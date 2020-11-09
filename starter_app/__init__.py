@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, session
 from flask_cors import CORS
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from starter_app.models import db, User
-from starter_app.api import session
+from starter_app.api import session, post, users
 from starter_app.config import Config
 from flask_login import LoginManager
 
@@ -11,6 +11,8 @@ app = Flask(__name__)
 
 app.config.from_object(Config)
 app.register_blueprint(session.bp, url_prefix='/api/session')
+app.register_blueprint(post.bp, url_prefix='/api/post')
+app.register_blueprint(users.bp, url_prefix='/api/users')
 db.init_app(app)
 
 

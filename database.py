@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
 from starter_app import app, db
-from starter_app.models import User
+from starter_app.models import User, Post, Comment, Like, Follower
 
 load_dotenv()
 
@@ -21,11 +21,23 @@ with app.app_context():
     matt = User(full_name='Matt Testing', username='mdizzle',
                 password='password')
 
+    andoni_post = Post(caption='first post', img='https://images.unsplash.com/photo-1604667924562-2bda9938f3cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=701&q=80', user_id=4)
+
+    matt_comment = Comment(content='first comment, testing!!!', post_id=1, user_id=6)
+
+    andoni_follow = Follower(user_followed_id=6, user_id=4)
+
+    matt_like = Like(user_id=6, post_id=1)
+
     db.session.add(ian)
     db.session.add(pollow)
     db.session.add(scar)
     db.session.add(andoni)
     db.session.add(sam)
     db.session.add(matt)
+    db.session.add(andoni_post)
+    db.session.add(matt_comment)
+    db.session.add(andoni_follow)
+    db.session.add(matt_like)
 
     db.session.commit()
