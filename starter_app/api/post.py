@@ -80,14 +80,18 @@ def upload(user_id):
 def feed(user_id):
 
     following = Follower.query.filter_by(user_id=user_id).all()
-    user_info_arr = []
+    post_info_list = []
+    user_info_list = []
 
     for follow in following:
         info = follow.to_dict()
         posts = Post.query.filter_by(user_id=info['userFollowedId']).all()
         for post in posts:
             postInfo = post.to_dict()
-            user_id = postInfo['userId']
-            user_info = User.query.filter_by(id=user_id).first()
-            user_info_arr.append(user_info)
-        return({'posts': [post.to_dict() for post in posts ], 'userInfo': [user.to_dict() for user in user_info_arr]})
+            post_info_list.append(postInfo)
+            user = User.query.filter_by(id=postInfo['userId']).first()
+            user_info_list.append(user)
+            print(postInfo)
+    print(user_info_list)
+    print(post_info_list)
+    return({'posts': post_info_list, 'userInfo': [user.to_dict() for user in user_info_list]})

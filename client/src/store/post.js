@@ -22,10 +22,10 @@ export const posts = (userId) => {
 }
 
 
-export default function reducer(state = [], action) {
+export default function reducer(state = {}, action) {
     switch (action.type) {
         case GETPOST:
-            return [...state, action.posts]
+            return { 'posts': action.posts, 'userInfo': action.userInfo }
 
         default:
             return state

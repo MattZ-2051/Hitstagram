@@ -6,18 +6,19 @@ const HomePage = () => {
 
     const user = useSelector(state => state.auth.id)
     const dispatch = useDispatch();
-    const postData = useSelector(state => state.posts)
+    const postData = useSelector(state => state.posts.posts)
     useEffect(() => {
         dispatch(posts(user))
     }, [])
 
-    console.log(postData)
+    if (postData === undefined) {
+        return <h1>loading...</h1>
+    }
     return (
         <div className='homepage'>
-            {postData.map((post, index) => {
-                return <Post data={post} key={index} />
+            {postData.posts.map((item, index) => {
+                return <Post key={index} data={item} />
             })}
-            <h1>testing</h1>
         </div>
     )
 }
