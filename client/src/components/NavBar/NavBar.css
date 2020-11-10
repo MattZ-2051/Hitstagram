@@ -1,6 +1,60 @@
 .navbar {
     display: flex;
     justify-content: space-between;
-    width: 50%;
     margin: auto;
+    height: 35px;
+    padding: 15px;
+    background-color: lightskyblue;
+    align-items: center;
+}
+
+.navbar__buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 400px
+}
+
+.navbar * {
+    background-color: lightskyblue;
+}
+
+.navbar__name {
+    margin-left: 100px;
+}
+
+.navbar__logoutBtn {
+    margin-right: 50px;
+}
+
+.homeIcon:hover {
+    opacity: 0.7;
+    cursor: pointer;
+    background-color: #eeeeee;
+    border-radius: 50%;
+}
+
+.exploreIcon:hover {
+    opacity: 0.7;
+    cursor: pointer;
+    background-color: #eeeeee;
+    border-radius: 50%;
+}
+
+.photoIcon:hover {
+    opacity: 0.7;
+    cursor: pointer;
+    background-color: #eeeeee;
+    border-radius: 50%;
+}
+
+.accountIcon:hover {
+    opacity: 0.7;
+    cursor: pointer;
+    background-color: #eeeeee;
+    border-radius: 50%;
+}
+
+.navbar__name {
+    font-size: 28px;
+    font-weight: 60;
 }

@@ -39,20 +39,22 @@ const NavBar = () => {
             <div className='navbar__searchBar'>
                 <SearchBar />
             </div>
-            <div className='navbar__homeBtn'>
-                <HomeIcon onClick={routeChangeHome} />
-            </div>
-            <div className='navbar__exploreBtn'>
-                <ExploreIcon onClick={routeChangeExplore} />
-            </div>
-            <div className='navbar__uploadBtn'>
-                <AddAPhotoIcon onClick={routeChangeUpload} />
-            </div>
-            <div className='navbar__profileBtn'>
-                <AccountCircleIcon onClick={routeChangeProfile} />
-            </div>
-            <div className='/navbar__logoutBtn'>
-                <Logout />
+            <div className='navbar__buttons'>
+                <div className='navbar__homeBtn'>
+                    <HomeIcon className='homeIcon' onClick={routeChangeHome} />
+                </div>
+                <div className='navbar__exploreBtn'>
+                    <ExploreIcon className='exploreIcon' onClick={routeChangeExplore} />
+                </div>
+                <div className='navbar__uploadBtn'>
+                    <AddAPhotoIcon className='photoIcon' onClick={routeChangeUpload} />
+                </div>
+                <div className='navbar__profileBtn'>
+                    <AccountCircleIcon className='accountIcon' onClick={routeChangeProfile} />
+                </div>
+                <div className='navbar__logoutBtn'>
+                    <Logout />
+                </div>
             </div>
         </div>
     )
