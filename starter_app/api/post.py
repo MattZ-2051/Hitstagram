@@ -1,6 +1,6 @@
 import os
 from flask import Blueprint, request, jsonify
-from starter_app.models import User, Post, Follower, db
+from starter_app.models import User, Post, Follower, db, Comment
 import boto3
 
 bp = Blueprint('post', __name__)
@@ -82,6 +82,8 @@ def feed(user_id):
     following = Follower.query.filter_by(user_id=user_id).all()
     post_info_list = []
     user_info_list = []
+    comment_info_list = []
+    comment_user_info_list = []
 
     for follow in following:
         info = follow.to_dict()
@@ -91,7 +93,11 @@ def feed(user_id):
             post_info_list.append(postInfo)
             user = User.query.filter_by(id=postInfo['userId']).first()
             user_info_list.append(user)
-            print(postInfo)
-    print(user_info_list)
-    print(post_info_list)
-    return({'posts': post_info_list, 'userInfo': [user.to_dict() for user in user_info_list]})
+            comments = Comment.query.filter_by(post_id=postInfo['id']).all()
+            for comment in comments:
+                comment_info_list.append(comment)
+                commentInfo = comment.to_dict()
+                comment_user_info = User.query.filter_by(id=commentInfo['userId']).first()
+                comment_user_info_list.append(comment_user_info)
+    return({'posts': post_info_list, 'userInfo': [user.to_dict() for user in user_info_list],
+            'postComments': [comment.to_dict() for comment in comment_info_list], 'postCommentUserInfo': [user.to_dict() for user in comment_user_info_list]})

@@ -2,7 +2,6 @@ import React from 'react';
 
 const PostData = ({ data }) => {
 
-    console.log(data)
     return (
         <div className='post'>
             <div className='post__img'>

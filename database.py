@@ -34,9 +34,13 @@ with app.app_context():
 
     scar_post = Post(caption='thjis is scars post', img='https://images.unsplash.com/photo-1604961872836-261fa413ea03?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60', user_id=3)
 
-    andoni_comment = Comment(content='second comment, still testing!', post_id=2, user_id=4)
+    andoni_comment = Comment(content='second comment, still testing!', post_id=4, user_id=4)
 
-    matt_comment = Comment(content='first comment, testing!!!', post_id=1, user_id=6)
+    matt_comment = Comment(content='first comment, testing!!!', post_id=3, user_id=6)
+
+    testing_comment = Comment(content='testing comment', post_id=4, user_id=4)
+
+    another_comment = Comment(content='more testing comments!!!', post_id=3, user_id=6)
 
     matt_follow = Follower(user_followed_id=4, user_id=6)
 
@@ -47,6 +51,8 @@ with app.app_context():
     scar_follow = Follower(user_followed_id=4, user_id=3)
 
     matt_like = Like(user_id=6, post_id=1)
+
+
 
     db.session.add(ian)
     db.session.add(pollow)
@@ -65,5 +71,7 @@ with app.app_context():
     db.session.add(andoni_comment)
     db.session.add(matt_follow)
     db.session.add(scar_follow)
+    db.session.add(testing_comment)
+    db.session.add(another_comment)
 
     db.session.commit()

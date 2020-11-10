@@ -16,9 +16,7 @@ const HomePage = () => {
     }
     return (
         <div className='homepage'>
-            {postData.posts.map((item, index) => {
-                return <Post key={index} data={item} />
-            })}
+            <Post data={postData} />
         </div>
     )
 }
