@@ -18,7 +18,6 @@ const Post = ({ data }) => {
                     <PostData data={item} key={index} />
                     <CommentUserInfo data={data.postCommentUserInfo[index]} key={index} />
                     <CommentData data={data.postComments[index]} key={index} />
-
                 </div>
             })}
         </>
