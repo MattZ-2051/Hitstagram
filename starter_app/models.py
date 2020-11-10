@@ -52,6 +52,14 @@ class Post(db.Model):
     comments = db.relationship('Comment', backref='posts', lazy=True)
     likes = db.relationship('Like', backref='posts', lazy=True)
 
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'caption': self.caption,
+            'img': self.img,
+            'userId': self.user_id
+        }
+
 
 class Comment(db.Model):
 
@@ -62,14 +70,29 @@ class Comment(db.Model):
     post_id = db.Column(db.Integer, db.ForeignKey('posts.id'), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'content': self.content,
+            'postId': self.post_id,
+            'userId': self.user_id
+        }
+
 
 class Follower(db.Model):
 
     __tablename__ = 'followers'
 
     id = db.Column(db.Integer, primary_key=True)
-    userFollowedId = db.Column(db.Integer, nullable=False)
+    user_followed_id = db.Column(db.Integer, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'userFollowedId': self.user_followed_id,
+            'userId': self.user_id
+        }
 
 
 class Like(db.Model):
@@ -79,3 +102,11 @@ class Like(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     post_id = db.Column(db.Integer, db.ForeignKey('posts.id'), nullable=False)
+
+    def to_dict(self):
+
+        return {
+            'id': self.id,
+            'userId': self.user_id,
+            'postId': self.post_id
+        }

@@ -5,7 +5,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import ExploreIcon from '@material-ui/icons/Explore';
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import Logout from '../../Logout/Logout';
+import Logout from '../Logout/Logout';
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -26,6 +26,10 @@ const NavBar = () => {
         history.push('/explore')
     }
 
+    const routeChangeUpload = () => {
+        history.push('/upload')
+    }
+
 
     return (
         <div className='navbar'>
@@ -42,7 +46,7 @@ const NavBar = () => {
                 <ExploreIcon onClick={routeChangeExplore} />
             </div>
             <div className='navbar__uploadBtn'>
-                <AddAPhotoIcon />
+                <AddAPhotoIcon onClick={routeChangeUpload} />
             </div>
             <div className='navbar__profileBtn'>
                 <AccountCircleIcon onClick={routeChangeProfile} />
