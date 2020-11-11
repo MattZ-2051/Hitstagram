@@ -16,8 +16,11 @@ const Post = ({ data }) => {
                 return <div className='post'>
                     <UserData data={data.userInfo[index]} key={index} />
                     <PostData data={item} key={index} />
-                    <CommentUserInfo data={data.postCommentUserInfo[index]} key={index} />
-                    <CommentData data={data.postComments[index]} key={index} />
+                    <div className='post__comment'>
+                        <CommentUserInfo data={data.postCommentUserInfo[index]} key={index} />
+                        <CommentData data={data.postComments[index]} key={index} />
+                    </div>
+                    <input className='post__comment__input' type='text' placeholder='Add a comment...' />
                 </div>
             })}
         </>
