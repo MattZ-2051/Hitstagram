@@ -1,4 +1,5 @@
 import React from 'react';
+import './CommentData.css';
 
 const CommentData = ({ data }) => {
 
