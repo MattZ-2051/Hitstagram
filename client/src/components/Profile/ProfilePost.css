@@ -1,0 +1,14 @@
+.single-post {
+    padding: 15px;
+}
+
+.single-post img:hover {
+    cursor: pointer;
+    transform: scale(1.1)
+}
+
+.single-post img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}

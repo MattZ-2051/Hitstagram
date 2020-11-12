@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { useHistory } from 'react-router-dom';
 import './Profile.css';
+import ProfilePost from './ProfilePost';
 
 const Profile = () => {
 
@@ -65,7 +66,7 @@ const Profile = () => {
             </div>
             <div className='profile__posts'>
                 {posts.map((item, index) => {
-                    return <img src={item.img} key={index} alt='Post not found' />
+                    return <ProfilePost post={item} key={index} />
                 })}
             </div>
         </>
