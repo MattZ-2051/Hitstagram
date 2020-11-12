@@ -1,0 +1,35 @@
+.profile {
+    display: flex;
+    justify-content: center;
+    margin-right: 20%;
+}
+
+.profile__img {
+    padding: 0 30px;
+    padding-top: 15px;
+}
+
+.profile__username {
+    font-size: 40px;
+}
+
+.profile__username-edit {
+    display: flex;
+    padding-top: 30px;
+}
+
+.profile__edit {
+    height: 20px;
+    align-self: center;
+    padding-left: 30px;
+}
+
+.profile__editBtn {
+    border-radius: 5px;
+    font-size: 20px;
+    background-color: white;
+}
+
+.profile__img__pic {
+    font-size: 10rem !important;
+}

@@ -25,7 +25,7 @@ export const posts = (userId) => {
 export default function reducer(state = {}, action) {
     switch (action.type) {
         case GETPOST:
-            return { 'posts': action.posts, 'userInfo': action.userInfo, 'postComments': action.postComments, 'commentUserInfo': action.postCommentUserInfo }
+            return { 'posts': action.posts, 'userInfo': action.userInfo, 'postComments': action.postComments, 'commentUserInfo': action.postCommentUserInfo, 'loggedInPost': action.loggedInUserPost }
 
         default:
             return state
