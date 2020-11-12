@@ -16,6 +16,8 @@ const Profile = () => {
         history.push(`/profile/${user.id}/edit`)
     }
 
+
+
     useEffect(() => {
         async function fetchData() {
             const res = await fetchWithCSRF(`/api/number/${user.id}/counts`, {
