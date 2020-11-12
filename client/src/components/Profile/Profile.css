@@ -1,7 +1,8 @@
 .profile {
     display: flex;
-    justify-content: center;
     margin-right: 20%;
+    margin-left: 20%;
+    border-bottom: black 1px solid;
 }
 
 .profile__img {
@@ -37,7 +38,8 @@
 
 .profile__posts {
     display: flex;
-    justify-content: center;
+    margin-left: 20%;
+    margin-right: 20%;
     padding-top: 15px;
 }
 

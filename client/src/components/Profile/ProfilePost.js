@@ -8,7 +8,7 @@ const ProfilePost = ({ post }) => {
     const history = useHistory();
 
     const postRoute = () => {
-        history.push(`my/post/${post.id}`)
+        history.push(`/post/${post.id}`)
     }
 
     return (
