@@ -7,8 +7,8 @@ import './EditProfile.css';
 const EditProfile = () => {
 
     const user = useSelector(state => state.auth)
-    const [fullName, setFullName] = useState('')
-    const [bio, setBio] = useState('')
+    const [fullName, setFullName] = useState(user.fullName)
+    const [bio, setBio] = useState(user.bio)
     const dispatch = useDispatch()
 
 
@@ -27,16 +27,23 @@ const EditProfile = () => {
                     {user.username}
                 </div>
             </div>
-
             <div className='edit-form'>
                 <form onSubmit={handleSubmit}>
-                    <div className='edit-form__password'>
-                        <label htmlFor='name'>Name</label>
-                        <input type='text' placeholder={user.fullName} onChange={(e) => setFullName(e.target.value)} />
+                    <div className='edit-form__name'>
+                        <div className='edit-form__label'>
+                            <label htmlFor='name'>Name</label>
+                        </div>
+                        <div className='edit-form__input'>
+                            <input type='text' placeholder={user.fullName} onChange={(e) => setFullName(e.target.value)} />
+                        </div>
                     </div>
                     <div className='edit-form__bio'>
-                        <label htmlFor='bio'>Bio</label>
-                        <input type='text' placeholder={user.bio ? user.bio : 'No bio yet!'} onChange={(e) => setBio(e.target.value)} />
+                        <div className='edit-form__label'>
+                            <label htmlFor='bio'>Bio</label>
+                        </div>
+                        <div className='edit-form__input edit-form__input-bio'>
+                            <input type='text' placeholder={user.bio ? user.bio : 'No bio yet!'} onChange={(e) => setBio(e.target.value)} />
+                        </div>
                     </div>
                     <div className='edit-form__submitBtn'>
                         <button type='submit'>Submit</button>
