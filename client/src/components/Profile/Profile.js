@@ -53,8 +53,12 @@ const Profile = () => {
                         </div>
                     </div>
                     <div className='counts'>
-                        Posts: {counts.postCount}
-                    Followers: {counts.followerCount}
+                        <div className='counts__post'>
+                            Posts: <span>{counts.postCount}</span>
+                        </div>
+                        <div className='counts__followers'>
+                            Followers: <span>{counts.followerCount}</span>
+                        </div>
                     </div>
                     <div className='profile__name'>
                         {user.fullName}

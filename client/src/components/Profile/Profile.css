@@ -6,11 +6,12 @@
 
 .profile__img {
     padding: 0 30px;
-    padding-top: 15px;
+    padding-top: 30px;
 }
 
 .profile__username {
     font-size: 40px;
+    align-self: center;
 }
 
 .profile__username-edit {
@@ -20,8 +21,8 @@
 
 .profile__edit {
     height: 20px;
-    align-self: center;
     padding-left: 30px;
+    align-self: center;
 }
 
 .profile__editBtn {
@@ -37,4 +38,35 @@
 .profile__posts {
     display: flex;
     justify-content: center;
+    padding-top: 15px;
+}
+
+.counts {
+    display: flex;
+    padding-top: 15px;
+}
+
+.counts__followers {
+    padding-left: 30px;
+}
+
+.counts__followers span {
+    padding-left: 5px;
+    font-weight: 700;
+}
+
+.counts__post span {
+    font-weight: 700;
+}
+
+.counts__followers, .counts__post {
+    font-size: 20px;
+}
+
+.profile__name {
+    padding-top: 15px;
+}
+
+.profile__bio {
+    padding-top: 15px;
 }

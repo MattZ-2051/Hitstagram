@@ -1,0 +1,22 @@
+.edit-page {
+
+}
+
+.edit-page * {
+    background-color: white;
+}
+
+.edit-page__info {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+}
+
+.edit-page__profileImg {
+
+}
+
+.edit-form {
+    display: flex;
+    justify-content: center;
+}
