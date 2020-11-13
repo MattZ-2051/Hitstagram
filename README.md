@@ -1,39 +1,57 @@
-Hitstagram
+# Hitstagram
+*By Matt Zamora  - visit Hitstagram*
 
-  Description - Hitstagram is an instagram clone but instead of posting pictures you post your favorite songs
+Table of Contents
 
-  Feature's:
+* Hitstagram Overview
+* Technologies Used
+* FrontEnd Overview
+* BackendOverview
+* Conclusion
 
-  - login/signup page that includes form with error handling
+### Hitstagram Overview
 
-  - Users can create posts that have the song they chose
+Hitsagram is a full stack application that allows the user to make posts, like and comment on a post, follow other users and edit their profile. The app is based off the social media web app instagram.
 
-  - When a User clicks on a post the song from that post will play
+(post code snippet here)
 
-  - User can follow other users
+## Technologies Used
 
-  - Users can like other people post
+* Frontend
+	* React.js
+	* Redux
+	* CSS
+	* Material UI Icons
+	
+* Backend
+	* Flask
+	* SQLAlchemy
+	* PostgreSQL
 
-  - Users can comment on post
+## FrontEnd Overview
 
-  - Users can logout
+### React
+Using React as the frontend application allowed me to leverage not only React but the tools that come along with it like different types of hooks and Redux
 
-  - Users can edit their profile and change their information
-  Additional features:
+(show some snippets of React)
 
-  - Users can DM other users
+### Redux
+Redux allowed me to create a better way to manage my state throughout my application. Dispatching various actions allowed for easier access to information for different components
 
-  - Users can send other users posts
-  
-  - Users can go to an explore page which is just a page with users they follow and dont follow 
+(show some snippets of redux)
 
-  Tech Used:
+## Material UI Icons
+Material UI Icons ate used for the navigation bar
 
-  - Python Django backend
+## CSS
+Custon CSS  styling is used for the styling throughout the page
 
-  - React frontend
+## Backend Overview
 
-  - Postgresql
+### Flask
+The python web framework flask is used for the backend.  Flask is a great lightweight framework to use because it allows for easy integration with a PostgreSQL database and SQLAlchemy ORM. Flask is a great framework to handle the responsibilities for sending data to the front-end.
 
-  - AWS S3
+### PostgreSQL
+PostgreSQL was a great RDBMS to use. Its fairly simple to integrate it with the Flask framework and store different reltionships between models
 
+## Conclusion
