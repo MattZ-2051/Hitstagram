@@ -18,13 +18,13 @@ with app.app_context():
                 password='password')
 
     andoni = User(full_name='Andoni B', username='MIP',
-                  password='password')
+                  password='password', profile_img='https://images.unsplash.com/photo-1605020803430-bbbdc1d3cb3c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60')
 
     sam = User(full_name='Sam', username='Mr.Sam',
                password='password')
 
     matt = User(full_name='Matt Testing', username='mdizzle',
-                password='password')
+                password='password', profile_img='https://images.unsplash.com/photo-1605132641261-0e8e54fdf6c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60')
 
     andoni_post = Post(caption='first post', img='https://images.unsplash.com/photo-1605002713581-123e77bcf83d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60', user_id=4)
 
@@ -52,7 +52,13 @@ with app.app_context():
 
     matt_like = Like(user_id=6, post_id=1)
 
+    sam_comment = Comment(content='comments on andoni post', post_id=1, user_id=5)
 
+    braydon_commment = Comment(content='braydon comment on andoni post', post_id=2, user_id=2)
+
+    braydon_second_comment = Comment(content='braydon second comment on adnoni post', post_id=1, user_id=2)
+
+    sam_second_commment = Comment(content='asdfasdfasdfasdf sam comment on andoni post', post_id=2, user_id=5)
 
     db.session.add(ian)
     db.session.add(pollow)
@@ -73,5 +79,9 @@ with app.app_context():
     db.session.add(scar_follow)
     db.session.add(testing_comment)
     db.session.add(another_comment)
+    db.session.add(sam_comment)
+    db.session.add(braydon_commment)
+    db.session.add(braydon_second_comment)
+    db.session.add(sam_second_commment)
 
     db.session.commit()

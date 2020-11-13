@@ -62,7 +62,7 @@ function App() {
                 <Route path='/profile/:id' exact={true} component={Profile} />
                 <Route path='/upload' exact={true} component={Upload} />
                 <Route path='/profile/:id/edit' exact={true} component={EditProfile} />
-                <Route path='/profile/post/:id' exact={true} component={SoloPost} />
+                <Route path='/post/:id' exact={true} component={SoloPost} />
             </Switch>
         </>
     );

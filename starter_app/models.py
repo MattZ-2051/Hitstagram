@@ -13,7 +13,7 @@ class User(db.Model, UserMixin):
     full_name = db.Column(db.String(100), nullable=False)
     username = db.Column(db.String(40), nullable=False, unique=False)
     hashed_password = db.Column(db.String(100), nullable=False)
-    profile_img = db.Column(db.String(100), nullable=True)
+    profile_img = db.Column(db.String(1000), nullable=True)
     bio = db.Column(db.String(1000), nullable=True)
     posts = db.relationship('Post', backref='user', lazy=True)
     followers = db.relationship('Follower', backref='users', lazy=True)

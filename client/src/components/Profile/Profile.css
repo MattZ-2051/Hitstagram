@@ -6,8 +6,13 @@
 }
 
 .profile__img {
-    padding: 0 30px;
-    padding-top: 30px;
+    padding: 30px;
+}
+
+.profile__img img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
 }
 
 .profile__username {
@@ -28,8 +33,16 @@
 
 .profile__editBtn {
     border-radius: 5px;
-    font-size: 20px;
+    font-size: 18px;
+    border: none;
+    background-color: lightblue;
+    padding: 5px;
+}
+
+.profile__editBtn:hover {
+    cursor: pointer;
     background-color: white;
+    border: 3px solid lightblue;
 }
 
 .profile__img__pic {
@@ -71,4 +84,12 @@
 
 .profile__bio {
     padding-top: 15px;
+}
+
+.profile__bio span {
+    font-size: 20px;
+}
+
+.profile__name span {
+    font-size: 20px;
 }

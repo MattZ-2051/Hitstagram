@@ -61,10 +61,10 @@ const Profile = () => {
                         </div>
                     </div>
                     <div className='profile__name'>
-                        {user.fullName}
+                        <span>Name: </span>{user.fullName}
                     </div>
                     <div className='profile__bio'>
-                        {user.bio ? user.bio : <p>No bio yet!</p>}
+                        <span>Bio: </span>{user.bio ? user.bio : <p>No bio yet!</p>}
                     </div>
                 </div>
             </div>

@@ -8,19 +8,20 @@ import UserData from './UserData/UserData';
 
 const Post = ({ data }) => {
 
+
     console.log(data)
 
     return (
         <>
             {data.posts.map((item, index) => {
-                return <div className='post'>
+                return <div className='post' key={index}>
                     <UserData data={data.userInfo[index]} key={index} />
                     <PostData data={item} key={index} />
-                    <div className='post__comment'>
+                    <div className='post__comment' key={index}>
                         <CommentUserInfo data={data.postCommentUserInfo[index]} key={index} />
                         <CommentData data={data.postComments[index]} key={index} />
                     </div>
-                    <input className='post__comment__input' type='text' placeholder='Add a comment...' />
+                    <input className='post__comment__input' type='text' placeholder='Add a comment...' key={index} />
                 </div>
             })}
         </>

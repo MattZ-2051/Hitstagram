@@ -1,21 +1,48 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import CommentData from '../Home/HomePage/Post/CommentData/CommentData';
+import CommentUserInfo from '../Home/HomePage/Post/CommentUserInfo/CommentUserInfo';
+import UserData from '../Home/HomePage/Post/UserData/UserData';
+import PostData from '../Home/HomePage/Post/PostData/PostData';
 
 const SoloPost = () => {
 
-    const posts = useSelector(state => state.posts.posts.loggedInUserPost)
     const history = useHistory()
+    const postId = history.location.pathname.split('/')[2];
+    const fetchWithCSRF = useSelector(state => state.auth.csrf);
     const [data, setData] = useState(null)
-    const postId = history.location.pathname.split('/')[4];
 
+    useEffect(() => {
+        async function fetchData() {
+            const res = await fetchWithCSRF(`/api/post/${postId}/data`, {
+                method: 'GET'
+            })
+            if (res.ok) {
+                const data = await res.json()
+                setData(data)
+            }
+        }
 
-    if (posts === undefined) {
+        fetchData()
+    }, [])
+
+    if (data === null) {
         return <h1>loading...</h1>
     }
-
+    console.log(data)
     return (
-        <h1>post page</h1>
+        <div className='post'>
+            <UserData data={data.userInfo} />
+            <PostData data={data.post} />
+            {data.commentUserInfo.map((item, index) => {
+                return <div className='post__comment' key={index}>
+                    <CommentUserInfo data={item} key={index} />
+                    <CommentData data={data.comments[index]} key={index} />
+                </div>
+
+            })}
+        </div>
     )
 
 }

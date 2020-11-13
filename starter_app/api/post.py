@@ -90,10 +90,6 @@ def feed(user_id):
     for post in logged_in_user_post:
         logged_in_post.append(post.to_dict())
 
-    print('=================================')
-    print(logged_in_post)
-    print('=================================')
-
     for follow in following:
         info = follow.to_dict()
         posts = Post.query.filter_by(user_id=info['userFollowedId']).all()
@@ -112,3 +108,24 @@ def feed(user_id):
             'postComments': [comment.to_dict() for comment in comment_info_list],
             'postCommentUserInfo': [user.to_dict() for user in comment_user_info_list],
             'loggedInUserPost': logged_in_post})
+
+
+@bp.route('/<int:post_id>/data', methods=['GET'])
+def single_post(post_id):
+
+    obj = Post.query.filter_by(id=post_id).first()
+    post = obj.to_dict()
+    comment_list = []
+    comment_user_info_list = []
+
+    comments = Comment.query.filter_by(post_id=post['id']).all()
+    user = User.query.filter_by(id=post['userId']).first()
+
+    for comment in comments:
+        comment_list.append(comment.to_dict())
+
+    for comment in comment_list:
+        userComment = User.query.filter_by(id=comment['userId']).first()
+        comment_user_info_list.append(userComment.to_dict())
+
+    return {'post': post, 'comments': comment_list, 'userInfo': user.to_dict(), 'commentUserInfo': comment_user_info_list}

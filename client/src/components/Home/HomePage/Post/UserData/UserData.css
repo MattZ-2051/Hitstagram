@@ -17,4 +17,12 @@
 .user__username {
     font-size: 24px;
     font-weight: 500;
+    align-content: center;
+}
+
+.user__profileImg img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
 }
