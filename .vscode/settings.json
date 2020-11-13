@@ -1,5 +1,6 @@
 {
     "python.linting.pylintEnabled": false,
     "python.linting.pycodestyleEnabled": true,
-    "python.linting.enabled": true
+    "python.linting.enabled": true,
+    "python.pythonPath": "/Users/mattzamora/Desktop/Portfolio/instagram_clone/new_final_solo_proj/react-project-starter/.venv/bin/python3.8"
 }
