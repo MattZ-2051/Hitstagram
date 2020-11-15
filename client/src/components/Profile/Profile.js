@@ -45,7 +45,7 @@ const Profile = () => {
                     {user.profileImg ? <img className='profile__img__pic' src={user.profileImg} alt='' /> : <AccountCircleIcon className='profile__img__pic' />}
                 </div>
                 <div>
-                    <div className='profile__username-edit'>
+                    <div className='profile__username-edit grid'>
                         <div className='profile__username'>
                             {user.username}
                         </div>
@@ -53,7 +53,7 @@ const Profile = () => {
                             <button className='profile__editBtn' onClick={routeChange}>Edit Profile</button>
                         </div>
                     </div>
-                    <div className='counts'>
+                    <div className='counts grid'>
                         <div className='counts__post'>
                             Posts: <span>{counts.postCount}</span>
                         </div>
@@ -61,10 +61,10 @@ const Profile = () => {
                             Followers: <span>{counts.followerCount}</span>
                         </div>
                     </div>
-                    <div className='profile__name'>
+                    <div className='profile__name grid'>
                         <span>Name: </span>{user.fullName}
                     </div>
-                    <div className='profile__bio'>
+                    <div className='profile__bio grid'>
                         <span>Bio: </span>{user.bio ? user.bio : <p>No bio yet!</p>}
                     </div>
                 </div>

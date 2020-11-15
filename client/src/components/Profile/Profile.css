@@ -17,6 +17,10 @@
     object-fit: cover;
 }
 
+.profile__img__pic:hover {
+    cursor: pointer;
+}
+
 .profile__username {
     font-size: 40px;
     align-self: center;
@@ -29,7 +33,6 @@
 
 .profile__edit {
     height: 20px;
-    padding-left: 30px;
     align-self: center;
 }
 
@@ -69,14 +72,9 @@
     display: flex;
     padding-top: 15px;
 }
-
-.counts__followers {
-    padding-left: 30px;
-}
-
+ß
 .counts__followers span {
-    padding-left: 5px;
-    font-weight: 700;
+    font-weight: 900;
 }
 
 .counts__post span {
@@ -108,4 +106,10 @@
     font-size: 20px;
     padding-right: 15px;
     font-weight: 600;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-left: 30px;
 }
