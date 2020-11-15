@@ -1,31 +1,36 @@
 import React, { useState } from 'react';
 import './Upload.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { newUserPost } from '../../store/post';
 
 const Upload = () => {
 
     const [photoFile, setPhotoFile] = useState(null);
-    const fetchWithCSRF = useSelector(state => state.auth.csrf)
-    const userId = useSelector(state => state.auth.id)
-    const history = useHistory()
+    const fetchWithCSRF = useSelector(state => state.auth.csrf);
+    const userId = useSelector(state => state.auth.id);
+    const history = useHistory();
+    const dispatch = useDispatch();
 
     const handleChange = (e) => {
         setPhotoFile(e.target.files[0])
     }
 
+    // const postPhoto = async (formData) => {
+    //     const res = await fetchWithCSRF(`/api/post/${userId}/upload`, {
+    //         method: 'POST',
+    //         body: formData
+    //     })
+    //     if (res.ok) {
+    //         const data = await res.json()
+    //         console.log(data)
+    //     }
+    // };
+
     const postPhoto = async (formData) => {
-        console.log(formData.get('file'))
-        const res = await fetchWithCSRF(`/api/post/${userId}/upload`, {
-            method: 'POST',
-            body: formData
-        })
-        if (res.ok) {
-            const data = await res.json()
-            console.log(data)
-            history.push(`/profile/${userId}`)
-        }
-    };
+        dispatch(newUserPost(userId, formData))
+        history.push(`/profile/${userId}`)
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();

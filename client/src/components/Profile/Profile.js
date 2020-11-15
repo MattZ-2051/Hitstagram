@@ -11,7 +11,7 @@ const Profile = () => {
     const history = useHistory();
     const fetchWithCSRF = useSelector(state => state.auth.csrf)
     const [counts, setCounts] = useState(null)
-    const posts = useSelector(state => state.posts.posts.loggedInUserPost)
+    const posts = useSelector(state => state.posts.loggedInUserPost)
 
     const routeChange = () => {
         history.push(`/profile/${user.id}/edit`)
@@ -36,6 +36,7 @@ const Profile = () => {
         return <h1>loading...</h1>
     }
 
+    console.log(posts)
 
     return (
         <>

@@ -3,6 +3,7 @@
     margin-right: 20%;
     margin-left: 20%;
     border-bottom: black 1px solid;
+    padding-bottom: 30px;
 }
 
 .profile__img {
@@ -13,6 +14,7 @@
     width: 150px;
     height: 150px;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 .profile__username {
@@ -50,10 +52,17 @@
 }
 
 .profile__posts {
-    display: flex;
-    margin-left: 20%;
+    display: grid;
     margin-right: 20%;
-    padding-top: 15px;
+    margin-left: 20%;
+    padding-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap: .25rem;
+    grid-column-gap: .25rem;
+    margin-top: 20px;
+    padding-bottom: 53px;
+    cursor: pointer;
 }
 
 .counts {
@@ -84,12 +93,19 @@
 
 .profile__bio {
     padding-top: 15px;
+    display: flex;
+    align-items: center;
+
 }
 
 .profile__bio span {
     font-size: 20px;
+    padding-right: 15px;
+    font-weight: 600;
 }
 
 .profile__name span {
     font-size: 20px;
+    padding-right: 15px;
+    font-weight: 600;
 }

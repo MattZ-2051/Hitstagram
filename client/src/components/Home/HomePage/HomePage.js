@@ -8,14 +8,15 @@ const HomePage = () => {
 
     const user = useSelector(state => state.auth.id)
     const dispatch = useDispatch();
-    const postData = useSelector(state => state.posts.posts)
+    const postData = useSelector(state => state.posts)
     useEffect(() => {
         dispatch(posts(user))
     }, [])
 
-    if (postData === undefined) {
+    if (postData === undefined || Object.keys(postData).length === 0) {
         return <h1>loading...</h1>
     }
+
     return (
         <div className='home-container'>
             <Post data={postData} />
