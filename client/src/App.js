@@ -12,6 +12,7 @@ import Upload from './components/Upload/Upload';
 import EditProfile from './components/Profile/EditProfile';
 import SoloPost from './components/SoloPost/SoloPost';
 import Profile from './components/Profile/Profile';
+import ProfileImgUpload from './components/Upload/ProfileImgUpload';
 
 function App() {
 
@@ -60,11 +61,12 @@ function App() {
                 <Route path='/login' exact={true} component={Login} />
                 <Route path='/sign-up' exact={true} component={Signup} />
                 <Route path="/" exact={true} component={Home} />
-                <Route path='/my/profile/:id' exact={true} component={MyProfile} />
                 <Route path='/upload' exact={true} component={Upload} />
                 <Route path='/profile/:id/edit' exact={true} component={EditProfile} />
                 <Route path='/post/:id' exact={true} component={SoloPost} />
                 <Route path='/profile/:id' exact={true} component={Profile} />
+                <Route path='/my/profile/:id' exact={true} component={MyProfile} />
+                <Route path='/profile/img/:id/upload' exact={true} component={ProfileImgUpload} />
             </Switch>
         </>
     );

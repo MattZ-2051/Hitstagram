@@ -1,10 +1,17 @@
 import Cookies from 'js-cookie'
 
-const SET_USER = 'AUTH/SET_USER'
-const REMOVE_USER = 'AUTH/REMOVE_USER'
-const SET_CSRF = 'AUTH/SET_CSRF'
-const UPDATE_USER = 'AUTH/UPDATE_USER';
+const SET_USER = 'AUTH/SETUSER'
+const REMOVE_USER = 'AUTH/REMOVEUSER'
+const SET_CSRF = 'AUTH/SETCSRF'
+const UPDATE_USER = 'AUTH/UPDATEUSER';
+const UPDATE_PROFILE_IMG = 'AUTH/UPDATE_PROFILE_IMG';
 
+export const newProfileImg = (user) => {
+    return {
+        type: UPDATE_PROFILE_IMG,
+        user
+    }
+}
 
 
 export const updateUser = (user) => {
@@ -110,6 +117,21 @@ export const userUpdate = (fullName, bio) => {
     }
 }
 
+export const updateProfile = (formData) => {
+    return async (dispatch, getState) => {
+        const fetchWithCSRF = getState().auth.csrf;
+        const user = getState().auth
+        const res = await fetchWithCSRF(`/api/post/${user.id}/upload/profileImg`, {
+            method: 'PATCH',
+            body: formData
+        })
+        if (res.ok) {
+            const data = await res.json()
+            dispatch(newProfileImg(data.user))
+        }
+    }
+}
+
 const initialState = {
     ...loadUser(),
     csrf: fetch,
@@ -124,6 +146,8 @@ export default function reducer(state = initialState, action) {
         case REMOVE_USER:
             return { csrf: state.csrf }
         case UPDATE_USER:
+            return { ...state, ...action.user }
+        case UPDATE_PROFILE_IMG:
             return { ...state, ...action.user }
         default:
             return state

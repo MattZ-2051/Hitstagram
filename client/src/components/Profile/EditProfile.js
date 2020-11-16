@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { userUpdate } from '../../store/auth';
 import './EditProfile.css';
+import { useHistory } from 'react-router-dom';
 
 const EditProfile = () => {
 
@@ -10,6 +11,7 @@ const EditProfile = () => {
     const [fullName, setFullName] = useState(user.fullName)
     const [bio, setBio] = useState(user.bio)
     const dispatch = useDispatch()
+    const history = useHistory()
 
 
     const handleSubmit = (e) => {
@@ -17,11 +19,15 @@ const EditProfile = () => {
         dispatch(userUpdate(fullName, bio))
     }
 
+    const profileRouteChange = () => {
+        history.push(`/profile/img/${user.id}/upload`)
+    }
+
     return (
         <div className='edit-page'>
             <div className='edit-page__info'>
                 <div className='edit-page__profileImg'>
-                    {user.profileImg ? <img className='profile__img__pic' src={user.profileImg} alt='Image not found' /> : <AccountCircleIcon />}
+                    {user.profileImg ? <img className='profile__img__pic' src={user.profileImg} onClick={profileRouteChange} alt='Image not found' /> : <AccountCircleIcon onClick={profileRouteChange} />}
                 </div>
                 <div className='edit-page__username'>
                     {user.username}

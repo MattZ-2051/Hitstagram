@@ -53,14 +53,36 @@ def upload(user_id):
 
     if file:
         photo_url = upload_file_to_s3(file, 'b.a.d')
-        print('===========================')
-        print(photo_url)
         try:
             photo = Post(caption='testing', img=photo_url, user_id=user_id)
             db.session.add(photo)
             db.session.commit()
 
             return {'photo': photo.to_dict()}
+        except AssertionError as message:
+            return jsonify({"error": str(message)}), 400
+
+    else:
+        print('something went wrong')
+
+
+@bp.route('/<int:user_id>/upload/profileImg', methods=['PATCH'])
+def profile_upload(user_id):
+
+    if "file" not in request.files:
+        return "No file key in request.files", 500
+
+    # B
+    file = request.files["file"]  # file is the actual photo file
+
+    if file:
+        photo_url = upload_file_to_s3(file, 'b.a.d')
+        try:
+            user = User.query.filter_by(id=user_id).first()
+            user.profile_img = photo_url
+            db.session.commit()
+
+            return {'user': user.to_dict()}
         except AssertionError as message:
             return jsonify({"error": str(message)}), 400
 
