@@ -14,10 +14,10 @@ with app.app_context():
     pollow = User(full_name='Braydon Kevin', username='pillow',
                   password='password')
 
-    scar = User(full_name='Oscar Smells', username='wet-bread',
+    scar = User(full_name='Oscar Smells', username='scar',
                 password='password')
 
-    andoni = User(full_name='Andoni B', username='MIP',
+    andoni = User(full_name='Andoni B', username='Simp',
                   password='password', profile_img='https://images.unsplash.com/photo-1605020803430-bbbdc1d3cb3c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60')
 
     sam = User(full_name='Sam', username='Mr.Sam',
@@ -48,15 +48,17 @@ with app.app_context():
 
     andoni_second_follow = Follower(user_followed_id=3, user_id=4)
 
+    andoni_third_follow = Follower(user_followed_id=5, user_id=4)
+
     scar_follow = Follower(user_followed_id=4, user_id=3)
 
     matt_like = Like(user_id=6, post_id=1)
 
-    sam_comment = Comment(content='comments on andoni post', post_id=1, user_id=5)
+    sam_comment = Comment(content='asdfasdfasdfasdf', post_id=1, user_id=5)
 
-    braydon_commment = Comment(content='braydon comment on andoni post', post_id=2, user_id=2)
+    braydon_commment = Comment(content='comment', post_id=2, user_id=2)
 
-    braydon_second_comment = Comment(content='braydon second comment on adnoni post', post_id=1, user_id=2)
+    braydon_second_comment = Comment(content='asdfasdfasdft comment', post_id=1, user_id=2)
 
     sam_second_commment = Comment(content='asdfasdfasdfasdf sam comment on andoni post', post_id=2, user_id=5)
 
@@ -73,6 +75,7 @@ with app.app_context():
     db.session.add(matt_comment)
     db.session.add(andoni_follow)
     db.session.add(andoni_second_follow)
+    db.session.add(andoni_third_follow)
     db.session.add(matt_like)
     db.session.add(andoni_comment)
     db.session.add(matt_follow)
