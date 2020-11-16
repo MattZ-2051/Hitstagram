@@ -29,6 +29,7 @@ const ProfileImgUpload = () => {
         const formData = new FormData();
         formData.append("file", photoFile)
         await postPhoto(formData)
+
         history.push(`/my/profile/${userId}`)
     }
     return (
