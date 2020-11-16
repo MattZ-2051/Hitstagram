@@ -8,7 +8,7 @@ const UserData = ({ data }) => {
     return (
         <div className='user'>
             <div className='user__profileImg'>
-                {data.profileImg ? data.profileImg : <AccountCircleIcon />}
+                {data.profileImg ? <img src={data.profileImg} alt='Image not found' /> : <AccountCircleIcon />}
             </div>
             <div className='user__username'>
                 {data.username}

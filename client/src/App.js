@@ -10,6 +10,7 @@ import Profile from './components/Profile/Profile';
 import NavBar from './components/NavBar/NavBar';
 import Upload from './components/Upload/Upload';
 import EditProfile from './components/Profile/EditProfile';
+import SoloPost from './components/SoloPost/SoloPost';
 
 function App() {
 
@@ -61,6 +62,7 @@ function App() {
                 <Route path='/profile/:id' exact={true} component={Profile} />
                 <Route path='/upload' exact={true} component={Upload} />
                 <Route path='/profile/:id/edit' exact={true} component={EditProfile} />
+                <Route path='/post/:id' exact={true} component={SoloPost} />
             </Switch>
         </>
     );
