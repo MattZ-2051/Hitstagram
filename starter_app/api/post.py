@@ -131,3 +131,20 @@ def comment(post_id,user_id):
     db.session.commit()
 
     return {'comment': new_comment.to_dict()}
+
+
+@bp.route('<int:user_id>/profile', methods=['GET'])
+def profile_info(user_id):
+
+    user = User.query.filter_by(id=user_id).first()
+    user_info = user.to_dict()
+    post_info_list = []
+    post = Post.query.filter_by(user_id=user_info['id']).all()
+
+    for post_info in post:
+        post_info_list.append(post_info.to_dict())
+    print('===================')
+    print(post_info_list)
+    print('===================')
+
+    return {'userInfo': user_info, 'posts': post_info_list}

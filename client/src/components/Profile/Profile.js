@@ -1,33 +1,38 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { useHistory } from 'react-router-dom';
-import './MyProfile.css';
+import './MyProfile.css'
 import ProfilePost from './ProfilePost';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
+const Profile = () => {
 
-
-const MyProfile = () => {
-
-    const user = useSelector(state => state.auth)
-    const history = useHistory();
+    const history = useHistory()
+    const userId = history.location.pathname.split('/')[2]
     const fetchWithCSRF = useSelector(state => state.auth.csrf)
+    const [user, setUser] = useState({})
+    const [posts, setPosts] = useState([])
     const [counts, setCounts] = useState(null)
-    const posts = useSelector(state => state.posts.loggedInUserPost)
 
+    useEffect(() => {
 
-    const routeChange = () => {
-        history.push(`/profile/${user.id}/edit`)
-    }
+        async function fetchData() {
+            const res = await fetchWithCSRF(`/api/post/${userId}/profile`, {
+                method: 'GET'
+            })
+            if (res.ok) {
+                const data = await res.json()
+                setUser(data.userInfo)
+                setPosts(data.posts)
+            }
+        }
 
-    const profilePicRoute = () => {
-        history.push(`/profile/img/${user.id}/upload`)
-    }
-
+        fetchData()
+    }, [])
 
     useEffect(() => {
         async function fetchData() {
-            const res = await fetchWithCSRF(`/api/number/${user.id}/counts`, {
+            const res = await fetchWithCSRF(`/api/number/${userId}/counts`, {
                 method: "GET"
             })
             if (res.ok) {
@@ -38,15 +43,17 @@ const MyProfile = () => {
         fetchData()
     }, [])
 
-    if (counts === null) {
+    if (user.length === 0 || Object.keys(posts).length === 0 || counts === null) {
         return <h1>loading...</h1>
     }
+
+    console.log(counts)
 
     return (
         <>
             <div className='profile'>
                 <div className='profile__img'>
-                    {user.profileImg ? <img className='profile__img__pic' src={user.profileImg} onClick={profilePicRoute} alt='' /> : <AccountCircleIcon className='profile__img__pic' />}
+                    {user.profileImg ? <img className='profile__img__pic' src={user.profileImg} alt='' /> : <AccountCircleIcon className='profile__img__pic' />}
                 </div>
                 <div>
                     <div className='profile__username-edit grid'>
@@ -54,7 +61,7 @@ const MyProfile = () => {
                             {user.username}
                         </div>
                         <div className='profile__edit'>
-                            <button className='profile__editBtn' onClick={routeChange}>Edit Profile</button>
+                            <button className='profile__editBtn'>Edit Profile</button>
                         </div>
                     </div>
                     <div className='counts grid'>
@@ -79,9 +86,7 @@ const MyProfile = () => {
                 })}
             </div>
         </>
-
-
     )
 }
 
-export default MyProfile;
+export default Profile
