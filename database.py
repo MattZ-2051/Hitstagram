@@ -11,36 +11,36 @@ with app.app_context():
     ian = User(full_name='Ian', username='ianaa.io',
                password='password')
 
-    pollow = User(full_name='Braydon Kevin', username='pillow',
+    pollow = User(full_name='Braydon Kevin', username='pollow',
                   password='password')
 
     scar = User(full_name='Oscar Smells', username='scar',
                 password='password')
 
-    andoni = User(full_name='Andoni B', username='Simp',
-                  password='password', profile_img='https://images.unsplash.com/photo-1605020803430-bbbdc1d3cb3c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60')
+    andoni = User(full_name='Andoni B', username='Demo',
+                  password='password', profile_img='https://images.unsplash.com/photo-1605425971671-aed55e6f4660?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60')
 
     sam = User(full_name='Sam', username='Mr.Sam',
                password='password')
 
-    matt = User(full_name='Matt Testing', username='mdizzle',
+    matt = User(full_name='Matt Testing', username='zzz',
                 password='password', profile_img='https://images.unsplash.com/photo-1605132641261-0e8e54fdf6c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60')
 
     andoni_post = Post(caption='first post', img='https://images.unsplash.com/photo-1605002713581-123e77bcf83d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60', user_id=4)
 
-    matt_post = Post(caption='matts post', img = 'https://images.unsplash.com/photo-1604951493261-e3c630592c31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60', user_id=6)
+    matt_post = Post(caption='matts post', img='https://images.unsplash.com/photo-1604951493261-e3c630592c31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60', user_id=6)
 
     andoni_second_post = Post(caption='this is andoni second post', img='https://images.unsplash.com/photo-1604756436936-5de2b9707fa9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60', user_id=4)
 
     scar_post = Post(caption='thjis is scars post', img='https://images.unsplash.com/photo-1604961872836-261fa413ea03?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60', user_id=3)
 
-    andoni_comment = Comment(content='second comment, still testing!', post_id=4, user_id=4)
+    andoni_comment = Comment(content='sasdfasdfasdfa!', post_id=4, user_id=4)
 
-    matt_comment = Comment(content='first comment, testing!!!', post_id=3, user_id=6)
+    matt_comment = Comment(content='fasdfasdfasdfasdf!!!', post_id=3, user_id=2)
 
-    testing_comment = Comment(content='testing comment', post_id=4, user_id=4)
+    testing_comment = Comment(content='tasdfasdfasdfasdf', post_id=4, user_id=4)
 
-    another_comment = Comment(content='more testing comments!!!', post_id=3, user_id=6)
+    another_comment = Comment(content='masdfasdfasdfsadf!!!', post_id=3, user_id=6)
 
     matt_follow = Follower(user_followed_id=4, user_id=6)
 

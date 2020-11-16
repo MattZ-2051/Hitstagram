@@ -61,8 +61,11 @@ const MyProfile = () => {
                         <div className='counts__post'>
                             Posts: <span>{counts.postCount}</span>
                         </div>
+                        <div className='counts__following'>
+                            Following: <span>{counts.followingCount}</span>
+                        </div>
                         <div className='counts__followers'>
-                            Followers: <span>{counts.followerCount}</span>
+                            Followers: <span>{counts.followersCount}</span>
                         </div>
                     </div>
                     <div className='profile__name grid'>
