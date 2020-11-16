@@ -2,17 +2,10 @@
    display: block;
    width: 35%;
    margin: 0 auto;
-   padding: 10px;
+   padding: 30px 0;
 }
 
 .post__comment {
     display: flex;
     border-bottom: 1px lightgrey solid;
-}
-
-.post__comment__input {
-    border: none;
-    background-color: white;
-    width: 100%;
-    padding: 15px 0;
 }

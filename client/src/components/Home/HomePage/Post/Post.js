@@ -7,6 +7,7 @@ import UserData from './UserData/UserData';
 
 const Post = ({ data }) => {
 
+    console.log(data)
     return (
         <>
             {data.posts.map((item, index) => {
@@ -17,7 +18,6 @@ const Post = ({ data }) => {
                         <CommentUserInfo data={data.postCommentUserInfo[index]} />
                         <CommentData data={data.postComments[index]} />
                     </div>
-                    <input className='post__comment__input' type='text' placeholder='Add a comment...' />
                 </div>
             })}
         </>

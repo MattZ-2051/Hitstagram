@@ -13,6 +13,10 @@
     object-fit: cover;
 }
 
+.postData img:hover {
+    cursor: pointer;
+}
+
 .postData__caption {
     display: flex;
     font-size: 20px;

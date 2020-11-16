@@ -1,8 +1,24 @@
-.comments {
+.comments-div, .comments-div * {
     background-color: white;
-    padding: 15px 0;
-    padding-left: 15px;
-    width: 100%;
-    text-align: start;
+}
 
+.comments-div {
+    width: 100%;
+}
+
+.comments {
+    display: flex;
+    padding-left: 15px;
+    padding-top: 15px;
+}
+
+.commet-form-div {
+    display: flex;
+    justify-content: center;
+}
+
+.post__comment__input {
+    width: 100%;
+    height: 30px;
+    border: none;
 }
