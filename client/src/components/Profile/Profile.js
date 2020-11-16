@@ -5,6 +5,8 @@ import { useHistory } from 'react-router-dom';
 import './Profile.css';
 import ProfilePost from './ProfilePost';
 
+
+
 const Profile = () => {
 
     const user = useSelector(state => state.auth)
@@ -12,11 +14,16 @@ const Profile = () => {
     const fetchWithCSRF = useSelector(state => state.auth.csrf)
     const [counts, setCounts] = useState(null)
     const posts = useSelector(state => state.posts.loggedInUserPost)
+    const [modalShow, setModalShow] = useState(false);
+
 
     const routeChange = () => {
         history.push(`/profile/${user.id}/edit`)
     }
 
+    const profilePicRoute = () => {
+        history.push(`/profile/img/${user.id}/upload`)
+    }
 
 
     useEffect(() => {
@@ -36,13 +43,11 @@ const Profile = () => {
         return <h1>loading...</h1>
     }
 
-    console.log(posts)
-
     return (
         <>
             <div className='profile'>
                 <div className='profile__img'>
-                    {user.profileImg ? <img className='profile__img__pic' src={user.profileImg} alt='' /> : <AccountCircleIcon className='profile__img__pic' />}
+                    {user.profileImg ? <img className='profile__img__pic' src={user.profileImg} onClick={profilePicRoute} alt='' /> : <AccountCircleIcon className='profile__img__pic' />}
                 </div>
                 <div>
                     <div className='profile__username-edit grid'>
@@ -75,6 +80,8 @@ const Profile = () => {
                 })}
             </div>
         </>
+
+
     )
 }
 

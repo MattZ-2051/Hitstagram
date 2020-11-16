@@ -11,9 +11,11 @@ const Upload = () => {
     const userId = useSelector(state => state.auth.id);
     const history = useHistory();
     const dispatch = useDispatch();
+    const [imgPreview, setImgPreview] = useState(null)
 
     const handleChange = (e) => {
         setPhotoFile(e.target.files[0])
+        setImgPreview(URL.createObjectURL(e.target.files[0]))
     }
 
     // const postPhoto = async (formData) => {
@@ -40,18 +42,27 @@ const Upload = () => {
     }
     return (
         <div className='upload'>
-            <div className='upload-form'>
-                <form onSubmit={handleSubmit}>
-                    <p>Select a photo to upload</p>
-                    <input
-                        className='upload-form__input'
-                        onChange={handleChange}
-                        type='file'
-                        name='file'
-                    />
-                    <button className='upload-form__btn'>Upload</button>
-                </form>
+            <div className='upload-img-preview'>
+                {imgPreview ?
+                    <img src={imgPreview} alt='Upload Image' />
+                    :
+                    <p>Upload Photo</p>
+
+                }
             </div>
+
+            <form className='upload-form' onSubmit={handleSubmit}>
+
+                <p>Select a photo to upload</p>
+                <input
+                    className='upload-form__input'
+                    onChange={handleChange}
+                    type='file'
+                    name='file'
+                />
+                <button className='upload-form__btn'>Upload</button>
+            </form>
+
         </div>
     )
 

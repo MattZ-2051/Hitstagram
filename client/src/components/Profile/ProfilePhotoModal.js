@@ -1,15 +1,28 @@
 import React from 'react';
-import { Modal, Button, Row, Col, Form } from 'react-bootsrap'
+import { Button, Row, Col, Form, Container } from 'react-bootstrap'
+import Modal from 'react-bootstrap/Modal'
+import './ProfilePhotoModal.css';
 
-const ProfilePhotoModal = () => {
+const ProfilePhotoModal = (props) => {
 
     return (
-        <div className='profile-photo-upload'>
-            <Modal size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
-
-            </Modal>
-
-        </div>
+        <Modal {...props} className='modal' size='sm' aria-labelledby="contained-modal-title-vcenter" autoFocus={true} centered enforceFocues={true}>
+            <Modal.Title id="contained-modal-title-vcenter">
+                Change Profile Pic
+        </Modal.Title>
+            <Modal.Body className="show-grid">
+                <Container>
+                    <Row>
+                        <Col xs={12} md={12}>
+                            <button type='submit'>Upload</button>
+                        </Col>
+                    </Row>
+                </Container>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button onClick={props.onHide}>Cancel</Button>
+            </Modal.Footer>
+        </Modal>
     )
 }
 
