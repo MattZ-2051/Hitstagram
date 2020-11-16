@@ -60,7 +60,9 @@ const Upload = () => {
                     type='file'
                     name='file'
                 />
-                <button className='upload-form__btn'>Upload</button>
+                <div className='upload-form__btn-div'>
+                    <button className='upload-form__btn'>Upload</button>
+                </div>
             </form>
 
         </div>
