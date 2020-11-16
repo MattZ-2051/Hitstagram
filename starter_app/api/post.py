@@ -45,14 +45,6 @@ def upload_file_to_s3(file, bucket_name, acl="public-read"):
 @bp.route('/<int:user_id>/upload', methods=['POST'])
 def upload(user_id):
 
-    # print(request.form.getlist('file'))
-    # photo_file = request.form.getlist('file')[0]
-    # photo_name = f'{user_id},{photo_file}'
-    # print(photo_name)
-    # print('===========================')
-    print('===========================')
-    print(request.files)
-    print('===========================')
     if "file" not in request.files:
         return "No file key in request.files", 500
 
@@ -129,3 +121,13 @@ def single_post(post_id):
         comment_user_info_list.append(userComment.to_dict())
 
     return {'post': post, 'comments': comment_list, 'userInfo': user.to_dict(), 'commentUserInfo': comment_user_info_list}
+
+@bp.route('<int:post_id>/<int:user_id>/comment', methods=['POST'])
+def comment(post_id,user_id):
+
+    comment_data = request.get_json()
+    new_comment = Comment(content=comment_data, post_id=post_id, user_id=user_id)
+    db.session.add(new_comment)
+    db.session.commit()
+
+    return {'comment': new_comment.to_dict()}

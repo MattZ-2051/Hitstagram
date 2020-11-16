@@ -6,7 +6,7 @@ import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import { setCsrfFunc } from './store/auth';
 import Home from './components/Home/Home';
-import Profile from './components/Profile/Profile';
+import Profile from './components/Profile/MyProfile';
 import NavBar from './components/NavBar/NavBar';
 import Upload from './components/Upload/Upload';
 import EditProfile from './components/Profile/EditProfile';
@@ -59,7 +59,7 @@ function App() {
                 <Route path='/login' exact={true} component={Login} />
                 <Route path='/sign-up' exact={true} component={Signup} />
                 <Route path="/" exact={true} component={Home} />
-                <Route path='/profile/:id' exact={true} component={Profile} />
+                <Route path='/my/profile/:id' exact={true} component={Profile} />
                 <Route path='/upload' exact={true} component={Upload} />
                 <Route path='/profile/:id/edit' exact={true} component={EditProfile} />
                 <Route path='/post/:id' exact={true} component={SoloPost} />

@@ -4,7 +4,7 @@
     margin: auto;
     height: 35px;
     padding: 15px;
-    background-color: lightskyblue;
+    background-color: #0892D0;
     align-items: center;
 }
 
@@ -15,7 +15,7 @@
 }
 
 .navbar * {
-    background-color: lightskyblue;
+    background-color: #0892D0;
 }
 
 .navbar__name {

@@ -1,10 +1,18 @@
-const GETPOST = 'POST/GETPOST'
-const NEWPOST = 'POST/NEWPOST'
+const GETPOST = 'POST/GETPOST';
+const NEWPOST = 'POST/NEWPOST';
+const NEWCOMMENT = 'POST/NEWCOMMENT';
 
 export const setPosts = (posts) => {
     return {
         type: GETPOST,
         posts
+    }
+}
+
+export const newComment = (comment) => {
+    return {
+        type: NEWCOMMENT,
+        comment
     }
 }
 
@@ -14,6 +22,8 @@ export const newPost = (post) => {
         post
     }
 }
+
+
 
 export const posts = (userId) => {
     return async (dispatch, getState) => {
@@ -43,14 +53,30 @@ export const newUserPost = (userId, formData) => {
     }
 }
 
+export const newUserComment = (userId, postId, commentData) => {
+    return async (dispatch, getState) => {
+        const fetchWithCSRF = getState().auth.csrf
+        const res = await fetchWithCSRF(`/api/post/${postId}/${userId}/comment`, {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(commentData)
+        })
+        if (res.ok) {
+            const data = await res.json()
+            dispatch(newComment(data.comment))
+        }
+    }
+}
+
 
 export default function reducer(state = {}, action) {
     switch (action.type) {
         case GETPOST:
             return { ...action.posts }
         case NEWPOST:
-            console.log(state)
             return { ...state, 'loggedInUserPost': [...state.loggedInUserPost, action.post] }
+        case NEWCOMMENT:
+            return { ...state, 'postComments': [...state.postComments, action.comment] }
         default:
             return state
     }

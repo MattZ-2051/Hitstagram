@@ -14,7 +14,6 @@ const Profile = () => {
     const fetchWithCSRF = useSelector(state => state.auth.csrf)
     const [counts, setCounts] = useState(null)
     const posts = useSelector(state => state.posts.loggedInUserPost)
-    const [modalShow, setModalShow] = useState(false);
 
 
     const routeChange = () => {
