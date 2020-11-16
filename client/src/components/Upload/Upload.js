@@ -12,22 +12,13 @@ const Upload = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     const [imgPreview, setImgPreview] = useState(null)
+    const [caption, setCaption] = useState('')
 
     const handleChange = (e) => {
         setPhotoFile(e.target.files[0])
         setImgPreview(URL.createObjectURL(e.target.files[0]))
     }
 
-    // const postPhoto = async (formData) => {
-    //     const res = await fetchWithCSRF(`/api/post/${userId}/upload`, {
-    //         method: 'POST',
-    //         body: formData
-    //     })
-    //     if (res.ok) {
-    //         const data = await res.json()
-    //         console.log(data)
-    //     }
-    // };
 
     const postPhoto = async (formData) => {
         dispatch(newUserPost(userId, formData))
@@ -60,6 +51,10 @@ const Upload = () => {
                     type='file'
                     name='file'
                 />
+                <div className='upload-form__caption'>
+                    <label htmlFor='caption'>Caption</label>
+                    <input onChange={(e) => setCaption(e.target.value)} type='text' name='caption' placeholder='Add a caption to your photo' />
+                </div>
                 <div className='upload-form__btn-div'>
                     <button className='upload-form__btn'>Upload</button>
                 </div>

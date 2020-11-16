@@ -5,6 +5,10 @@
     background-color: white;
 }
 
+.user:hover {
+    cursor: pointer;
+}
+
 .user * {
     background-color: white;
 }
