@@ -19,7 +19,7 @@ const Login = () => {
 
     const handleDemoLogin = (e) => {
         e.preventDefault()
-        dispatch(login('MIP', 'password'))
+        dispatch(login('Simp', 'password'))
         history.push('/')
     }
 

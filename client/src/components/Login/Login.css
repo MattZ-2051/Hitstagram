@@ -2,28 +2,10 @@
     width: 200px;
     margin: auto;
     height: 100vh;
-    background-color: white;
 }
 
 .login-form {
     padding: 30px 0;
-    background-color: white;
     border-radius: 15px;
     margin-top: 50%;
-}
-.login-form * {
-    background-color: white;
-}
-
-.login-form__username {
-    padding: 30px;
-}
-
-.login-form__username label {
-    font-size: 30px;
-}
-
-.login-form__username input{
-    border-radius: 5px;
-    border: 2px lightgray solid;
 }
