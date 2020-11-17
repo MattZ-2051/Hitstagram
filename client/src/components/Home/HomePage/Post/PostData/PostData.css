@@ -29,9 +29,15 @@
 
 .postData__star {
     padding-right: 30px;
+    margin-right: 5px;
     font-size: 16px !important;
     fill: #eeeeee;
     padding-top: 5px;
+}
+
+.postData__star:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 .postData__commentBtn {

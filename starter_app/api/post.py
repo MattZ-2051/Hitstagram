@@ -1,6 +1,6 @@
 import os
 from flask import Blueprint, request, jsonify
-from starter_app.models import User, Post, Follower, db, Comment
+from starter_app.models import User, Post, Follower, db, Comment, Like
 import boto3
 
 bp = Blueprint('post', __name__)
@@ -177,3 +177,21 @@ def post_comments(post_id):
         user_data_list.append(user.to_dict())
 
     return {'comments': comment_data_list, 'userInfo': user_data_list}
+
+
+@bp.route('<int:post_id>/<int:user_id>/like', methods=['POST', 'DELETE'])
+def like(post_id, user_id):
+
+    if request.method == 'POST':
+        like = Like(user_id=user_id, post_id=post_id)
+        db.session.add(like)
+        db.session.commit()
+
+        return {'like': like.to_dict()}
+
+    if request.method == 'DELETE':
+        like = Like.query.filter_by(user_id=user_id, post_id=post_id).first()
+        db.session.delete(like)
+        db.session.commit()
+
+        return {'message': 'like removed'}, 200

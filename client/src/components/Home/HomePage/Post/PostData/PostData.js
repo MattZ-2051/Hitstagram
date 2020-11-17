@@ -5,10 +5,36 @@ import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import CommentData from '../CommentData/CommentData';
 import CommentUserInfo from '../CommentUserInfo/CommentUserInfo';
+import { makeStyles } from '@material-ui/core/styles';
 
+const useStyles = makeStyles((theme) => ({
+    likeTrue: {
+        fill: '#1DB954',
+        paddingRight: '30px',
+        marginRight: '5px',
+        fontSize: '16px',
+        paddingTop: '5px',
+        '&:hover': {
+            cursor: 'pointer',
+            transform: 'scale(1.1)'
+        }
+    },
+    likeNone: {
+        fill: '#eeeeee',
+        paddingRight: '30px',
+        marginRight: '5px',
+        fontSize: '16px',
+        paddingTop: '5px',
+        '&:hover': {
+            cursor: 'pointer',
+            transform: 'scale(1.1)'
+        }
+    }
+}));
 
 const PostData = ({ data }) => {
 
+    const classes = useStyles();
     const [comment, setComment] = useState('')
     const userId = useSelector(state => state.auth.id);
     const fetchWithCSRF = useSelector(state => state.auth.csrf);
@@ -16,6 +42,7 @@ const PostData = ({ data }) => {
     const [commentUser, setCommentUser] = useState([]);
     const [hidden, setHidden] = useState(true)
     const history = useHistory()
+    const [favorited, setFavorited] = useState(false)
 
     const newComment = async () => {
         const res = await fetchWithCSRF(`/api/post/${data.id}/${userId}/comment`, {
@@ -31,13 +58,25 @@ const PostData = ({ data }) => {
     }
 
     const favorite = async () => {
-        const res = await fetchWithCSRF(`api/post/${data.id}/${userId}/like`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' }
-        })
-        if (res.ok) {
-            const data = await res.json()
-            console.log(data)
+
+        if (favorited === false) {
+            const res = await fetchWithCSRF(`api/post/${data.id}/${userId}/like`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' }
+            })
+            if (res.ok) {
+                const data = await res.json()
+                console.log(data)
+            }
+        } else {
+            const res = await fetchWithCSRF(`api/post/${data.id}/${userId}/like`, {
+                method: 'DELETE',
+            })
+
+            if (res.ok) {
+                const data = res.json()
+                console.log(data)
+            }
         }
     }
 
@@ -76,6 +115,11 @@ const PostData = ({ data }) => {
 
     const handleFavorite = () => {
         favorite()
+        if (favorited === false) {
+            setFavorited(true)
+        } else {
+            setFavorited(false)
+        }
     }
 
     if (commentsData.length === 0 || commentUser.length === 0) {
@@ -85,7 +129,7 @@ const PostData = ({ data }) => {
         <div className='postData'>
             <img src={data.img} alt='Image could not be found' onClick={routeChange} />
             <div className='postData__caption'>
-                <StarsIcon className='postData__star' onClick={handleFavorite} />
+                <StarsIcon className='postData__star' className={favorited ? classes.likeTrue : classes.likeNone} onClick={handleFavorite} />
                 <div>
                     {data.caption}
                 </div>
