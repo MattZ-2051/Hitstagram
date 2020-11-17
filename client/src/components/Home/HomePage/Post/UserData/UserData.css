@@ -2,31 +2,41 @@
     display: flex;
     align-content: center;
     padding: 15px 0;
-    background-color: white;
-}
-
-.user:hover {
-    cursor: pointer;
+    background-color: #191414;
+    color: #eeeeee;
 }
 
 .user * {
-    background-color: white;
+    background-color: #191414;
 }
 
 .user__profileImg {
     padding-right: 15px;
     padding-left: 15px;
+    background-color: #191414;
 }
 
 .user__username {
-    font-size: 24px;
+    font-size: 32px;
     font-weight: 500;
-    align-content: center;
+    padding-top: 10px;
+    width: 60%;
+    justify-content: center;
 }
 
 .user__profileImg img {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     object-fit: cover;
     border-radius: 50%;
+}
+
+.user__profileImg__default, .user__profileImg img:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.user__profileImg__default {
+    font-size: 70px !important;
+    color: #eeeeee;
 }

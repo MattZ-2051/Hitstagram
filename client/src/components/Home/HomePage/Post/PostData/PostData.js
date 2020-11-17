@@ -14,6 +14,7 @@ const PostData = ({ data }) => {
     const fetchWithCSRF = useSelector(state => state.auth.csrf);
     const [commentsData, setCommentsData] = useState([]);
     const [commentUser, setCommentUser] = useState([]);
+    const [hidden, setHidden] = useState(true)
 
 
     const newComment = async () => {
@@ -50,7 +51,13 @@ const PostData = ({ data }) => {
         fetchData()
     }, [])
 
-
+    const commentViewChange = () => {
+        if (hidden === true) {
+            setHidden(false)
+        } else {
+            setHidden(true)
+        }
+    }
 
     const history = useHistory()
 
@@ -65,15 +72,17 @@ const PostData = ({ data }) => {
     if (commentsData.length === 0 || commentUser.length === 0) {
         return <h1>loading...</h1>
     }
-
     return (
         <div className='postData'>
             <img src={data.img} alt='Image could not be found' onClick={routeChange} />
             <div className='postData__caption'>
                 <StarsIcon className='postData__star' onClick={handleFavorite} />
-                {data.caption}
+                <div>
+                    {data.caption}
+                </div>
             </div>
-            <div className='comment'>
+            <button className='viewCommentBtn' onClick={commentViewChange}>View Comments</button>
+            <div className='comment' hidden={hidden}>
                 {commentsData.map((item, index) => {
                     return (
                         <div key={index} className='post__comment'>

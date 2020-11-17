@@ -59,20 +59,20 @@ const MyProfile = () => {
                     </div>
                     <div className='counts grid'>
                         <div className='counts__post'>
-                            Posts: <span>{counts.postCount}</span>
+                            Posts <span>{counts.postCount}</span>
                         </div>
                         <div className='counts__following'>
-                            Following: <span>{counts.followingCount}</span>
+                            Following <span>{counts.followingCount}</span>
                         </div>
                         <div className='counts__followers'>
-                            Followers: <span>{counts.followersCount}</span>
+                            Followers <span>{counts.followersCount}</span>
                         </div>
                     </div>
                     <div className='profile__name grid'>
-                        <span>Name: </span>{user.fullName}
+                        <span>Name </span>{user.fullName}
                     </div>
                     <div className='profile__bio grid'>
-                        <span>Bio: </span>{user.bio ? user.bio : <p>No bio yet!</p>}
+                        <span>Bio </span>{user.bio ? user.bio : <p>No bio yet!</p>}
                     </div>
                 </div>
             </div>

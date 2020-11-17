@@ -12,9 +12,9 @@ const UserData = ({ data }) => {
     }
 
     return (
-        <div className='user' onClick={routeChange}>
+        <div className='user'>
             <div className='user__profileImg'>
-                {data.profileImg ? <img src={data.profileImg} alt='Image not found' /> : <AccountCircleIcon />}
+                {data.profileImg ? <img src={data.profileImg} alt='Image not found' onClick={routeChange} /> : <AccountCircleIcon className='user__profileImg__default' onClick={routeChange} />}
             </div>
             <div className='user__username'>
                 {data.username}
