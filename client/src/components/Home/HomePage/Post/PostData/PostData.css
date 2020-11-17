@@ -22,6 +22,7 @@
     display: flex;
     font-size: 20px;
     padding: 15px 0;
+    height: 50px;
     padding-left: 15px;
     border-bottom: lightgray 1px solid;
 }
@@ -34,4 +35,18 @@
 .postData__commentBtn {
     padding-right: 15px;
     color: lightskyblue;
+}
+
+.post__comment {
+    display: flex;
+    border-bottom: 1px lightgrey solid;
+}
+
+.comment {
+    height: 100px;
+    overflow: hidden;
+}
+
+.comment:hover {
+    overflow-y: scroll;
 }
