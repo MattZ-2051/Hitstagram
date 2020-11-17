@@ -74,8 +74,7 @@ const PostData = ({ data }) => {
             })
 
             if (res.ok) {
-                const data = res.json()
-                console.log(data)
+                const data = await res.json();
             }
         }
     }
@@ -98,7 +97,27 @@ const PostData = ({ data }) => {
             }
         }
 
+        async function fetchLikes() {
+            const res = await fetchWithCSRF(`api/post/${data.id}/${userId}/like`, {
+                method: 'GET',
+            })
+
+            if (res.ok) {
+                const data = await res.json()
+
+                if (data.like === true) {
+                    setFavorited(true)
+                } else {
+                    setFavorited(false)
+                }
+            }
+
+        }
+
         fetchData()
+
+        fetchLikes()
+
     }, [])
 
     const commentViewChange = () => {

@@ -179,8 +179,15 @@ def post_comments(post_id):
     return {'comments': comment_data_list, 'userInfo': user_data_list}
 
 
-@bp.route('<int:post_id>/<int:user_id>/like', methods=['POST', 'DELETE'])
+@bp.route('<int:post_id>/<int:user_id>/like', methods=['POST', 'DELETE', 'GET'])
 def like(post_id, user_id):
+
+    if request.method == 'GET':
+        like = Like.query.filter_by(user_id=user_id, post_id=post_id).first()
+        if like == None :
+            return {'like': False}
+        else:
+            return {'like': True}
 
     if request.method == 'POST':
         like = Like(user_id=user_id, post_id=post_id)
