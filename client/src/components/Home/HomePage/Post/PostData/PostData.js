@@ -15,7 +15,7 @@ const PostData = ({ data }) => {
     const [commentsData, setCommentsData] = useState([]);
     const [commentUser, setCommentUser] = useState([]);
     const [hidden, setHidden] = useState(true)
-
+    const history = useHistory()
 
     const newComment = async () => {
         const res = await fetchWithCSRF(`/api/post/${data.id}/${userId}/comment`, {
@@ -27,6 +27,17 @@ const PostData = ({ data }) => {
             const data = await res.json()
             commentsData.push(data.comment)
             commentUser.push(data.user)
+        }
+    }
+
+    const favorite = async () => {
+        const res = await fetchWithCSRF(`api/post/${data.id}/${userId}/like`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }
+        })
+        if (res.ok) {
+            const data = await res.json()
+            console.log(data)
         }
     }
 
@@ -59,14 +70,12 @@ const PostData = ({ data }) => {
         }
     }
 
-    const history = useHistory()
-
     const routeChange = () => {
         history.push(`/post/${data.id}`)
     }
 
     const handleFavorite = () => {
-
+        favorite()
     }
 
     if (commentsData.length === 0 || commentUser.length === 0) {
