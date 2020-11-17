@@ -202,3 +202,13 @@ def like(post_id, user_id):
         db.session.commit()
 
         return {'message': 'like removed'}, 200
+
+@bp.route('explore/posts', methods=['GET'])
+def explore():
+
+    posts = Post.query.all()
+    post_info_list = []
+    for post in posts:
+        post_info_list.append(post.to_dict())
+
+    return {'posts': post_info_list}
