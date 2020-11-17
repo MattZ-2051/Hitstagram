@@ -96,8 +96,6 @@ def feed(user_id):
     following = Follower.query.filter_by(user_id=user_id).all()
     post_info_list = []
     user_info_list = []
-    comment_info_list = []
-    comment_user_info_list = []
     logged_in_post = []
 
     logged_in_user_post = Post.query.filter_by(user_id=user_id).all()
@@ -112,15 +110,8 @@ def feed(user_id):
             post_info_list.append(postInfo)
             user = User.query.filter_by(id=postInfo['userId']).first()
             user_info_list.append(user)
-            comments = Comment.query.filter_by(post_id=postInfo['id']).all()
-            for comment in comments:
-                comment_info_list.append(comment)
-                commentInfo = comment.to_dict()
-                comment_user_info = User.query.filter_by(id=commentInfo['userId']).first()
-                comment_user_info_list.append(comment_user_info)
+
     return({'posts': post_info_list, 'userInfo': [user.to_dict() for user in user_info_list],
-            'postComments': [comment.to_dict() for comment in comment_info_list],
-            'postCommentUserInfo': [user.to_dict() for user in comment_user_info_list],
             'loggedInUserPost': logged_in_post})
 
 
@@ -144,15 +135,17 @@ def single_post(post_id):
 
     return {'post': post, 'comments': comment_list, 'userInfo': user.to_dict(), 'commentUserInfo': comment_user_info_list}
 
+
 @bp.route('<int:post_id>/<int:user_id>/comment', methods=['POST'])
 def comment(post_id,user_id):
 
     comment_data = request.get_json()
     new_comment = Comment(content=comment_data, post_id=post_id, user_id=user_id)
+    user = User.query.filter_by(id=user_id).first()
     db.session.add(new_comment)
     db.session.commit()
 
-    return {'comment': new_comment.to_dict()}
+    return {'comment': new_comment.to_dict(), 'user': user.to_dict()}
 
 
 @bp.route('<int:user_id>/profile', methods=['GET'])
@@ -165,8 +158,22 @@ def profile_info(user_id):
 
     for post_info in post:
         post_info_list.append(post_info.to_dict())
-    print('===================')
     print(post_info_list)
-    print('===================')
 
     return {'userInfo': user_info, 'posts': post_info_list}
+
+
+@bp.route('<int:post_id>/post/comments', methods=['GET'])
+def post_comments(post_id):
+
+    comments = Comment.query.filter_by(post_id=post_id).all()
+    comment_data_list = []
+    user_data_list = []
+
+    for comment in comments:
+        comment_data_list.append(comment.to_dict())
+        data = comment.to_dict()
+        user = User.query.filter_by(id=data['userId']).first()
+        user_data_list.append(user.to_dict())
+
+    return {'comments': comment_data_list, 'userInfo': user_data_list}

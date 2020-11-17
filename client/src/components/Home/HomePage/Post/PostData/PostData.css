@@ -1,14 +1,15 @@
 .postData {
     width: 100%;
-    background-color: white;
+    color: #eeeeee;
 }
 
 .postData * {
-    background-color: white;
+    background-color: #191414;
+    color: #eeeeee;
 }
 
 .postData img {
-    width: 500px;
+    width: 100%;
     height: 500px;
     object-fit: cover;
 }
@@ -22,16 +23,58 @@
     display: flex;
     font-size: 20px;
     padding: 15px 0;
+    height: 50px;
     padding-left: 15px;
-    border-bottom: lightgray 1px solid;
 }
 
 .postData__star {
-    padding-right: 15px;
-    color: lightgray;
+    padding-right: 30px;
+    font-size: 16px !important;
+    fill: #eeeeee;
+    padding-top: 5px;
 }
 
 .postData__commentBtn {
     padding-right: 15px;
     color: lightskyblue;
+}
+
+.post__comment {
+    display: flex;
+    border-bottom: 1px lightgrey solid;
+}
+
+.comment {
+    height: 100px;
+    overflow: hidden;
+}
+
+.comment:hover {
+    overflow-y: scroll;
+}
+
+.post__comment__input {
+    width: 100%;
+    height: 40px;
+    border: none;
+    background-color: #eeeeee;
+    color: black;
+    border-radius: 0 0 10px 10px;
+    font-size: 16px;
+}
+
+.viewCommentBtn {
+    width: 100%;
+    border-bottom: 1px none;
+    height: 30px;
+    background-color: #1DB954;
+    color: #191414;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 10px 10px 0 0;
+}
+
+.viewCommentBtn:hover {
+    cursor: pointer;
+    filter: brightness(120%);
 }
