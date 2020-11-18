@@ -161,8 +161,8 @@ const PostData = ({ data }) => {
                 {commentsData.map((item, index) => {
                     return (
                         <div key={index} className='post__comment'>
-                            <CommentUserInfo data={commentUser[index]} />
-                            <CommentData data={item} />
+                            <CommentUserInfo data={commentUser[commentsData.length - (index + 1)]} />
+                            <CommentData data={commentsData[commentsData.length - (index + 1)]} />
                         </div>
                     )
                 })}
