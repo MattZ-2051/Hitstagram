@@ -60,7 +60,7 @@ const PostData = ({ data }) => {
     const favorite = async () => {
 
         if (favorited === false) {
-            const res = await fetchWithCSRF(`api/post/${data.id}/${userId}/like`, {
+            const res = await fetchWithCSRF(`/api/post/${data.id}/${userId}/like`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' }
             })
@@ -68,7 +68,7 @@ const PostData = ({ data }) => {
                 const data = await res.json()
             }
         } else {
-            const res = await fetchWithCSRF(`api/post/${data.id}/${userId}/like`, {
+            const res = await fetchWithCSRF(`/api/post/${data.id}/${userId}/like`, {
                 method: 'DELETE',
             })
 
@@ -97,7 +97,7 @@ const PostData = ({ data }) => {
         }
 
         async function fetchLikes() {
-            const res = await fetchWithCSRF(`api/post/${data.id}/${userId}/like`, {
+            const res = await fetchWithCSRF(`/api/post/${data.id}/${userId}/like`, {
                 method: 'GET',
             })
 
