@@ -1,6 +1,5 @@
 import React from 'react';
 import './NavBar.css'
-import SearchBar from './SearchBar/SearchBar';
 import HomeIcon from '@material-ui/icons/Home';
 import ExploreIcon from '@material-ui/icons/Explore';
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';

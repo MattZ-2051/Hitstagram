@@ -4,8 +4,41 @@
     object-fit: cover;
 }
 
-.explore-post img:hover {
+.explore-post > img:hover {
     cursor: pointer;
     transform: scale(1.1);
     filter: brightness(30%);
+}
+
+.img-hover {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    color: #eeeeee;
+    justify-content: center;
+    align-content: center;
+    bottom: 50%;
+    top: 40%;
+}
+
+.img-hover * {
+    background-color: transparent;
+}
+
+.img-hover img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-left: 60px;
+}
+
+.img-hover h1 {
+    font-weight: 200;
+    margin-left: 70px;
+}
+
+.no-image {
+    font-size: 80px !important;
+    margin-left: 60px;
 }
