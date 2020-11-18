@@ -35,13 +35,6 @@ const SoloPost = () => {
         <div className='post'>
             <UserData data={data.userInfo} />
             <PostData data={data.post} />
-            {data.commentUserInfo.map((item, index) => {
-                return <div className='post__comment' key={index}>
-                    <CommentUserInfo data={item} key={index} />
-                    <CommentData data={data.comments[index]} key={index} />
-                </div>
-
-            })}
         </div>
     )
 
