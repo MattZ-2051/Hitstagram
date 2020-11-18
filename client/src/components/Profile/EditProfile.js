@@ -23,6 +23,10 @@ const EditProfile = () => {
         history.push(`/profile/img/${user.id}/upload`)
     }
 
+    const submitRouteChange = () => {
+        history.push(`/my/profile/${user.id}`)
+    }
+
     return (
         <div className='edit-page'>
             <div className='edit-page__info'>
@@ -52,7 +56,7 @@ const EditProfile = () => {
                         </div>
                     </div>
                     <div className='edit-form__submitBtn'>
-                        <button type='submit'>Submit</button>
+                        <button type='submit' onClick={submitRouteChange}>Submit</button>
                     </div>
                 </form>
             </div>
