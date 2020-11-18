@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import './MyProfile.css'
 import ProfilePost from './ProfilePost';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';

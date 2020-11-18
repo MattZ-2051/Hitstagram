@@ -27,7 +27,7 @@ def follow(user_id, user_followed_id):
 
     if request.method == 'DELETE':
 
-        follow =  follow = Follower.query.filter_by(user_followed_id=user_followed_id, user_id=user_id).first()
+        follow = follow = Follower.query.filter_by(user_followed_id=user_followed_id, user_id=user_id).first()
         db.session.delete(follow)
         db.session.commit()
 

@@ -8,6 +8,7 @@ const ExplorePage = () => {
 
     const fetchWithCSRF = useSelector(state => state.auth.csrf)
     const [posts, setPosts] = useState(null)
+    const user = useSelector(state => state.auth.id)
 
     useEffect(() => {
         async function fetchData() {
@@ -27,19 +28,20 @@ const ExplorePage = () => {
         return <h1>loading...</h1>
     }
 
-    console.log(posts)
+    const allPosts = posts.map((item, index) => {
+        if (item.userId !== user) {
+            return (
+                <div className='explore-page__post' key={index}>
+                    <ExplorePagePost post={item} />
+                </div>
+            )
+        }
+    })
 
     return (
         <>
-            <h1>Find New Users to Follow!</h1>
             <div className='explore-page'>
-                {posts.map((item, index) => {
-                    return (
-                        <div className='explore-page__post' key={index}>
-                            <ExplorePagePost post={item} />
-                        </div>
-                    )
-                })}
+                {allPosts}
             </div>
         </>
     )
