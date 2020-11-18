@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import './MyProfile.css'
 import ProfilePost from './ProfilePost';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
@@ -13,8 +13,25 @@ const Profile = () => {
     const [user, setUser] = useState({})
     const [posts, setPosts] = useState([])
     const [counts, setCounts] = useState(null)
+    const loggedInUserId = useSelector(state => state.auth.id)
+    const [checkFollow, setCheckFollow] = useState(true)
 
     useEffect(() => {
+
+        async function fetchFollow() {
+            const res = await fetchWithCSRF(`/api/follow/${loggedInUserId}/add/${userId}`, {
+                method: 'GET'
+            })
+
+            if (res.ok) {
+                const data = await res.json()
+                if (data.follow === true) {
+                    setCheckFollow(true)
+                } else {
+                    setCheckFollow(false)
+                }
+            }
+        }
 
         async function fetchData() {
             const res = await fetchWithCSRF(`/api/post/${userId}/profile`, {
@@ -27,6 +44,7 @@ const Profile = () => {
             }
         }
 
+        fetchFollow()
         fetchData()
     }, [])
 
@@ -47,7 +65,34 @@ const Profile = () => {
         return <h1>loading...</h1>
     }
 
-    console.log(counts)
+    const handleFollow = async () => {
+
+        if (checkFollow === false) {
+
+
+            const res = await fetchWithCSRF(`/api/follow/${loggedInUserId}/add/${userId}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' }
+            })
+            if (res.ok) {
+                const data = await res.json()
+                console.log(data)
+            }
+        } else {
+            const res = await fetchWithCSRF(`/api/follow/${loggedInUserId}/add/${userId}`, {
+                method: 'DELETE'
+            })
+            if (res.ok) {
+                const data = res.json()
+            }
+        }
+    }
+
+    const handleClick = () => {
+        handleFollow()
+    }
+
+    console.log(checkFollow)
 
     return (
         <>
@@ -61,7 +106,8 @@ const Profile = () => {
                             {user.username}
                         </div>
                         <div className='profile__edit'>
-                            <button className='profile__editBtn'>Edit Profile</button>
+                            <button className='profile__editBtn' onClick={handleClick} hidden={!checkFollow}>Unfollow</button>
+                            <button className='profile__editBtn' onClick={handleClick} hidden={checkFollow}>Follow</button>
                         </div>
                     </div>
                     <div className='counts grid'>

@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import './ExplorePage.css';
+import ExplorePagePost from './ExplorePagePost';
 
 const ExplorePage = () => {
 
 
     const fetchWithCSRF = useSelector(state => state.auth.csrf)
     const [posts, setPosts] = useState(null)
+    const user = useSelector(state => state.auth.id)
 
     useEffect(() => {
         async function fetchData() {
@@ -25,18 +28,22 @@ const ExplorePage = () => {
         return <h1>loading...</h1>
     }
 
-    console.log(posts)
+    const allPosts = posts.map((item, index) => {
+        if (item.userId !== user) {
+            return (
+                <div className='explore-page__post' key={index}>
+                    <ExplorePagePost post={item} />
+                </div>
+            )
+        }
+    })
 
     return (
-        <div className='explore-page'>
-            {posts.map((item, index) => {
-                return (
-                    <div className='explore-page__post' key={index}>
-                        <img src={item.img} />
-                    </div>
-                )
-            })}
-        </div>
+        <>
+            <div className='explore-page'>
+                {allPosts}
+            </div>
+        </>
     )
 }
 
