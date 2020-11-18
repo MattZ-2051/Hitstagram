@@ -184,7 +184,7 @@ def like(post_id, user_id):
 
     if request.method == 'GET':
         like = Like.query.filter_by(user_id=user_id, post_id=post_id).first()
-        if like == None :
+        if like is None:
             return {'like': False}
         else:
             return {'like': True}
@@ -213,6 +213,7 @@ def explore():
         post_info_list.append(post.to_dict())
 
     return {'posts': post_info_list}
+
 
 @bp.route('<int:user_id>/user', methods=['GET'])
 def explore_user(user_id):

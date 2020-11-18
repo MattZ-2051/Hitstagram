@@ -66,7 +66,6 @@ const PostData = ({ data }) => {
             })
             if (res.ok) {
                 const data = await res.json()
-                console.log(data)
             }
         } else {
             const res = await fetchWithCSRF(`api/post/${data.id}/${userId}/like`, {

@@ -30,7 +30,6 @@ const SoloPost = () => {
     if (data === null) {
         return <h1>loading...</h1>
     }
-    console.log(data)
     return (
         <div className='post'>
             <UserData data={data.userInfo} />
