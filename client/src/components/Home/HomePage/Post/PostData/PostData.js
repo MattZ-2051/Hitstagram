@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     likeNone: {
-        fill: '#eeeeee',
+        fill: '#191414',
         paddingRight: '30px',
         marginRight: '5px',
         fontSize: '16px',
@@ -38,8 +38,8 @@ const PostData = ({ data }) => {
     const [comment, setComment] = useState('')
     const userId = useSelector(state => state.auth.id);
     const fetchWithCSRF = useSelector(state => state.auth.csrf);
-    const [commentsData, setCommentsData] = useState([]);
-    const [commentUser, setCommentUser] = useState([]);
+    const [commentsData, setCommentsData] = useState();
+    const [commentUser, setCommentUser] = useState();
     const [hidden, setHidden] = useState(true)
     const history = useHistory()
     const [favorited, setFavorited] = useState(false)
@@ -141,7 +141,7 @@ const PostData = ({ data }) => {
         }
     }
 
-    if (commentsData.length === 0 || commentUser.length === 0) {
+    if (commentsData === undefined || commentUser === undefined) {
         return <h1>loading...</h1>
     }
 
@@ -156,22 +156,24 @@ const PostData = ({ data }) => {
                     {data.caption}
                 </div>
             </div>
-            <button className='viewCommentBtn' onClick={commentViewChange}>View Comments</button>
-            <div className='comment' hidden={hidden}>
-                {commentsData.map((item, index) => {
-                    return (
-                        <div key={index} className='post__comment'>
-                            <CommentUserInfo data={commentUser[commentsData.length - (index + 1)]} />
-                            <CommentData data={commentsData[commentsData.length - (index + 1)]} />
-                        </div>
-                    )
-                })}
-            </div>
-            <div className='comment-form-div'>
-                <form onSubmit={handleComment} className='comment-form'>
-                    <input value={comment} className='post__comment__input' type='text' placeholder='Add a comment...' onChange={(e) => setComment(e.target.value)} />
-                    <button type='submit' hidden={true} className='comment-btn'></button>
-                </form>
+            <button className='viewCommentBtn' onClick={commentViewChange}>View all {commentsData.length} comments</button>
+            <div hidden={hidden}>
+                <div className='comment' >
+                    {commentsData.map((item, index) => {
+                        return (
+                            <div key={index} className='post__comment'>
+                                <CommentUserInfo data={commentUser[commentsData.length - (index + 1)]} />
+                                <CommentData data={commentsData[commentsData.length - (index + 1)]} />
+                            </div>
+                        )
+                    })}
+                </div>
+                <div className='comment-form-div'>
+                    <form onSubmit={handleComment} className='comment-form'>
+                        <input value={comment} className='post__comment__input' type='text' placeholder='Add a comment...' onChange={(e) => setComment(e.target.value)} />
+                        <button type='submit' hidden={true} className='comment-btn'></button>
+                    </form>
+                </div>
             </div>
         </div>
     )

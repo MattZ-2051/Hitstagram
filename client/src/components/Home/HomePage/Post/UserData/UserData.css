@@ -2,18 +2,20 @@
     display: flex;
     align-content: center;
     padding: 15px 0;
-    background-color: #191414;
-    color: #eeeeee;
+    height: 50px;
+    background-color: #C0C0C0;
+    color: #191414;
+    border-radius: 10px 10px 0 0;
 }
 
 .user * {
-    background-color: #191414;
+    background-color: #C0C0C0;
 }
 
 .user__profileImg {
     padding-right: 15px;
     padding-left: 15px;
-    background-color: #191414;
+    background-color: #C0C0C0;
 }
 
 .user__username {
@@ -37,6 +39,6 @@
 }
 
 .user__profileImg__default {
-    font-size: 70px !important;
-    color: #eeeeee;
+    font-size: 60px !important;
+    color: #191414;
 }

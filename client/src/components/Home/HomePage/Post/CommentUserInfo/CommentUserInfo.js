@@ -5,7 +5,7 @@ const CommentUserInfo = ({ data }) => {
 
     return (
         <div className='userComment'>
-            {data.username}-
+            {data.username}
         </div>
     )
 }
