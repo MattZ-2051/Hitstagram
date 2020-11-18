@@ -14,6 +14,7 @@ const ExplorePagePost = ({ post }) => {
 
     const handleMouseHover = () => {
         setHovering(!hovering)
+        console.log(hovering)
     }
 
     useEffect(() => {
