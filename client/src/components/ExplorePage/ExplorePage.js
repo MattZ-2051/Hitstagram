@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import './ExplorePage.css';
+import ExplorePagePost from './ExplorePagePost';
 
 const ExplorePage = () => {
 
@@ -28,15 +30,18 @@ const ExplorePage = () => {
     console.log(posts)
 
     return (
-        <div className='explore-page'>
-            {posts.map((item, index) => {
-                return (
-                    <div className='explore-page__post' key={index}>
-                        <img src={item.img} />
-                    </div>
-                )
-            })}
-        </div>
+        <>
+            <h1>Find New Users to Follow!</h1>
+            <div className='explore-page'>
+                {posts.map((item, index) => {
+                    return (
+                        <div className='explore-page__post' key={index}>
+                            <ExplorePagePost post={item} />
+                        </div>
+                    )
+                })}
+            </div>
+        </>
     )
 }
 
