@@ -52,9 +52,10 @@ const PostData = ({ data }) => {
         })
         if (res.ok) {
             const data = await res.json()
-            commentsData.push(data.comment)
-            commentUser.push(data.user)
+            setCommentUser([...commentUser, data.user])
+            setCommentsData([...commentsData, data.comment])
         }
+        return
     }
 
     const favorite = async () => {
@@ -143,6 +144,9 @@ const PostData = ({ data }) => {
     if (commentsData.length === 0 || commentUser.length === 0) {
         return <h1>loading...</h1>
     }
+
+    console.log(commentsData)
+    console.log(commentUser)
     return (
         <div className='postData'>
             <img src={data.img} alt='Image could not be found' onClick={routeChange} />
