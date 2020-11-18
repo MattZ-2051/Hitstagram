@@ -203,6 +203,7 @@ def like(post_id, user_id):
 
         return {'message': 'like removed'}, 200
 
+
 @bp.route('explore/posts', methods=['GET'])
 def explore():
 
@@ -212,3 +213,10 @@ def explore():
         post_info_list.append(post.to_dict())
 
     return {'posts': post_info_list}
+
+@bp.route('<int:user_id>/user', methods=['GET'])
+def explore_user(user_id):
+
+    user = User.query.filter_by(id=user_id).first()
+
+    return {'user': user.to_dict()}
