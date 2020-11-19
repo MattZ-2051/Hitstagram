@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import './Post.css'
 import PostData from './PostData/PostData';
 import UserData from './UserData/UserData';
 
 const Post = ({ data }) => {
 
-
     return (
         <>
             {data.posts.map((item, index) => {
+
                 return (
                     <div className='post' key={index}>
                         <UserData data={data.userInfo[index]} />
