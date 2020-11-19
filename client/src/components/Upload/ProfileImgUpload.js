@@ -30,7 +30,10 @@ const ProfileImgUpload = () => {
         formData.append("file", photoFile)
         await postPhoto(formData)
 
-        history.push(`/my/profile/${userId}`)
+        setTimeout(() => {
+            history.push(`/my/profile/${userId}`)
+
+        }, 500)
     }
     return (
         <div className='upload'>
