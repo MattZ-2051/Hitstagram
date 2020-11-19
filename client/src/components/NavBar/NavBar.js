@@ -7,6 +7,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Logout from '../Logout/Logout';
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import ProfilePhotoModal from '../Profile/ProfilePhotoModal';
 
 const NavBar = () => {
 

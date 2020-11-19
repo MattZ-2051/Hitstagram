@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import './Login.css';
 import { login } from '../../store/auth';
-import { Redirect, useHistory } from 'react-router-dom';
+import { Redirect, useHistory, NavLink } from 'react-router-dom';
 
 const Login = () => {
 
@@ -25,23 +25,34 @@ const Login = () => {
 
     return (
         <div className='login'>
+            <div className='login-images'>
+                <h1>Picstagram</h1>
+                <img src='https://images.unsplash.com/photo-1605663585104-02b44080a242?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60' alt='image not found' />
+            </div>
             <div className='login-form'>
+                <h1>Login</h1>
                 <form onSubmit={handleLogin}>
                     <div className='login-form__username'>
-                        <label htmlFor='username'>Username</label>
                         <input type='text' placeholder='username' onChange={(e) => setUsername(e.target.value)} />
                     </div>
                     <div className='login-form__password'>
-                        <label htmlFor='username' >Password</label>
                         <input type='text' type='password' placeholder='password' onChange={(e) => setPassword(e.target.value)} />
                     </div>
                     <div className='login-form__btn'>
-                        <button type='submit'>Log in</button>
-                        <button type='submit' onClick={handleDemoLogin}>Demo User</button>
+                        <div>
+                            <button type='submit'>Log in</button>
+                        </div>
+                        <div>
+                            <button type='submit' onClick={handleDemoLogin}>Demo User</button>
+                        </div>
                     </div>
                 </form>
+                <NavLink className='signup-link' to='/signup'>Dont have an account? Sign up!</NavLink>
             </div>
-            <a href='/sign-up'>Sign Up</a>
+            <div className='github-icon'>
+                <img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmaxcdn.icons8.com%2FShare%2Ficon%2Fp1em%2FLogos%2Fgithub1600.png&f=1&nofb=1' alt='' />
+                <p>Picstagram is a web application where you can make posts, comment on posts and follow your friends (based off the popular application instagram)</p>
+            </div>
         </div>
 
     )
