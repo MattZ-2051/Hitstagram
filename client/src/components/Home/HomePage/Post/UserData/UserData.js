@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import './UserData.css';
 import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const UserData = ({ data }) => {
 
     const history = useHistory()
+    const userId = useSelector(state => state.auth.id)
 
     const routeChange = () => {
         history.push(`/profile/${data.id}`)

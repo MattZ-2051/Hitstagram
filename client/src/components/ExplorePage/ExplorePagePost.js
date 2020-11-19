@@ -42,7 +42,7 @@ const ExplorePagePost = ({ post }) => {
     }
 
     return (
-        <div className='explore-post'>
+        <div className='explore-post' >
             <img src={post.img} alt='image not found' onClick={routeChange} onMouseEnter={handleMouseHover} onMouseLeave={handleMouseHover} />
             <div className='img-hover'>
                 {hovering ?
