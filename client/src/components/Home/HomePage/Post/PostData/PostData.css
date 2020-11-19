@@ -86,7 +86,20 @@
     border-radius: 0 0 10px 10px;
 }
 
-.viewCommentBtn:hover {
+.closeCommentBtn {
+    width: 100%;
+    border-bottom: 1px none;
+    height: 30px;
+    background-color: #1DB954;
+    color: #191414;
+    text-align: center;
+    padding-left: 15px;
+    font-size: 12px;
+    font-weight: 700;
+    border: none;
+}
+
+.viewCommentBtn:hover, .closeCommentBtn:hover {
     cursor: pointer;
     filter: brightness(120%);
 }

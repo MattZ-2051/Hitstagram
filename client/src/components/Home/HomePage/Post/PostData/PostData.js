@@ -145,8 +145,7 @@ const PostData = ({ data }) => {
         return <h1>loading...</h1>
     }
 
-    console.log(commentsData)
-    console.log(commentUser)
+
     return (
         <div className='postData'>
             <img src={data.img} alt='Image could not be found' onClick={routeChange} />
@@ -156,7 +155,8 @@ const PostData = ({ data }) => {
                     {data.caption}
                 </div>
             </div>
-            <button className='viewCommentBtn' onClick={commentViewChange}>View all {commentsData.length} comments</button>
+            <button className='viewCommentBtn' onClick={commentViewChange} hidden={!hidden}>View all {commentsData.length} comments</button>
+            <button className='closeCommentBtn' onClick={commentViewChange} hidden={hidden}>Close Comments</button>
             <div hidden={hidden}>
                 <div className='comment' >
                     {commentsData.map((item, index) => {
