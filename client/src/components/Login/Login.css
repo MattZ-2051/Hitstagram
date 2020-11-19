@@ -1,6 +1,4 @@
-* {
-    background-color: #1DB954;
-}
+
 
 .login {
     margin: auto;
@@ -124,14 +122,12 @@
 .github-icon img {
     width: 80px;
     padding-top: 30px;
-    background-color: #1DB954;
 }
 
 .github-icon p {
-    color: black;
+    color: #c0c0c0ad;
     font-size: 20px;
     width: 50%;
-    background-color: #1DB954;
     padding-top: 50px;
     padding-right: 50px;
     padding-left: 30px;
