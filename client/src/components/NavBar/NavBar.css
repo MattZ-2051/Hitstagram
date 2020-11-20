@@ -19,12 +19,19 @@
 }
 
 .navbar__name {
+    display: flex;
     margin-left: 100px;
+}
+
+.navbar__name p {
+    align-self: center;
+    font-weight: 700;
+    padding-right: 15px;
 }
 
 .navbar__name img {
     width: 40px;
-    background-color: white;
+    background-color: #1DB954;
     border-radius: 50%;
     padding: 5px;
 }
