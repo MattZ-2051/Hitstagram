@@ -33,7 +33,7 @@ const ProfileImgUpload = () => {
         setTimeout(() => {
             history.push(`/my/profile/${userId}`)
 
-        }, 500)
+        }, 1000)
     }
     return (
         <div className='upload'>
