@@ -40,7 +40,7 @@ const ProfileImgUpload = () => {
         <div className='upload'>
             <div className='upload-img-preview'>
                 {imgPreview ?
-                    <img src={imgPreview} alt='Upload Image' />
+                    <img src={imgPreview} className='uplaod-img-preview__img' alt='Upload Image' />
                     :
                     <p>Upload Photo</p>
 
