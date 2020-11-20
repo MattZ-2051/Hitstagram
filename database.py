@@ -34,7 +34,7 @@ with app.app_context():
 
     andoni_third_post = Post(caption='Dukkha, Samudaya, Nirohdha, Magga', user_id=4 ,img='https://images.unsplash.com/photo-1538024333176-f25f63f873ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60')
 
-    scar_post = Post(caption='thjis is scars post', img='https://images.unsplash.com/photo-1604961872836-261fa413ea03?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60', user_id=3)
+    scar_post = Post(caption="ventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?", img='https://images.unsplash.com/photo-1604961872836-261fa413ea03?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60', user_id=3)
 
     scar_second_post = Post(caption='This is my awesome post! with my just as awesome caption!', user_id=3, img='https://images.unsplash.com/photo-1605737507250-675582df9024?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60')
 
@@ -46,11 +46,13 @@ with app.app_context():
 
     scar_third_post = Post(caption='puuuuuuuurrrrrrrrrrrrrr', user_id=3, img='https://images.unsplash.com/photo-1605763588123-7ff925e74387?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw2NXx8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60')
 
+    pollow_second_post = Post(caption='ah suuuhhhh dude', user_id=2, img='https://images.unsplash.com/photo-1605656817292-529131d346c4?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMzZ8fHxlbnwwfHx8&auto=format&fit=crop&w=500&q=60')
+
     andoni_comment = Comment(content='Comment Comment Comment!', post_id=4, user_id=4)
 
-    matt_comment = Comment(content='fasdfasdfasdfasdf!!!', post_id=3, user_id=2)
+    matt_comment = Comment(content='Loreimpus!!!', post_id=3, user_id=2)
 
-    testing_comment = Comment(content='tasdfasdfasdfasdf', post_id=4, user_id=4)
+    testing_comment = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=4, user_id=4)
 
     another_comment = Comment(content='masdfasdfasdfsadf!!!', post_id=3, user_id=6)
 

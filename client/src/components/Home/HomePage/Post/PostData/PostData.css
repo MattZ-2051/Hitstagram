@@ -29,6 +29,11 @@
 
 .postData__caption__data {
     padding-top: 10px;
+    overflow: hidden;
+}
+
+.postData__caption__data:hover {
+    overflow: auto;
 }
 
 .postData__star {
