@@ -4,6 +4,7 @@ import './Upload.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { updateProfile } from '../../store/auth';
+import './ProfileImgUpload.css';
 
 const ProfileImgUpload = () => {
 
