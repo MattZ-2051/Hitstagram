@@ -6,13 +6,16 @@ import { useSelector } from 'react-redux';
 import CommentData from '../CommentData/CommentData';
 import CommentUserInfo from '../CommentUserInfo/CommentUserInfo';
 import { makeStyles } from '@material-ui/core/styles';
+import SentimentSatisfiedIcon from '@material-ui/icons/SentimentSatisfied';
+import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfied';
+
 
 const useStyles = makeStyles((theme) => ({
     likeTrue: {
         fill: '#1DB954',
         paddingRight: '30px',
         marginRight: '5px',
-        fontSize: '16px',
+        fontSize: '28px',
         paddingTop: '5px',
         '&:hover': {
             cursor: 'pointer',
@@ -23,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
         fill: '#191414',
         paddingRight: '30px',
         marginRight: '5px',
-        fontSize: '16px',
+        fontSize: '28px',
         paddingTop: '5px',
         '&:hover': {
             cursor: 'pointer',
@@ -43,6 +46,7 @@ const PostData = ({ data }) => {
     const [hidden, setHidden] = useState(true)
     const history = useHistory()
     const [favorited, setFavorited] = useState(false)
+    const [changeIcon, setChangeIcon] = useState(false)
 
     const newComment = async () => {
         const res = await fetchWithCSRF(`/api/post/${data.id}/${userId}/comment`, {
@@ -106,8 +110,11 @@ const PostData = ({ data }) => {
                 const data = await res.json()
 
                 if (data.like === true) {
+                    setChangeIcon(true)
                     setFavorited(true)
+
                 } else {
+                    setChangeIcon(false)
                     setFavorited(false)
                 }
             }
@@ -135,9 +142,11 @@ const PostData = ({ data }) => {
     const handleFavorite = () => {
         favorite()
         if (favorited === false) {
+            setChangeIcon(true)
             setFavorited(true)
         } else {
             setFavorited(false)
+            setChangeIcon(false)
         }
     }
 
@@ -150,8 +159,12 @@ const PostData = ({ data }) => {
         <div className='postData'>
             <img src={data.img} alt='Image could not be found' onClick={routeChange} />
             <div className='postData__caption'>
-                <StarsIcon className='postData__star' className={favorited ? classes.likeTrue : classes.likeNone} onClick={handleFavorite} />
-                <div>
+                {changeIcon
+                    ? <SentimentVerySatisfiedIcon className='postData__star' className={favorited ? classes.likeTrue : classes.likeNone} onClick={handleFavorite} />
+                    :
+                    <SentimentSatisfiedIcon className='postData__star' className={favorited ? classes.likeTrue : classes.likeNone} onClick={handleFavorite} />
+                }
+                <div className='postData__caption__data'>
                     {data.caption}
                 </div>
             </div>

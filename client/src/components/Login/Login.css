@@ -117,15 +117,18 @@
     display: flex;
     width: 100%;
     justify-content: center;
+    background-color: #1DB954;
 }
 
 .github-icon img {
     width: 80px;
     padding-top: 30px;
+    background-color: #1DB954;
 }
 
 .github-icon p {
-    color: #c0c0c0ad;
+    background-color: #1DB954;
+    color: #191414;
     font-size: 20px;
     width: 50%;
     padding-top: 50px;

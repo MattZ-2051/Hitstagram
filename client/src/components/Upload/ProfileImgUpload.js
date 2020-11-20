@@ -4,6 +4,7 @@ import './Upload.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { updateProfile } from '../../store/auth';
+import './ProfileImgUpload.css';
 
 const ProfileImgUpload = () => {
 
@@ -33,13 +34,13 @@ const ProfileImgUpload = () => {
         setTimeout(() => {
             history.push(`/my/profile/${userId}`)
 
-        }, 500)
+        }, 1000)
     }
     return (
         <div className='upload'>
             <div className='upload-img-preview'>
                 {imgPreview ?
-                    <img src={imgPreview} alt='Upload Image' />
+                    <img src={imgPreview} className='uplaod-img-preview__img' alt='Upload Image' />
                     :
                     <p>Upload Photo</p>
 

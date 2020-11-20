@@ -21,16 +21,25 @@
 
 .postData__caption {
     display: flex;
-    font-size: 20px;
+    font-size: 15px;
     padding: 15px 0;
     height: 30px;
     padding-left: 15px;
 }
 
+.postData__caption__data {
+    padding-top: 10px;
+    overflow: hidden;
+}
+
+.postData__caption__data:hover {
+    overflow: auto;
+}
+
 .postData__star {
     padding-right: 30px;
     margin-right: 5px;
-    font-size: 16px !important;
+    font-size: 20px !important;
     fill: #E8E8E8;
     padding-top: 5px;
 }

@@ -17,6 +17,7 @@ const EditProfile = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(userUpdate(fullName, bio))
+        history.push(`/my/profile/${user.id}`)
     }
 
     const profileRouteChange = () => {

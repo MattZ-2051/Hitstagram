@@ -34,7 +34,8 @@ const NavBar = () => {
     return (
         <div className='navbar'>
             <div className='navbar__name'>
-                Hitstagram
+                <p>Picstagram</p>
+                <img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fd%2Fd3%2FHigh-contrast-camera-photo.svg%2F600px-High-contrast-camera-photo.svg.png&f=1&nofb=1' alt='' />
             </div>
             <div className='navbar__buttons'>
                 <div className='navbar__homeBtn'>

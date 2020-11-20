@@ -25,10 +25,7 @@ const Login = () => {
 
     return (
         <div className='login'>
-            <div className='login-images'>
-                <h1>Picstagram</h1>
-                <img src='https://images.unsplash.com/photo-1605663585104-02b44080a242?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60' alt='image not found' />
-            </div>
+
             <div className='login-form'>
                 <h1>Login</h1>
                 <form onSubmit={handleLogin}>
@@ -48,6 +45,10 @@ const Login = () => {
                     </div>
                 </form>
                 <NavLink className='signup-link' to='/signup'>Dont have an account? Sign up!</NavLink>
+            </div>
+            <div className='login-images'>
+                <h1>Picstagram</h1>
+                <img src='https://images.unsplash.com/photo-1605663585104-02b44080a242?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60' alt='image not found' />
             </div>
             <div className='github-icon'>
                 <img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmaxcdn.icons8.com%2FShare%2Ficon%2Fp1em%2FLogos%2Fgithub1600.png&f=1&nofb=1' alt='' />

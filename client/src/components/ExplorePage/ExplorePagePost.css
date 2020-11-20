@@ -18,7 +18,8 @@
     color: #eeeeee;
     justify-content: center;
     align-content: center;
-    bottom: 150px;
+    height: 0px;
+    bottom: 100px;
     width: 0px;
 }
 
@@ -35,7 +36,9 @@
 
 .img-hover h1 {
     font-weight: 200;
-    margin-left: 70px;
+    font-size: 18px;
+    padding-top: 10px;
+    margin-left: 75px;
 }
 
 .no-image {

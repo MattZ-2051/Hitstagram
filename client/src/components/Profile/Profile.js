@@ -90,6 +90,12 @@ const Profile = () => {
 
     const handleClick = () => {
         handleFollow()
+
+        setTimeout(() => {
+            history.push('/')
+
+        }, 200)
+
     }
 
     console.log(checkFollow)
