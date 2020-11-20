@@ -32,13 +32,19 @@ with app.app_context():
 
     andoni_second_post = Post(caption='this is andoni second post', img='https://images.unsplash.com/photo-1604756436936-5de2b9707fa9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60', user_id=4)
 
+    andoni_third_post = Post(caption='Dukkha, Samudaya, Nirohdha, Magga', user_id=4 ,img='https://images.unsplash.com/photo-1538024333176-f25f63f873ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60')
+
     scar_post = Post(caption='thjis is scars post', img='https://images.unsplash.com/photo-1604961872836-261fa413ea03?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60', user_id=3)
 
     scar_second_post = Post(caption='This is my awesome post! with my just as awesome caption!', user_id=3, img='https://images.unsplash.com/photo-1605737507250-675582df9024?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60')
 
     pollow_post = Post(caption='Nice cut G!', user_id=2, img='https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzM3x8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60')
 
-    sam_post = Post(caption='Sold out Dates' user_id=5, img='https://images.unsplash.com/photo-1605737804470-0d611b7b827c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0MHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60')
+    sam_post = Post(caption='Sold out Dates', user_id=5, img='https://images.unsplash.com/photo-1605737804470-0d611b7b827c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0MHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60')
+
+    matt_second_post = Post(caption='Bikes are dope', user_id=6, img='https://images.unsplash.com/photo-1605737710291-98fe72919667?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0OHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60')
+
+    scar_third_post = Post(caption='puuuuuuuurrrrrrrrrrrrrr', user_id=3, img='https://images.unsplash.com/photo-1605763588123-7ff925e74387?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw2NXx8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60')
 
     andoni_comment = Comment(content='Comment Comment Comment!', post_id=4, user_id=4)
 
@@ -74,12 +80,16 @@ with app.app_context():
     db.session.add(andoni)
     db.session.add(sam)
     db.session.add(matt)
+    db.session.add(andoni_third_post)
     db.session.add(andoni_post)
     db.session.add(scar_second_post)
     db.session.add(pollow_post)
+    db.session.add(matt_second_post)
+    db.session.add(sam_post)
     db.session.add(andoni_second_post)
     db.session.add(matt_post)
     db.session.add(scar_post)
+    db.session.add(scar_third_post)
     db.session.add(matt_comment)
     db.session.add(andoni_follow)
     db.session.add(andoni_second_follow)
