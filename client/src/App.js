@@ -15,12 +15,26 @@ import Profile from './components/Profile/Profile';
 import ProfileImgUpload from './components/Upload/ProfileImgUpload';
 import ExplorePage from './components/ExplorePage/ExplorePage';
 
+const PrivateRoute = ({ component: Component, ...rest }) => {
+    const needLogin = useSelector(state => state.auth.id)
+    return (
+        <>
+            <Route {...rest} render={(props) => (
+                needLogin
+                    ? <Component {...props} />
+                    : <Redirect to='/login' />
+            )
+            } />
+        </>
+    )
+}
+
+
+
 function App() {
 
     const [fetchWithCSRF, setFetchWithCSRF] = useState(() => fetch);
     const dispatch = useDispatch()
-    const user = useSelector(state => state.auth.id)
-    const history = useHistory()
 
     useEffect(() => {
         async function restoreCSRF() {
@@ -51,24 +65,19 @@ function App() {
         dispatch(setCsrfFunc(fetchWithCSRF));
     }, [fetchWithCSRF, dispatch]);
 
-    if (!user) {
-        history.push('/login')
-        return <Login />
-    }
     return (
         <>
-            <NavBar />
             <Switch>
                 <Route path='/login' exact={true} component={Login} />
-                <Route path='/sign-up' exact={true} component={Signup} />
-                <Route path="/" exact={true} component={Home} />
-                <Route path='/upload' exact={true} component={Upload} />
-                <Route path='/profile/:id/edit' exact={true} component={EditProfile} />
-                <Route path='/post/:id' exact={true} component={SoloPost} />
-                <Route path='/profile/:id' exact={true} component={Profile} />
-                <Route path='/my/profile/:id' exact={true} component={MyProfile} />
-                <Route path='/profile/img/:id/upload' exact={true} component={ProfileImgUpload} />
-                <Route path='/explore' exact={true} component={ExplorePage} />
+                <Route path='/signup' exact={true} component={Signup} />
+                <PrivateRoute path="/" exact={true} component={Home} />
+                <PrivateRoute path='/upload' exact={true} component={Upload} />
+                <PrivateRoute path='/profile/:id/edit' exact={true} component={EditProfile} />
+                <PrivateRoute path='/post/:id' exact={true} component={SoloPost} />
+                <PrivateRoute path='/profile/:id' exact={true} component={Profile} />
+                <PrivateRoute path='/my/profile/:id' exact={true} component={MyProfile} />
+                <PrivateRoute path='/profile/img/:id/upload' exact={true} component={ProfileImgUpload} />
+                <PrivateRoute path='/explore' exact={true} component={ExplorePage} />
             </Switch>
         </>
     );

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import NavBar from '../NavBar/NavBar';
 import './ExplorePage.css';
 import ExplorePagePost from './ExplorePagePost';
 
@@ -40,6 +41,7 @@ const ExplorePage = () => {
 
     return (
         <>
+            <NavBar />
             <div className='explore-page'>
                 {allPosts}
             </div>

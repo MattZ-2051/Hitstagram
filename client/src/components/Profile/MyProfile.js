@@ -4,6 +4,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { useHistory } from 'react-router-dom';
 import './MyProfile.css';
 import ProfilePost from './ProfilePost';
+import NavBar from '../NavBar/NavBar';
 
 
 
@@ -44,6 +45,7 @@ const MyProfile = () => {
 
     return (
         <>
+            <NavBar />
             <div className='profile'>
                 <div className='profile__img'>
                     {user.profileImg ? <img className='profile__img__pic' src={user.profileImg} onClick={profilePicRoute} alt='' /> : <AccountCircleIcon className='profile__img__pic' />}

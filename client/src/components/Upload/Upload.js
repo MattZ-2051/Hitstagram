@@ -3,6 +3,7 @@ import './Upload.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { newUserPost } from '../../store/post';
+import NavBar from '../NavBar/NavBar';
 
 const Upload = () => {
 
@@ -34,35 +35,37 @@ const Upload = () => {
         await postPhoto(formData)
     }
     return (
-        <div className='upload'>
-            <div className='upload-img-preview'>
-                {imgPreview ?
-                    <img src={imgPreview} alt='Upload Image' />
-                    :
-                    <p>Upload Photo</p>
+        <>
+            <NavBar />
+            <div className='upload'>
+                <div className='upload-img-preview'>
+                    {imgPreview ?
+                        <img src={imgPreview} alt='Upload Image' />
+                        :
+                        <p>Upload Photo</p>
 
-                }
+                    }
+                </div>
+
+                <form className='upload-form' onSubmit={handleSubmit}>
+
+                    <p>Select a photo to upload</p>
+                    <input
+                        className='upload-form__input'
+                        onChange={handleChange}
+                        type='file'
+                        name='file'
+                    />
+                    <div className='upload-form__caption'>
+                        <label htmlFor='caption'>Caption</label>
+                        <input onChange={(e) => setCaption(e.target.value)} type='text' name='caption' placeholder='Add a caption to your photo' />
+                    </div>
+                    <div className='upload-form__btn-div'>
+                        <button className='upload-form__btn'>Upload</button>
+                    </div>
+                </form>
             </div>
-
-            <form className='upload-form' onSubmit={handleSubmit}>
-
-                <p>Select a photo to upload</p>
-                <input
-                    className='upload-form__input'
-                    onChange={handleChange}
-                    type='file'
-                    name='file'
-                />
-                <div className='upload-form__caption'>
-                    <label htmlFor='caption'>Caption</label>
-                    <input onChange={(e) => setCaption(e.target.value)} type='text' name='caption' placeholder='Add a caption to your photo' />
-                </div>
-                <div className='upload-form__btn-div'>
-                    <button className='upload-form__btn'>Upload</button>
-                </div>
-            </form>
-
-        </div>
+        </>
     )
 
 }

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './PostData.css';
-import StarsIcon from '@material-ui/icons/Stars';
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import CommentData from '../CommentData/CommentData';

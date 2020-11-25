@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import UserData from '../Home/HomePage/Post/UserData/UserData';
 import PostData from '../Home/HomePage/Post/PostData/PostData';
+import NavBar from '../NavBar/NavBar';
 
 const SoloPost = () => {
 
@@ -30,10 +31,13 @@ const SoloPost = () => {
     }
 
     return (
-        <div className='post'>
-            <UserData data={data.userInfo} />
-            <PostData data={data.post} />
-        </div>
+        <>
+            <NavBar />
+            <div className='post'>
+                <UserData data={data.userInfo} />
+                <PostData data={data.post} />
+            </div>
+        </>
     )
 
 }
