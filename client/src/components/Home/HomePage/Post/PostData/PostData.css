@@ -64,7 +64,7 @@
 }
 
 .comment:hover {
-    overflow-y: scroll;
+    overflow: auto;
 }
 
 .post__comment__input {
