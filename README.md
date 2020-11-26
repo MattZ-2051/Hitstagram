@@ -34,6 +34,7 @@ Hitsagram is a full stack application that allows the user to make posts, like a
 Using React as the frontend application allowed me to leverage not only React but the tools that come along with it like different types of hooks and Redux
 
 (show some snippets of React)
+![feed] ./documentation/feed-gif.mov)
 
 ### Redux
 Redux allowed me to create a better way to manage my state throughout my application. Dispatching various actions allowed for easier access to information for different components
