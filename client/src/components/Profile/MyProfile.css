@@ -77,15 +77,18 @@
 
 .counts__followers span {
     font-weight: 900;
+    padding-left: 25px;
 }
 
 .counts__following span {
     font-weight: 900;
     padding-right: 15px;
+    padding-left: 25px;
 }
 
 .counts__post span {
     font-weight: 700;
+    padding-left: 60px;
 }
 
 .counts__followers, .counts__post, .counts__following {
