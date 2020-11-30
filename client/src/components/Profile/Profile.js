@@ -77,7 +77,6 @@ const Profile = () => {
             })
             if (res.ok) {
                 const data = await res.json()
-                console.log(data)
             }
         } else {
             const res = await fetchWithCSRF(`/api/follow/${loggedInUserId}/add/${userId}`, {
@@ -91,15 +90,10 @@ const Profile = () => {
 
     const handleClick = () => {
         handleFollow()
-
-        setTimeout(() => {
-            history.push('/')
-
-        }, 200)
+        setCheckFollow(!checkFollow)
 
     }
 
-    console.log(checkFollow)
 
     return (
         <>
