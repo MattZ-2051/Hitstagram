@@ -47,7 +47,6 @@ const PostData = ({ data }) => {
     const history = useHistory()
     const [favorited, setFavorited] = useState(false)
     const [changeIcon, setChangeIcon] = useState(false)
-    const [commentHidden, setCommentHidden] = useState(true)
 
 
     const newComment = async () => {
@@ -153,19 +152,6 @@ const PostData = ({ data }) => {
         }
     }
 
-    useEffect(() => {
-        if (commentUser === undefined) {
-            return
-        }
-        commentUser.map((item) => {
-            if (userId === item.id) {
-                setCommentHidden(false)
-            }
-        })
-
-    }, [commentUser])
-
-
     const routeChange = () => {
         history.push(`/post/${data.id}`)
     }
@@ -209,7 +195,7 @@ const PostData = ({ data }) => {
                                 <CommentUserInfo data={commentUser[commentsData.length - (index + 1)]} />
                                 <CommentData data={commentsData[commentsData.length - (index + 1)]} />
                                 <div className='comments-deleteBtn' >
-                                    <button type='submit' id={commentsData[commentsData.length - (index + 1)]['id']} onClick={handleDelete} hidden={hidden}>Delete</button>
+                                    <button type='submit' id={commentsData[commentsData.length - (index + 1)]['id']} onClick={handleDelete} hidden={commentUser[commentsData.length - (index + 1)]['id'] === userId ? false : true}>Delete</button>
                                 </div>
                             </div>
                         )
