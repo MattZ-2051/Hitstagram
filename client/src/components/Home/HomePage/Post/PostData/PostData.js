@@ -7,6 +7,7 @@ import CommentUserInfo from '../CommentUserInfo/CommentUserInfo';
 import { makeStyles } from '@material-ui/core/styles';
 import SentimentSatisfiedIcon from '@material-ui/icons/SentimentSatisfied';
 import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfied';
+import CommentDelete from '../CommentDelete/CommentDelete';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -46,9 +47,11 @@ const PostData = ({ data }) => {
     const history = useHistory()
     const [favorited, setFavorited] = useState(false)
     const [changeIcon, setChangeIcon] = useState(false)
+    const [commentHidden, setCommentHidden] = useState(true)
+
 
     const newComment = async () => {
-        const res = await fetchWithCSRF(`/api/post/${data.id}/${userId}/comment`, {
+        const res = await fetchWithCSRF(`/api/post/${data.id}/${userId}/${1}/comment`, {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(comment)
@@ -134,6 +137,35 @@ const PostData = ({ data }) => {
         }
     }
 
+    const handleDelete = (e) => {
+        e.preventDefault()
+        deleteComment(e.target.id)
+    }
+
+    const deleteComment = async (commentId) => {
+        const res = await fetchWithCSRF(`/api/post/${data.id}/${userId}/${commentId}/comment`, {
+            method: 'DELETE'
+        })
+        if (res.ok) {
+            const data = await res.json()
+            setCommentsData([...data.comments])
+            setCommentUser([...data.userInfo])
+        }
+    }
+
+    useEffect(() => {
+        if (commentUser === undefined) {
+            return
+        }
+        commentUser.map((item) => {
+            if (userId === item.id) {
+                setCommentHidden(false)
+            }
+        })
+
+    }, [commentUser])
+
+
     const routeChange = () => {
         history.push(`/post/${data.id}`)
     }
@@ -176,6 +208,9 @@ const PostData = ({ data }) => {
                             <div key={index} className='post__comment'>
                                 <CommentUserInfo data={commentUser[commentsData.length - (index + 1)]} />
                                 <CommentData data={commentsData[commentsData.length - (index + 1)]} />
+                                <div className='comments-deleteBtn'>
+                                    <CommentDelete id={commentsData[commentsData.length - (index + 1)]['id']} onClick={handleDelete} data={commentUser[commentsData.length - (index + 1)]} />
+                                </div>
                             </div>
                         )
                     })}
