@@ -208,8 +208,8 @@ const PostData = ({ data }) => {
                             <div key={index} className='post__comment'>
                                 <CommentUserInfo data={commentUser[commentsData.length - (index + 1)]} />
                                 <CommentData data={commentsData[commentsData.length - (index + 1)]} />
-                                <div className='comments-deleteBtn'>
-                                    <CommentDelete id={commentsData[commentsData.length - (index + 1)]['id']} onClick={handleDelete} data={commentUser[commentsData.length - (index + 1)]} />
+                                <div className='comments-deleteBtn' >
+                                    <button type='submit' id={commentsData[commentsData.length - (index + 1)]['id']} onClick={handleDelete} hidden={hidden}>Delete</button>
                                 </div>
                             </div>
                         )
