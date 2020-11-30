@@ -22,9 +22,9 @@ const Upload = () => {
 
     const postPhoto = async (formData) => {
         dispatch(newUserPost(userId, formData))
-        // setTimeout(() => {
-        //     history.push(`my/profile/${userId}`)
-        // }, 1000)
+        setTimeout(() => {
+            history.push(`my/profile/${userId}`)
+        }, 1000)
     }
 
     const handleSubmit = async (e) => {
