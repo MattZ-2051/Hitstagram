@@ -153,9 +153,8 @@ const PostData = ({ data }) => {
         })
         if (res.ok) {
             const data = await res.json()
-            console.log(data)
-            setCommentUser([...commentUser, data.userInfo])
-            setCommentsData([...commentsData, data.comments])
+            setCommentsData([...data.comments])
+            setCommentUser([...data.userInfo])
         }
     }
 
@@ -179,9 +178,6 @@ const PostData = ({ data }) => {
         return <h1>loading...</h1>
     }
 
-
-    console.log(commentUser)
-    console.log(commentsData)
     return (
         <div className='postData'>
             <img src={data.img} alt='Image could not be found' onClick={routeChange} />

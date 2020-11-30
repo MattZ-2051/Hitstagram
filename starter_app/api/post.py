@@ -169,7 +169,7 @@ def comment(post_id, user_id, comment_id):
         print(comment_data_list)
         print(user_data_list)
         print('======================================')
-        # return {'comments': comment_data_list, 'userInfo': user_data_list}
+        return {'comments': comment_data_list, 'userInfo': user_data_list}
 
 
 @bp.route('<int:user_id>/profile', methods=['GET'])
