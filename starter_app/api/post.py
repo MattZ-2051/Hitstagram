@@ -2,6 +2,7 @@ import os
 from flask import Blueprint, request, jsonify
 from starter_app.models import User, Post, Follower, db, Comment, Like
 import boto3
+import ast
 
 bp = Blueprint('post', __name__)
 
@@ -45,6 +46,12 @@ def upload_file_to_s3(file, bucket_name, acl="public-read"):
 @bp.route('/<int:user_id>/upload', methods=['POST'])
 def upload(user_id):
 
+    captionFile = request.files['caption']
+    caption_bytes = captionFile.read()
+    non_byte_caption = caption_bytes.decode('UTF-8')
+    data = ast.literal_eval(non_byte_caption)
+    post_caption = data['caption']
+
     if "file" not in request.files:
         return "No file key in request.files", 500
 
@@ -54,7 +61,7 @@ def upload(user_id):
     if file:
         photo_url = upload_file_to_s3(file, 'b.a.d')
         try:
-            photo = Post(caption='testing', img=photo_url, user_id=user_id)
+            photo = Post(caption=post_caption, img=photo_url, user_id=user_id)
             db.session.add(photo)
             db.session.commit()
 
@@ -165,10 +172,6 @@ def comment(post_id, user_id, comment_id):
             user = User.query.filter_by(id=data['userId']).first()
             user_data_list.append(user.to_dict())
 
-        print('======================================')
-        print(comment_data_list)
-        print(user_data_list)
-        print('======================================')
         return {'comments': comment_data_list, 'userInfo': user_data_list}
 
 

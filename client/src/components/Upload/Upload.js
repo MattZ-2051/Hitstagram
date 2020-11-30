@@ -8,7 +8,6 @@ import NavBar from '../NavBar/NavBar';
 const Upload = () => {
 
     const [photoFile, setPhotoFile] = useState(null);
-    const fetchWithCSRF = useSelector(state => state.auth.csrf);
     const userId = useSelector(state => state.auth.id);
     const history = useHistory();
     const dispatch = useDispatch();
@@ -23,17 +22,24 @@ const Upload = () => {
 
     const postPhoto = async (formData) => {
         dispatch(newUserPost(userId, formData))
-        setTimeout(() => {
-            history.push(`my/profile/${userId}`)
-        }, 1000)
+        // setTimeout(() => {
+        //     history.push(`my/profile/${userId}`)
+        // }, 1000)
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
+        const obj = { 'caption': caption }
+        const json = JSON.stringify(obj)
+        const blob = new Blob([json], {
+            type: 'application/json'
+        });
+        formData.append('caption', blob)
         formData.append("file", photoFile)
         await postPhoto(formData)
     }
+
     return (
         <>
             <NavBar />
