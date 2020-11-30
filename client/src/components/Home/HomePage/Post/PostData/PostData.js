@@ -7,6 +7,7 @@ import CommentUserInfo from '../CommentUserInfo/CommentUserInfo';
 import { makeStyles } from '@material-ui/core/styles';
 import SentimentSatisfiedIcon from '@material-ui/icons/SentimentSatisfied';
 import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfied';
+import CommentDelete from '../CommentDelete/CommentDelete';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -84,12 +85,6 @@ const PostData = ({ data }) => {
         }
     }
 
-    useEffect(() => {
-        if (userId === data.userId) {
-            setCommentHidden(false)
-        }
-    }, [])
-
     const handleComment = (e) => {
         e.preventDefault()
         newComment()
@@ -158,6 +153,18 @@ const PostData = ({ data }) => {
         }
     }
 
+    useEffect(() => {
+        if (commentUser === undefined) {
+            return
+        }
+        commentUser.map((item) => {
+            if (userId === item.id) {
+                setCommentHidden(false)
+            }
+        })
+
+    }, [commentUser])
+
 
     const routeChange = () => {
         history.push(`/post/${data.id}`)
@@ -177,6 +184,7 @@ const PostData = ({ data }) => {
     if (commentsData === undefined || commentUser === undefined) {
         return <h1>loading...</h1>
     }
+
 
     return (
         <div className='postData'>
@@ -201,7 +209,7 @@ const PostData = ({ data }) => {
                                 <CommentUserInfo data={commentUser[commentsData.length - (index + 1)]} />
                                 <CommentData data={commentsData[commentsData.length - (index + 1)]} />
                                 <div className='comments-deleteBtn'>
-                                    <button type='submit' id={commentsData[commentsData.length - (index + 1)]['id']} hidden={hidden} onClick={handleDelete}>Delete</button>
+                                    <CommentDelete id={commentsData[commentsData.length - (index + 1)]['id']} onClick={handleDelete} data={commentUser[commentsData.length - (index + 1)]} />
                                 </div>
                             </div>
                         )
