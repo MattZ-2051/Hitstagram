@@ -136,8 +136,8 @@ def single_post(post_id):
     return {'post': post, 'comments': comment_list, 'userInfo': user.to_dict(), 'commentUserInfo': comment_user_info_list}
 
 
-@bp.route('<int:post_id>/<int:user_id>/comment', methods=['POST', 'DELETE'])
-def comment(post_id,user_id):
+@bp.route('<int:post_id>/<int:user_id>/<int:comment_id>/comment', methods=['POST', 'DELETE'])
+def comment(post_id, user_id, comment_id):
 
     if request.method == 'POST':
         comment_data = request.get_json()
@@ -150,10 +150,27 @@ def comment(post_id,user_id):
 
     if request.method == 'DELETE':
 
-        comment = Comment.query.filter_by(post_id=post_id, user_id=user_id).first()
+        info_list = []
+        comment = Comment.query.filter_by(id=comment_id).first()
         db.session.delete(comment)
         db.session.commit()
-        return {'message': 'comment deleted'}
+
+        comments = Comment.query.filter_by(post_id=post_id).all()
+        comment_data_list = []
+        user_data_list = []
+
+        for comment in comments:
+            comment_data_list.append(comment.to_dict())
+            data = comment.to_dict()
+            user = User.query.filter_by(id=data['userId']).first()
+            user_data_list.append(user.to_dict())
+
+        print('======================================')
+        print(comment_data_list)
+        print(user_data_list)
+        print('======================================')
+        # return {'comments': comment_data_list, 'userInfo': user_data_list}
+
 
 @bp.route('<int:user_id>/profile', methods=['GET'])
 def profile_info(user_id):
@@ -165,7 +182,6 @@ def profile_info(user_id):
 
     for post_info in post:
         post_info_list.append(post_info.to_dict())
-    print(post_info_list)
 
     return {'userInfo': user_info, 'posts': post_info_list}
 

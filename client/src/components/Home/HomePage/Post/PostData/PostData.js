@@ -46,9 +46,11 @@ const PostData = ({ data }) => {
     const history = useHistory()
     const [favorited, setFavorited] = useState(false)
     const [changeIcon, setChangeIcon] = useState(false)
+    const [commentHidden, setCommentHidden] = useState(true)
+
 
     const newComment = async () => {
-        const res = await fetchWithCSRF(`/api/post/${data.id}/${userId}/comment`, {
+        const res = await fetchWithCSRF(`/api/post/${data.id}/${userId}/${1}/comment`, {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(comment)
@@ -81,6 +83,12 @@ const PostData = ({ data }) => {
             }
         }
     }
+
+    useEffect(() => {
+        if (userId === data.userId) {
+            setCommentHidden(false)
+        }
+    }, [])
 
     const handleComment = (e) => {
         e.preventDefault()
@@ -134,6 +142,24 @@ const PostData = ({ data }) => {
         }
     }
 
+    const handleDelete = (e) => {
+        e.preventDefault()
+        deleteComment(e.target.id)
+    }
+
+    const deleteComment = async (commentId) => {
+        const res = await fetchWithCSRF(`/api/post/${data.id}/${userId}/${commentId}/comment`, {
+            method: 'DELETE'
+        })
+        if (res.ok) {
+            const data = await res.json()
+            console.log(data)
+            setCommentUser([...commentUser, data.userInfo])
+            setCommentsData([...commentsData, data.comments])
+        }
+    }
+
+
     const routeChange = () => {
         history.push(`/post/${data.id}`)
     }
@@ -154,6 +180,8 @@ const PostData = ({ data }) => {
     }
 
 
+    console.log(commentUser)
+    console.log(commentsData)
     return (
         <div className='postData'>
             <img src={data.img} alt='Image could not be found' onClick={routeChange} />
@@ -176,6 +204,9 @@ const PostData = ({ data }) => {
                             <div key={index} className='post__comment'>
                                 <CommentUserInfo data={commentUser[commentsData.length - (index + 1)]} />
                                 <CommentData data={commentsData[commentsData.length - (index + 1)]} />
+                                <div className='comments-deleteBtn'>
+                                    <button type='submit' id={commentsData[commentsData.length - (index + 1)]['id']} hidden={hidden} onClick={handleDelete}>Delete</button>
+                                </div>
                             </div>
                         )
                     })}
