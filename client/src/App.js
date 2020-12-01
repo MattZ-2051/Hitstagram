@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { Switch, Route } from 'react-router-dom';
-import { Redirect, useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import { setCsrfFunc } from './store/auth';
 import Home from './components/Home/Home';
 import MyProfile from './components/Profile/MyProfile';
-import NavBar from './components/NavBar/NavBar';
 import Upload from './components/Upload/Upload';
 import EditProfile from './components/Profile/EditProfile';
 import SoloPost from './components/SoloPost/SoloPost';
