@@ -39,8 +39,8 @@ def signup():
     login_user(newUser)
     return {'user': newUser.to_dict()}
 
+
 @bp.route('/logout', methods=['POST'])
 def logout():
-
     logout_user()
     return {'msg': 'You have been logged out'}, 200

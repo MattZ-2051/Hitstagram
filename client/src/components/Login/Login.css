@@ -128,6 +128,11 @@
     background-color: #1DB954;
 }
 
+.github-icon img:hover {
+    cursor: pointer;
+    opacity: 0.9;
+}
+
 .github-icon p {
     background-color: #1DB954;
     color: #191414;
@@ -136,4 +141,8 @@
     padding-top: 50px;
     padding-right: 50px;
     padding-left: 30px;
+}
+
+.github-icon a {
+    background-color: #1DB954;
 }
