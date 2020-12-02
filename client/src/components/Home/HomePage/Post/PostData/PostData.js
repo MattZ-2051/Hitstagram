@@ -7,7 +7,6 @@ import CommentUserInfo from '../CommentUserInfo/CommentUserInfo';
 import { makeStyles } from '@material-ui/core/styles';
 import SentimentSatisfiedIcon from '@material-ui/icons/SentimentSatisfied';
 import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfied';
-import CommentDelete from '../CommentDelete/CommentDelete';
 
 
 const useStyles = makeStyles((theme) => ({
