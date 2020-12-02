@@ -5,7 +5,7 @@ from flask_wtf.csrf import CSRFProtect, generate_csrf
 from starter_app.models import db, User
 from starter_app.api import session, post, users, counts, follow
 from starter_app.config import Config
-from flask_login import LoginManager
+from flask_login import LoginManager, current_user
 
 app = Flask(__name__)
 
@@ -55,4 +55,8 @@ def load_user(id):
 
 @app.route('/api/csrf/restore')
 def restore_csrf():
-    return {"csrf_token": generate_csrf()}
+    if current_user.is_authenticated:
+        user = current_user.to_dict()
+    else:
+        user = None
+    return {'csrf_token': generate_csrf(), 'user': user}

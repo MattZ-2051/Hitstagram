@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
-import { setCsrfFunc } from './store/auth';
+import { loadUser, setCsrfFunc } from './store/auth';
 import Home from './components/Home/Home';
 import MyProfile from './components/Profile/MyProfile';
 import Upload from './components/Upload/Upload';
@@ -16,6 +16,10 @@ import ExplorePage from './components/ExplorePage/ExplorePage';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
     const needLogin = useSelector(state => state.auth.id)
+    console.log(needLogin)
+    if (needLogin === undefined) {
+        return <h1>loading...</h1>
+    }
     return (
         <>
             <Route {...rest} render={(props) => (
@@ -28,12 +32,11 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     )
 }
 
-
-
 function App() {
 
     const [fetchWithCSRF, setFetchWithCSRF] = useState(() => fetch);
     const dispatch = useDispatch()
+    const loadCurrentUser = () => dispatch(loadUser())
 
     useEffect(() => {
         async function restoreCSRF() {
@@ -57,12 +60,14 @@ function App() {
                 });
             }
         }
+        loadCurrentUser()
         restoreCSRF();
+
     }, []);
 
     useEffect(() => {
         dispatch(setCsrfFunc(fetchWithCSRF));
-    }, [fetchWithCSRF, dispatch]);
+    }, [fetchWithCSRF, dispatch])
 
     return (
         <>
