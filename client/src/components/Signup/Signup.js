@@ -38,7 +38,7 @@ const Signup = () => {
                         </div>
                     </div>
                 </form>
-                <NavLink className='login-link' to='/login'>Dont have an account? Sign up!</NavLink>
+                <NavLink className='login-link' to='/login'>Have an account? Log in!</NavLink>
             </div>
         </div>
     )

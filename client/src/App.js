@@ -21,6 +21,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     if (needLogin === undefined) {
         return <Loading />
     }
+
     return (
         <>
             <Route {...rest} render={(props) => (
@@ -84,7 +85,6 @@ function App() {
                 <PrivateRoute path='/profile/img/:id/upload' exact={true} component={ProfileImgUpload} />
                 <PrivateRoute path='/explore' exact={true} component={ExplorePage} />
                 <PrivateRoute path='/welcome' exact={true} component={Welcome} />
-
             </Switch>
         </>
     );
