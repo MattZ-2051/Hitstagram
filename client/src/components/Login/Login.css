@@ -108,6 +108,7 @@
 
 .login-images img {
     width: 60%;
+    object-fit: cover;
 }
 
 .github-icon {
