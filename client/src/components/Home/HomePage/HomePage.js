@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Post from './Post/Post';
 import { posts } from '../../../store/post';
 import './HomePage.css';
+import Loading from '../../Loading/Loading';
 
 const HomePage = () => {
 
@@ -14,7 +15,7 @@ const HomePage = () => {
     }, [])
 
     if (postData === undefined || Object.keys(postData).length === 0) {
-        return <h1>loading...</h1>
+        return <Loading />
     }
 
     return (

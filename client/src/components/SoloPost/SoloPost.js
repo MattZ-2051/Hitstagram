@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import UserData from '../Home/HomePage/Post/UserData/UserData';
 import PostData from '../Home/HomePage/Post/PostData/PostData';
 import NavBar from '../NavBar/NavBar';
+import Loading from '../Loading/Loading';
 
 const SoloPost = () => {
 
@@ -27,7 +28,7 @@ const SoloPost = () => {
     }, [])
 
     if (data === null) {
-        return <h1>loading...</h1>
+        return <Loading />
     }
 
     return (

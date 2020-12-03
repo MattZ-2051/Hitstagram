@@ -5,6 +5,7 @@ import './MyProfile.css'
 import ProfilePost from './ProfilePost';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import NavBar from '../NavBar/NavBar';
+import Loading from '../Loading/Loading';
 
 const Profile = () => {
 
@@ -63,7 +64,7 @@ const Profile = () => {
     }, [])
 
     if (user.length === 0 || Object.keys(posts).length === 0 || counts === null) {
-        return <h1>loading...</h1>
+        return <Loading />
     }
 
     const handleFollow = async () => {

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import Loading from '../Loading/Loading';
 import NavBar from '../NavBar/NavBar';
 import './ExplorePage.css';
 import ExplorePagePost from './ExplorePagePost';
@@ -26,7 +27,7 @@ const ExplorePage = () => {
     }, [])
 
     if (posts === null) {
-        return <h1>loading...</h1>
+        return <Loading />
     }
 
     const allPosts = posts.map((item, index) => {

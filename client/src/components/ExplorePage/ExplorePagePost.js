@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './ExplorePagePost.css';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import Loading from '../Loading/Loading';
 
 const ExplorePagePost = ({ post }) => {
 
@@ -38,7 +39,7 @@ const ExplorePagePost = ({ post }) => {
     }
 
     if (user === null) {
-        return <h1>loading...</h1>
+        return <Loading />
     }
 
     return (
