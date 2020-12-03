@@ -14,6 +14,7 @@ import Profile from './components/Profile/Profile';
 import ProfileImgUpload from './components/Upload/ProfileImgUpload';
 import ExplorePage from './components/ExplorePage/ExplorePage';
 import Loading from './components/Loading/Loading';
+import Welcome from './components/Welcome/Welcome';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
     const needLogin = useSelector(state => state.auth.id)
@@ -82,6 +83,8 @@ function App() {
                 <PrivateRoute path='/my/profile/:id' exact={true} component={MyProfile} />
                 <PrivateRoute path='/profile/img/:id/upload' exact={true} component={ProfileImgUpload} />
                 <PrivateRoute path='/explore' exact={true} component={ExplorePage} />
+                <PrivateRoute path='/welcome' exact={true} component={Welcome} />
+
             </Switch>
         </>
     );
