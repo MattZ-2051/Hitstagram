@@ -46,7 +46,7 @@ const Upload = () => {
             <div className='upload'>
                 <div className='upload-img-preview'>
                     {imgPreview ?
-                        <img src={imgPreview} alt='Upload Image' />
+                        <img src={imgPreview} alt='Not Found' />
                         :
                         <p>Upload Photo</p>
 

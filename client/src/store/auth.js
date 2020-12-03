@@ -1,4 +1,3 @@
-import Cookies from 'js-cookie'
 
 const SET_USER = 'AUTH/SETUSER'
 const REMOVE_USER = 'AUTH/REMOVEUSER'
@@ -55,22 +54,6 @@ export const logout = () => (dispatch, getState) => {
         method: 'POST'
     }).then(() => dispatch(removeUser()));
 }
-
-// function loadUser() {
-//     const authToken = Cookies.get("session");
-//     if (authToken) {
-//         try {
-//             const payload = authToken.split(".")[1];
-//             const decodedPayload = atob(payload);
-//             const payloadObj = JSON.parse(decodedPayload);
-//             const { data } = payloadObj;
-//             return data;
-//         } catch (e) {
-//             Cookies.remove("session");
-//         }
-//     }
-//     return {};
-// }
 
 export const loadUser = () => async dispatch => {
     const res = await fetch('/api/session/load')

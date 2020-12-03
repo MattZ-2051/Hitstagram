@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react';
 import './Post.css'
 import PostData from './PostData/PostData';
 import UserData from './UserData/UserData';

@@ -71,7 +71,7 @@ const PostData = ({ data }) => {
                 headers: { 'Content-Type': 'application/json' }
             })
             if (res.ok) {
-                const data = await res.json()
+                return
             }
         } else {
             const res = await fetchWithCSRF(`/api/post/${data.id}/${userId}/like`, {
@@ -79,7 +79,7 @@ const PostData = ({ data }) => {
             })
 
             if (res.ok) {
-                const data = await res.json();
+                return
             }
         }
     }
@@ -126,7 +126,7 @@ const PostData = ({ data }) => {
 
         fetchLikes()
 
-    }, [])
+    }, [data.id, fetchWithCSRF, userId])
 
     const commentViewChange = () => {
         if (hidden === true) {
@@ -174,7 +174,7 @@ const PostData = ({ data }) => {
 
     return (
         <div className='postData'>
-            <img src={data.img} alt='Image could not be found' onClick={routeChange} />
+            <img src={data.img} alt='Not Found' onClick={routeChange} />
             <div className='postData__caption'>
                 {changeIcon
                     ? <SentimentVerySatisfiedIcon className='postData__star' className={favorited ? classes.likeTrue : classes.likeNone} onClick={handleFavorite} />

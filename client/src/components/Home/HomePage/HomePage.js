@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Post from './Post/Post';
 import { posts } from '../../../store/post';
@@ -12,7 +12,7 @@ const HomePage = () => {
     const postData = useSelector(state => state.posts)
     useEffect(() => {
         dispatch(posts(user))
-    }, [])
+    }, [dispatch, user])
 
     if (postData === undefined || Object.keys(postData).length === 0) {
         return <Loading />

@@ -15,7 +15,6 @@ const ExplorePagePost = ({ post }) => {
 
     const handleMouseHover = () => {
         setHovering(!hovering)
-        console.log(hovering)
     }
 
     useEffect(() => {
@@ -32,7 +31,7 @@ const ExplorePagePost = ({ post }) => {
 
         fetchData()
 
-    }, [])
+    }, [fetchWithCSRF, post.userId])
 
     const routeChange = () => {
         history.push(`/post/${post.id}`)
@@ -44,7 +43,7 @@ const ExplorePagePost = ({ post }) => {
 
     return (
         <div className='explore-post' >
-            <img src={post.img} alt='image not found' onClick={routeChange} onMouseEnter={handleMouseHover} onMouseLeave={handleMouseHover} />
+            <img src={post.img} alt='Not found' onClick={routeChange} onMouseEnter={handleMouseHover} onMouseLeave={handleMouseHover} />
             <div className='img-hover'>
                 {hovering ?
                     <>

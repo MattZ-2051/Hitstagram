@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import './MyProfile.css'
 import ProfilePost from './ProfilePost';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
@@ -48,7 +48,7 @@ const Profile = () => {
 
         fetchFollow()
         fetchData()
-    }, [])
+    }, [fetchWithCSRF, loggedInUserId, userId])
 
     useEffect(() => {
         async function fetchData() {
@@ -61,7 +61,7 @@ const Profile = () => {
             }
         }
         fetchData()
-    }, [])
+    }, [fetchWithCSRF, userId])
 
     if (user.length === 0 || Object.keys(posts).length === 0 || counts === null) {
         return <Loading />
@@ -71,20 +71,19 @@ const Profile = () => {
 
         if (checkFollow === false) {
 
-
             const res = await fetchWithCSRF(`/api/follow/${loggedInUserId}/add/${userId}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' }
             })
             if (res.ok) {
-                const data = await res.json()
+                return
             }
         } else {
             const res = await fetchWithCSRF(`/api/follow/${loggedInUserId}/add/${userId}`, {
                 method: 'DELETE'
             })
             if (res.ok) {
-                const data = res.json()
+                return
             }
         }
     }
@@ -92,7 +91,6 @@ const Profile = () => {
     const handleClick = () => {
         handleFollow()
         setCheckFollow(!checkFollow)
-
     }
 
 
