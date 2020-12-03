@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import './Login.css';
-import { login } from '../../store/auth';
+import { login, setCsrfFunc } from '../../store/auth';
 import { useHistory, NavLink } from 'react-router-dom';
 
 const Login = () => {
@@ -10,6 +10,7 @@ const Login = () => {
     const [password, setPassword] = useState('')
     const dispatch = useDispatch()
     const history = useHistory()
+    const [fetchWithCSRF, setFetchWithCSRF] = useState(() => fetch);
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -22,6 +23,37 @@ const Login = () => {
         dispatch(login('Demo', 'password'))
         history.push('/')
     }
+
+    useEffect(() => {
+        async function restoreCSRF() {
+            const response = await fetch('/api/csrf/restore', {
+                method: 'GET',
+                credentials: 'include'
+            });
+            if (response.ok) {
+                const authData = await response.json();
+                setFetchWithCSRF(() => {
+                    return (resource, init) => {
+                        if (init.headers) {
+                            init.headers['X-CSRFToken'] = authData.csrf_token;
+                        } else {
+                            init.headers = {
+                                'X-CSRFToken': authData.csrf_token
+                            }
+                        }
+                        return fetch(resource, init);
+                    }
+                });
+            }
+        }
+        restoreCSRF();
+
+    }, []);
+
+    useEffect(() => {
+        dispatch(setCsrfFunc(fetchWithCSRF));
+    }, [fetchWithCSRF, dispatch])
+
 
     return (
         <div className='login'>
