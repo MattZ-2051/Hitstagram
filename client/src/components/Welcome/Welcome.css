@@ -1,0 +1,39 @@
+.welcome {
+    display: flex;
+    padding: 0 50px;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    height: 70vh;
+    justify-content: center;
+    background-color: #1DB954;
+    margin-top: 50px;
+    border-radius: 20px;
+}
+
+.welcome__intro p {
+    background-color: #1DB954;
+    line-height: 2em;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.welcome__btn {
+    background-color: #1DB954;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.welcome__btn button{
+    padding: 10px;
+    color: #c0c0c0;
+    font-size: 22px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.welcome__btn button:hover {
+    cursor: pointer;
+    filter: brightness(130%);
+}
