@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { updateProfile } from '../../store/auth';
 import './ProfileImgUpload.css';
+import NavBar from '../NavBar/NavBar';
 
 const ProfileImgUpload = () => {
 
@@ -37,31 +38,33 @@ const ProfileImgUpload = () => {
         }, 1000)
     }
     return (
-        <div className='upload'>
-            <div className='upload-img-preview'>
-                {imgPreview ?
-                    <img src={imgPreview} className='uplaod-img-preview__img' alt='Upload Image' />
-                    :
-                    <p>Upload Photo</p>
+        <>
+            <NavBar />
+            <div className='upload'>
+                <div className='upload-img-preview'>
+                    {imgPreview ?
+                        <img src={imgPreview} className='uplaod-img-preview__img' alt='Upload Image' />
+                        :
+                        <p>Upload Photo</p>
 
-                }
-            </div>
-
-            <form className='upload-form' onSubmit={handleSubmit}>
-
-                <p>Select a photo to upload</p>
-                <input
-                    className='upload-form__input'
-                    onChange={handleChange}
-                    type='file'
-                    name='file'
-                />
-                <div className='upload-form__btn-div'>
-                    <button className='upload-form__btn'>Upload</button>
+                    }
                 </div>
-            </form>
 
-        </div>
+                <form className='upload-form' onSubmit={handleSubmit}>
+
+                    <p>Select a photo to upload</p>
+                    <input
+                        className='upload-form__input'
+                        onChange={handleChange}
+                        type='file'
+                        name='file'
+                    />
+                    <div className='upload-form__btn-div'>
+                        <button className='upload-form__btn'>Upload</button>
+                    </div>
+                </form>
+            </div>
+        </>
     )
 
 }

@@ -1,5 +1,4 @@
 
-
 .login {
     margin: auto;
     height: 100vh;
@@ -84,8 +83,6 @@
     filter: brightness(130%);
     transform: scale(1.1);
 }
-
-
 
 .signup-link {
     padding: 30px;
