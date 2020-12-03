@@ -41,6 +41,10 @@ function App() {
     const loadCurrentUser = () => dispatch(loadUser())
 
     useEffect(() => {
+        loadCurrentUser()
+    }, [])
+
+    useEffect(() => {
         async function restoreCSRF() {
             const response = await fetch('/api/csrf/restore', {
                 method: 'GET',
@@ -62,10 +66,11 @@ function App() {
                 });
             }
         }
-        loadCurrentUser()
         restoreCSRF();
 
     }, []);
+
+
 
     useEffect(() => {
         dispatch(setCsrfFunc(fetchWithCSRF));

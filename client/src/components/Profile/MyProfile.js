@@ -38,7 +38,7 @@ const MyProfile = () => {
             }
         }
         fetchData()
-    }, [])
+    }, [fetchWithCSRF, user.id])
 
     if (counts === null) {
         return <Loading />

@@ -24,27 +24,27 @@ const ExplorePage = () => {
             }
         }
         fetchData()
-    }, [])
+    }, [fetchWithCSRF])
 
     if (posts === null) {
         return <Loading />
     }
 
-    const allPosts = posts.map((item, index) => {
-        if (item.userId !== user) {
-            return (
-                <div className='explore-page__post' key={index}>
-                    <ExplorePagePost post={item} />
-                </div>
-            )
-        }
-    })
-
     return (
         <>
             <NavBar />
             <div className='explore-page'>
-                {allPosts}
+                {posts.map((item, index) => {
+                    if (item.userId !== user) {
+                        return (
+                            <div className='explore-page__post' key={index}>
+                                <ExplorePagePost post={item} />
+                            </div>
+                        )
+                    } else {
+                        return null
+                    }
+                })}
             </div>
         </>
     )

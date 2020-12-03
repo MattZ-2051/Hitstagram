@@ -25,7 +25,7 @@ const SoloPost = () => {
         }
 
         fetchData()
-    }, [])
+    }, [fetchWithCSRF, postId])
 
     if (data === null) {
         return <Loading />

@@ -31,7 +31,7 @@ const EditProfile = () => {
             <div className='edit-page'>
                 <div className='edit-page__info'>
                     <div className='edit-page__profileImg'>
-                        {user.profileImg ? <img className='profile__img__pic' src={user.profileImg} onClick={profileRouteChange} alt='Image not found' /> : <AccountCircleIcon onClick={profileRouteChange} />}
+                        {user.profileImg ? <img className='profile__img__pic' src={user.profileImg} onClick={profileRouteChange} alt='Not found' /> : <AccountCircleIcon onClick={profileRouteChange} />}
                     </div>
                     <div className='edit-page__username'>
                         {user.username}
