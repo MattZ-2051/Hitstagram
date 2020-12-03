@@ -44,3 +44,9 @@ def signup():
 def logout():
     logout_user()
     return {'msg': 'You have been logged out'}, 200
+
+@bp.route('/load')
+def load():
+    if current_user.is_authenticated:
+        return current_user.to_dict()
+    return {}

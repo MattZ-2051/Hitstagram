@@ -21,6 +21,6 @@ const configureStore = () => {
     );
 };
 
-const storeEnhancer = composeEnhancers(applyMiddleware(thunk, logger));
+const storeEnhancer = composeEnhancers(applyMiddleware(thunk));
 
 export default configureStore;

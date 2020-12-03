@@ -5,6 +5,7 @@ const REMOVE_USER = 'AUTH/REMOVEUSER'
 const SET_CSRF = 'AUTH/SETCSRF'
 const UPDATE_USER = 'AUTH/UPDATEUSER';
 const UPDATE_PROFILE_IMG = 'AUTH/UPDATE_PROFILE_IMG';
+const LOAD_USER = 'AUTH/LOAD_USER';
 
 export const newProfileImg = (user) => {
     return {
@@ -13,6 +14,12 @@ export const newProfileImg = (user) => {
     }
 }
 
+export const userLoad = (user) => {
+    return {
+        type: LOAD_USER,
+        user
+    }
+}
 
 export const updateUser = (user) => {
     return {
@@ -49,20 +56,28 @@ export const logout = () => (dispatch, getState) => {
     }).then(() => dispatch(removeUser()));
 }
 
-function loadUser() {
-    const authToken = Cookies.get("session");
-    if (authToken) {
-        try {
-            const payload = authToken.split(".")[1];
-            const decodedPayload = atob(payload);
-            const payloadObj = JSON.parse(decodedPayload);
-            const { data } = payloadObj;
-            return data;
-        } catch (e) {
-            Cookies.remove("session");
-        }
+// function loadUser() {
+//     const authToken = Cookies.get("session");
+//     if (authToken) {
+//         try {
+//             const payload = authToken.split(".")[1];
+//             const decodedPayload = atob(payload);
+//             const payloadObj = JSON.parse(decodedPayload);
+//             const { data } = payloadObj;
+//             return data;
+//         } catch (e) {
+//             Cookies.remove("session");
+//         }
+//     }
+//     return {};
+// }
+
+export const loadUser = () => async dispatch => {
+    const res = await fetch('/api/session/load')
+    if (res.ok) {
+        const user = await res.json()
+        dispatch(userLoad(user))
     }
-    return {};
 }
 
 export const login = (username, password) => {
@@ -132,19 +147,16 @@ export const updateProfile = (formData) => {
     }
 }
 
-const initialState = {
-    ...loadUser(),
-    csrf: fetch,
-}
-
-export default function reducer(state = initialState, action) {
+export default function reducer(state = {}, action) {
     switch (action.type) {
+        case LOAD_USER:
+            return { ...state, ...action.user }
         case SET_USER:
             return { ...state, ...action.user }
         case SET_CSRF:
             return { ...state, csrf: action.cb }
         case REMOVE_USER:
-            return { csrf: state.csrf }
+            return {}
         case UPDATE_USER:
             return { ...state, ...action.user }
         case UPDATE_PROFILE_IMG:
