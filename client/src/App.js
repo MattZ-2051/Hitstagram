@@ -13,12 +13,13 @@ import SoloPost from './components/SoloPost/SoloPost';
 import Profile from './components/Profile/Profile';
 import ProfileImgUpload from './components/Upload/ProfileImgUpload';
 import ExplorePage from './components/ExplorePage/ExplorePage';
+import Loading from './components/Loading/Loading';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
     const needLogin = useSelector(state => state.auth.id)
     console.log(needLogin)
     if (needLogin === undefined) {
-        return <h1>loading...</h1>
+        return <Loading />
     }
     return (
         <>

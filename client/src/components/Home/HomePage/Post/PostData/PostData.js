@@ -7,6 +7,7 @@ import CommentUserInfo from '../CommentUserInfo/CommentUserInfo';
 import { makeStyles } from '@material-ui/core/styles';
 import SentimentSatisfiedIcon from '@material-ui/icons/SentimentSatisfied';
 import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfied';
+import Loading from '../../../../Loading/Loading';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -167,7 +168,7 @@ const PostData = ({ data }) => {
     }
 
     if (commentsData === undefined || commentUser === undefined) {
-        return <h1>loading...</h1>
+        return <Loading />
     }
 
 

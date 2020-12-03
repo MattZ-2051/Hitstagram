@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 import './MyProfile.css';
 import ProfilePost from './ProfilePost';
 import NavBar from '../NavBar/NavBar';
+import Loading from '../Loading/Loading';
 
 
 
@@ -40,7 +41,7 @@ const MyProfile = () => {
     }, [])
 
     if (counts === null) {
-        return <h1>loading...</h1>
+        return <Loading />
     }
 
     return (
