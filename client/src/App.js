@@ -17,7 +17,6 @@ import Loading from './components/Loading/Loading';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
     const needLogin = useSelector(state => state.auth.id)
-    console.log(needLogin)
     if (needLogin === undefined) {
         return <Loading />
     }
