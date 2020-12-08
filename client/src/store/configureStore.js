@@ -4,7 +4,11 @@ import auth from './auth';
 import posts from './post';
 
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+const composeEnhancers =
+    (nodeEnv !== 'production' &&
+        typeof window !== 'undefined' &&
+        window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+    compose;
 
 //reducer - auth
 const reducer = combineReducers({
