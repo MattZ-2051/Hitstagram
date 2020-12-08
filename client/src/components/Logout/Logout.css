@@ -11,5 +11,7 @@
 
 .logout button:hover {
     cursor: pointer;
-    background-color: #eeeeee;
+    background-color: #191414;
+    color: white;
+    filter: brightness(130%);
 }
