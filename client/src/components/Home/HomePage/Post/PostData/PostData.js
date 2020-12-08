@@ -177,9 +177,9 @@ const PostData = ({ data }) => {
             <img src={data.img} alt='Not Found' onClick={routeChange} />
             <div className='postData__caption'>
                 {changeIcon
-                    ? <SentimentVerySatisfiedIcon className='postData__star' className={favorited ? classes.likeTrue : classes.likeNone} onClick={handleFavorite} />
+                    ? <SentimentVerySatisfiedIcon className={favorited ? classes.likeTrue : classes.likeNone} onClick={handleFavorite} />
                     :
-                    <SentimentSatisfiedIcon className='postData__star' className={favorited ? classes.likeTrue : classes.likeNone} onClick={handleFavorite} />
+                    <SentimentSatisfiedIcon className={favorited ? classes.likeTrue : classes.likeNone} onClick={handleFavorite} />
                 }
                 <div className='postData__caption__data'>
                     {data.caption}

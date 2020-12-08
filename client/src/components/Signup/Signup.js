@@ -30,7 +30,7 @@ const Signup = () => {
                         <input type='text' placeholder='username' onChange={(e) => setUsername(e.target.value)} />
                     </div>
                     <div className='signup-form__password'>
-                        <input type='text' type='password' placeholder='password' onChange={(e) => setPassword(e.target.value)} />
+                        <input type='password' placeholder='password' onChange={(e) => setPassword(e.target.value)} />
                     </div>
                     <div className='signup-form__btn'>
                         <div>
