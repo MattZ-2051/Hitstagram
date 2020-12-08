@@ -76,51 +76,51 @@ with app.app_context():
 
     sam_second_commment = Comment(content='asdfasdfasdfasdf sam comment on andoni post', post_id=2, user_id=5)
 
-    comments = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=1, user_id=1)
+    comments = Comment(content='ut aliquip ex ea commodo consequat.', post_id=1, user_id=1)
 
-    comments_1 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=1, user_id=2)
+    comments_1 = Comment(content='ut aliquip ex ea commodo consequat.', post_id=1, user_id=2)
 
-    comments_2 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=1, user_id=3)
+    comments_2 = Comment(content='ut aliquip ex ea commodo consequat.', post_id=1, user_id=3)
 
-    comments_3 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=2, user_id=1)
+    comments_3 = Comment(content='ut aliquip ex ea commodo consequat.', post_id=2, user_id=1)
 
-    comments_4 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=2, user_id=2)
+    comments_4 = Comment(content='ut aliquip ex ea commodo consequat.', post_id=2, user_id=2)
 
-    comments_5 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=2, user_id=3)
+    comments_5 = Comment(content='ut aliquip ex ea commodo consequat.', post_id=2, user_id=3)
 
-    comments_6 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=3, user_id=1)
+    comments_6 = Comment(content='ut aliquip ex ea commodo consequat.', post_id=3, user_id=1)
 
-    comments_7 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=3, user_id=2)
+    comments_7 = Comment(content='ut aliquip ex ea commodo consequat.', post_id=3, user_id=2)
 
-    comments_8 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=3, user_id=4)
+    comments_8 = Comment(content='ut aliquip ex ea commodo consequat.', post_id=3, user_id=4)
 
-    comments_9 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=3, user_id=5)
+    comments_9 = Comment(content='ut aliquip ex ea commodo consequat.', post_id=3, user_id=5)
 
-    comments_10 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=3, user_id=6)
+    comments_10 = Comment(content='ut aliquip ex ea commodo consequat.', post_id=3, user_id=6)
 
-    comments_11 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=4, user_id=1)
+    comments_11 = Comment(content='ut aliquip ex ea commodo consequat.', post_id=4, user_id=1)
 
-    comments_12 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=4, user_id=3)
+    comments_12 = Comment(content='ut aliquip ex ea commodo consequat.', post_id=4, user_id=3)
 
-    comments_13 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=4, user_id=4)
+    comments_13 = Comment(content='ut aliquip ex ea commodo consequat.', post_id=4, user_id=4)
 
-    comments_14 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=4, user_id=5)
+    comments_14 = Comment(content='ut aliquip ex ea commodo consequat.', post_id=4, user_id=5)
 
-    comments_15 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=4, user_id=6)
+    comments_15 = Comment(content='ut aliquip ex ea commodo consequat.', post_id=4, user_id=6)
 
-    comments_16 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=5, user_id=1)
+    comments_16 = Comment(content='ut aliquip ex ea commodo consequat.', post_id=5, user_id=1)
 
-    comments_17 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=5, user_id=2)
+    comments_17 = Comment(content='ut aliquip ex ea commodo consequat.', post_id=5, user_id=2)
 
-    comments_18 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=5, user_id=3)
+    comments_18 = Comment(content='ut aliquip ex ea commodo consequat.', post_id=5, user_id=3)
 
-    comments_19 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=5, user_id=4)
+    comments_19 = Comment(content='ut aliquip ex ea commodo consequat.', post_id=5, user_id=4)
 
-    comments_20 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=5, user_id=5)
+    comments_20 = Comment(content='ut aliquip ex ea commodo consequat.', post_id=5, user_id=5)
 
-    comments_21 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=6, user_id=1)
+    comments_21 = Comment(content='ut aliquip ex ea commodo consequat.', post_id=6, user_id=1)
 
-    comments_22 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=6, user_id=2)
+    comments_22 = Comment(content='ut aliquip ex ea commodo consequat.', post_id=6, user_id=2)
 
     comments_23 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=6, user_id=3)
 
