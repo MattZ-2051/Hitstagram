@@ -14,7 +14,7 @@ const NavBar = () => {
     const userId = useSelector(state => state.auth.id)
 
     const routeChangeProfile = () => {
-        history.push(`my/profile/${userId}`)
+        history.push(`/my/profile/${userId}`)
     }
 
     const routeChangeHome = () => {
