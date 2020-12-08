@@ -76,6 +76,60 @@ with app.app_context():
 
     sam_second_commment = Comment(content='asdfasdfasdfasdf sam comment on andoni post', post_id=2, user_id=5)
 
+    comments = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=1, user_id=1)
+
+    comments_1 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=1, user_id=2)
+
+    comments_2 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=1, user_id=3)
+
+    comments_3 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=2, user_id=1)
+
+    comments_4 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=2, user_id=2)
+
+    comments_5 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=2, user_id=3)
+
+    comments_6 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=3, user_id=1)
+
+    comments_7 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=3, user_id=2)
+
+    comments_8 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=3, user_id=4)
+
+    comments_9 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=3, user_id=5)
+
+    comments_10 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=3, user_id=6)
+
+    comments_11 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=4, user_id=1)
+
+    comments_12 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=4, user_id=3)
+
+    comments_13 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=4, user_id=4)
+
+    comments_14 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=4, user_id=5)
+
+    comments_15 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=4, user_id=6)
+
+    comments_16 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=5, user_id=1)
+
+    comments_17 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=5, user_id=2)
+
+    comments_18 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=5, user_id=3)
+
+    comments_19 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=5, user_id=4)
+
+    comments_20 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=5, user_id=5)
+
+    comments_21 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=6, user_id=1)
+
+    comments_22 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=6, user_id=2)
+
+    comments_23 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=6, user_id=3)
+
+    comments_24 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=6, user_id=4)
+
+    commnets_25 = Comment(content='ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit', post_id=6, user_id=6)
+
+    comments_26 = Comment(content='Nice Cat! but Dogs are better!', post_id=10, user_id=2)
+
     db.session.add(ian)
     db.session.add(pollow)
     db.session.add(scar)
@@ -106,5 +160,32 @@ with app.app_context():
     db.session.add(braydon_commment)
     db.session.add(braydon_second_comment)
     db.session.add(sam_second_commment)
+    db.session.add(comments)
+    db.session.add(comments_1)
+    db.session.add(comments_2)
+    db.session.add(comments_3)
+    db.session.add(comments_4)
+    db.session.add(comments_5)
+    db.session.add(comments_6)
+    db.session.add(comments_7)
+    db.session.add(comments_8)
+    db.session.add(comments_9)
+    db.session.add(comments_10)
+    db.session.add(comments_11)
+    db.session.add(comments_12)
+    db.session.add(comments_13)
+    db.session.add(comments_14)
+    db.session.add(comments_15)
+    db.session.add(comments_16)
+    db.session.add(comments_17)
+    db.session.add(comments_18)
+    db.session.add(comments_19)
+    db.session.add(comments_20)
+    db.session.add(comments_21)
+    db.session.add(comments_22)
+    db.session.add(comments_23)
+    db.session.add(comments_24)
+    db.session.add(commnets_25)
+    db.session.add(comments_26)
 
     db.session.commit()
