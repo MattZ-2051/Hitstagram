@@ -54,9 +54,8 @@
 }
 
 .post__comment {
-    display: grid;
+    display: flex;
     border-bottom: 1px lightgrey solid;
-    grid-template-columns: 0.25fr 2fr 0.5fr;
 }
 
 .comment {

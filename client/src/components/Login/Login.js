@@ -59,19 +59,19 @@ const Login = () => {
         <div className='login'>
             <div className='login-form'>
                 <h1>Login</h1>
-                <form onSubmit={handleLogin}>
+                <form onSubmit={handleDemoLogin}>
                     <div className='login-form__username'>
                         <input type='text' placeholder='Username' onChange={(e) => setUsername(e.target.value)} />
                     </div>
                     <div className='login-form__password'>
-                        <input type='password' placeholder='Password' onChange={(e) => setPassword(e.target.value)} />
+                        <input type='password' placeholder='Password' autoComplete='on' onChange={(e) => setPassword(e.target.value)} />
                     </div>
                     <div className='login-form__btn'>
                         <div>
-                            <button type='submit'>Log in</button>
+                            <button type='submit' onClick={handleLogin}>Log in</button>
                         </div>
                         <div>
-                            <button type='submit' onClick={handleDemoLogin}>Demo User</button>
+                            <button type='submit'>Demo User</button>
                         </div>
                     </div>
                 </form>

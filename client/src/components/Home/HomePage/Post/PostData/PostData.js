@@ -185,13 +185,16 @@ const PostData = ({ data }) => {
                     {data.caption}
                 </div>
             </div>
-            <button className='viewCommentBtn' onClick={commentViewChange} hidden={!hidden}>View all {commentsData.length} comments</button>
+            {commentsData.length === 0 ?
+                <button className='viewCommentBtn' onClick={commentViewChange} hidden={!hidden}>Be the first to comment!</button>
+                : <button className='viewCommentBtn' onClick={commentViewChange} hidden={!hidden}>View all {commentsData.length} comments</button>
+            }
             <button className='closeCommentBtn' onClick={commentViewChange} hidden={hidden}>Close Comments</button>
             <div hidden={hidden}>
                 <div className='comment' >
                     {commentsData.map((item, index) => {
                         return (
-                            <div key={index} className='post__comment'>
+                            <div key={item.id} className='post__comment'>
                                 <CommentUserInfo data={commentUser[commentsData.length - (index + 1)]} />
                                 <CommentData data={commentsData[commentsData.length - (index + 1)]} />
                                 <div className='comments-deleteBtn' >

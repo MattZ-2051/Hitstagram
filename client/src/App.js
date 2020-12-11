@@ -16,9 +16,11 @@ import ExplorePage from './components/ExplorePage/ExplorePage';
 import Welcome from './components/Welcome/Welcome';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
+
     const needLogin = useSelector(state => state.auth.id)
+
     if (needLogin === undefined) {
-        return <Login />
+        return <Redirect to='/login' />
     }
 
     return (
