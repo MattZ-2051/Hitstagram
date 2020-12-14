@@ -14,7 +14,7 @@ Table of Contents
 
 Hitsagram is a full stack application that allows the user to make posts, like and comment on a post, follow other users and edit their profile. The app is based off the social media web app instagram.
 
-
+![Alt Text](documentation/feed-gir.gif)
 
 
 ## Technologies Used
