@@ -1,9 +1,9 @@
-# Hitstagram
-*By Matt Zamora  - visit Hitstagram*
+# Picstagram
+*By Matt Zamora  - visit Picstagram*
 
 Table of Contents
 
-* Hitstagram Overview
+* Picstagram Overview
 * Technologies Used
 * FrontEnd Overview
 * BackendOverview
