@@ -31,27 +31,28 @@ Hitsagram is a full stack application that allows the user to make posts, like a
 ## FrontEnd Overview
 
 ### React
-Using React as the frontend application allowed me to leverage not only React but the tools that come along with it like different types of hooks and Redux
+Using React as the frontend application allowed me to leverage not only React but the tools that come along with it like different types of hooks
 
 ![feed](documentation/feed-gif.mov)
 
 ### Redux
-Redux allowed me to create a better way to manage my state throughout my application. Dispatching various actions allowed for easier access to information for different components
+Redux allowed me to create a better way to manage my state throughout my application. By managing the state through the store I can update multiple components that rely on the same information.
 
-(show some snippets of redux)
 
 ## Material UI Icons
-Material UI Icons ate used for the navigation bar
+Material UI Icons are used for the navigation bar Icons. 
 
 ## CSS
-Custon CSS  styling is used for the styling throughout the page
+CSS styling is used for the styling throughout the page. Using grids makes it easier to space the profile and exlore page.
 
 ## Backend Overview
 
 ### Flask
-The python web framework flask is used for the backend.  Flask is a great lightweight framework to use because it allows for easy integration with a PostgreSQL database and SQLAlchemy ORM. Flask is a great framework to handle the responsibilities for sending data to the front-end.
+The python web framework flask is used for the backend.  Flask is a great lightweight framework to use because it allows for easy integration with PostgreSQL and SQLAlchemy ORM. For a smaller application it is an effective framework to use becauase it isn't to difficult to set up and comes with some handy tools like flask-login.
 
 ### PostgreSQL
-PostgreSQL was a great RDBMS to use. Its fairly simple to integrate it with the Flask framework and store different reltionships between models
+PostgreSQL was a great RDBMS to use. Its fairly simple to integrate it with the Flask framework and store different reltionships between models.
 
 ## Conclusion
+
+
