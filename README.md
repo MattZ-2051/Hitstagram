@@ -46,6 +46,8 @@ Material UI Icons are used for the navigation bar Icons.
 ## CSS
 CSS styling is used for the styling throughout the page. Using grids makes it easier to space the profile and exlore page.
 
+![React image](documentation/explore-page.png)
+
 ## Backend Overview
 
 ### Flask
