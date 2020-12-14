@@ -14,6 +14,9 @@ Table of Contents
 
 Hitsagram is a full stack application that allows the user to make posts, like and comment on a post, follow other users and edit their profile. The app is based off the social media web app instagram.
 
+
+<div style="width:360px;max-width:100%;"><div style="height:0;padding-bottom:47.22%;position:relative;"><iframe width="360" height="170" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameBorder="0" src="https://imgflip.com/embed/4q99vw"></iframe></div><p><a href="https://imgflip.com/gif/4q99vw"></a></p></div> 
+
 ## Technologies Used
 
 * Frontend
@@ -32,9 +35,6 @@ Hitsagram is a full stack application that allows the user to make posts, like a
 ### React
 Using React as the frontend application allowed me to leverage Redux and the different hooks that are available. I managed state throughout the application using the useState hook and handled asynchronous calls to the backend with the useEffect hook.
 ![React image](documentation/front-end.png)
-
-<div style="width:360px;max-width:100%;"><div style="height:0;padding-bottom:47.22%;position:relative;"><iframe width="360" height="170" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameBorder="0" src="https://imgflip.com/embed/4q99vw"></iframe></div><p><a href="https://imgflip.com/gif/4q99vw"></a></p></div> 
-
 
 ### Redux
 Redux allowed me to create a better way to manage my state throughout my application. By managing the state through the store I can update multiple components that rely on the same information.
