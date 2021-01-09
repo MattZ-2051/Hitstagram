@@ -1,44 +1,44 @@
 .user {
-    display: flex;
-    align-content: center;
-    padding: 15px 0;
-    height: 50px;
-    background-color: #C0C0C0;
-    color: #191414;
-    border-radius: 10px 10px 0 0;
+  display: flex;
+  align-content: center;
+  padding: 15px 0;
+  height: 50px;
+  background-color: white;
+  color: #191414;
+  border-radius: 10px 10px 0 0;
 }
 
 .user * {
-    background-color: #C0C0C0;
+  background-color: white;
 }
 
 .user__profileImg {
-    padding-right: 15px;
-    padding-left: 15px;
-    background-color: #C0C0C0;
+  padding-right: 15px;
+  padding-left: 15px;
+  background-color: white;
 }
 
 .user__username {
-    font-size: 32px;
-    font-weight: 500;
-    padding-top: 10px;
-    width: 60%;
-    justify-content: center;
+  font-size: 32px;
+  font-weight: 500;
+  padding-top: 10px;
+  width: 60%;
+  justify-content: center;
 }
 
 .user__profileImg img {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
-.user__profileImg__default, .user__profileImg img:hover {
-    transform: scale(1.2);
-    cursor: pointer;
+.user__profileImg__default,
+.user__profileImg img:hover {
+  cursor: pointer;
 }
 
 .user__profileImg__default {
-    font-size: 60px !important;
-    color: #191414;
+  font-size: 60px !important;
+  color: #191414;
 }

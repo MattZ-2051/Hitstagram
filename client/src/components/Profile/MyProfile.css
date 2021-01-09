@@ -1,130 +1,131 @@
 .profile {
-    display: flex;
-    margin-right: 20%;
-    margin-left: 20%;
-    border-bottom: #1DB954 1px solid;
-    padding-bottom: 30px;
-    color: #eeeeee;
+  display: flex;
+  margin-right: 20%;
+  margin-left: 20%;
+  border-bottom: #568ea3 1px solid;
+  padding-bottom: 30px;
+  color: black;
 }
 
 .profile__img {
-    padding: 30px;
+  padding: 30px;
 }
 
 .profile__img img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .profile__img__pic:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .profile__username {
-    font-size: 40px;
-    align-self: center;
+  font-size: 40px;
+  align-self: center;
 }
 
 .profile__username-edit {
-    display: flex;
-    padding-top: 30px;
+  display: flex;
+  padding-top: 30px;
 }
 
 .profile__edit {
-    height: 20px;
-    align-self: center;
+  height: 20px;
+  align-self: center;
 }
 
 .profile__editBtn {
-    border-radius: 5px;
-    font-size: 18px;
-    border: none;
-    background-color: #1DB954;
-    padding: 5px;
-    color: #191414;
-    font-weight: 700;
+  border-radius: 5px;
+  font-size: 18px;
+  border: none;
+  background-color: #568ea3;
+  padding: 5px;
+  color: black;
+  font-weight: 700;
 }
 
 .profile__editBtn:hover {
-    cursor: pointer;
-    filter: brightness(120%);
+  cursor: pointer;
+  filter: brightness(120%);
 }
 
 .profile__img__pic {
-    font-size: 10rem !important;
+  font-size: 10rem !important;
 }
 
 .profile__posts {
-    display: grid;
-    margin-right: 20%;
-    margin-left: 20%;
-    padding-top: 30px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-row-gap: .25rem;
-    grid-column-gap: .25rem;
-    margin-top: 20px;
-    padding-bottom: 53px;
-    cursor: pointer;
+  display: grid;
+  margin-right: 20%;
+  margin-left: 20%;
+  padding-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-row-gap: 0.25rem;
+  grid-column-gap: 0.25rem;
+  margin-top: 20px;
+  padding-bottom: 53px;
+  cursor: pointer;
 }
 
 .counts {
-    display: flex;
-    padding-top: 15px;
+  display: flex;
+  padding-top: 15px;
 }
 
 .counts__followers span {
-    font-weight: 900;
-    padding-left: 25px;
+  font-weight: 900;
+  padding-left: 25px;
 }
 
 .counts__following span {
-    font-weight: 900;
-    padding-right: 15px;
-    padding-left: 25px;
+  font-weight: 900;
+  padding-right: 15px;
+  padding-left: 25px;
 }
 
 .counts__post span {
-    font-weight: 700;
-    padding-left: 60px;
+  font-weight: 700;
+  padding-left: 60px;
 }
 
-.counts__followers, .counts__post, .counts__following {
-    font-size: 20px;
+.counts__followers,
+.counts__post,
+.counts__following {
+  font-size: 20px;
 }
 
 .profile__name {
-    padding-top: 15px;
+  padding-top: 15px;
 }
 
 .profile__bio {
-    padding-top: 15px;
-    display: flex;
-    align-items: center;
-
+  padding-top: 15px;
+  display: flex;
+  align-items: center;
 }
 
 .profile__bio span {
-    font-size: 20px;
-    padding-right: 15px;
-    font-weight: 200;
+  font-size: 20px;
+  padding-right: 15px;
+  font-weight: 200;
 }
 
 .profile__name span {
-    font-size: 20px;
-    padding-right: 15px;
-    font-weight: 200;
+  font-size: 20px;
+  padding-right: 15px;
+  font-weight: 200;
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 30px ;
-    padding-left: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 30px;
+  padding-left: 50px;
 }
 
 .counts__followers {
-    padding-top: 15px;
+  padding-top: 15px;
 }

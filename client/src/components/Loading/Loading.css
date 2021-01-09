@@ -1,16 +1,16 @@
 .loading-container {
-    width: 180px;
-    height: 80vh;
-    display: flex;
-    justify-content: space-around;
-    margin: 0 auto;
-    align-items: center;
+  width: 180px;
+  height: 80vh;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  align-items: center;
 }
 
 .loading-circle {
-    display: block;
-    width: 40px;
-    height: 40px;
-    background-color: #1DB954;
-    border-radius: 50%;
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-color: #568ea3;
+  border-radius: 50%;
 }
