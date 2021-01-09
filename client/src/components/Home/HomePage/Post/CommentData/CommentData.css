@@ -1,34 +1,35 @@
-.comments-div, .comments-div * {
-    background-color: #C0C0C0;
-    color: black;
+.comments-div,
+.comments-div * {
+  background-color: white;
+  color: black;
 }
 
 .comments-div {
-    width: 80%;
+  width: 80%;
 }
 
 .comments {
-    display: flex;
-    padding-left: 15px;
-    padding-top: 15px;
-    font-size: 15px;
+  display: flex;
+  padding-left: 15px;
+  padding-top: 15px;
+  font-size: 15px;
 }
 
 .comments-deleteBtn {
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 30px;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 30px;
 }
 
 .comments-deleteBtn button {
-    height: 20px;
-    align-self: center;
-    border-radius: 5px;
-    border: none;
+  height: 20px;
+  align-self: center;
+  border-radius: 5px;
+  border: none;
 }
 
 .comments-deleteBtn button:hover {
-    cursor: pointer;
-    background-color: #1DB954;
-    filter: brightness(120%);
+  cursor: pointer;
+  background-color: #568ea3;
+  filter: brightness(120%);
 }

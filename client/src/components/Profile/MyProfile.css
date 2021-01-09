@@ -4,7 +4,7 @@
   margin-left: 20%;
   border-bottom: #568ea3 1px solid;
   padding-bottom: 30px;
-  color: #eeeeee;
+  color: black;
 }
 
 .profile__img {
@@ -43,7 +43,7 @@
   border: none;
   background-color: #568ea3;
   padding: 5px;
-  color: #191414;
+  color: white;
   font-weight: 700;
 }
 
