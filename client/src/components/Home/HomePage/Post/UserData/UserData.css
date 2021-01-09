@@ -35,7 +35,6 @@
 
 .user__profileImg__default,
 .user__profileImg img:hover {
-  transform: scale(1.2);
   cursor: pointer;
 }
 
