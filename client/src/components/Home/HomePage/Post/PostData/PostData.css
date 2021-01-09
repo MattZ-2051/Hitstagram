@@ -77,6 +77,10 @@
   padding-left: 15px;
 }
 
+.post__comment__input:focus {
+  outline: none;
+}
+
 .comment-form {
   background-color: #eeeeee;
 }
