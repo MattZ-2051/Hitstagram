@@ -18,6 +18,11 @@
   background-color: #568ea3;
 }
 
+.navbar__name:hover,
+.navbar__name p {
+  cursor: pointer;
+}
+
 .navbar__name {
   display: flex;
   margin-left: 100px;
