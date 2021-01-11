@@ -54,8 +54,9 @@
 }
 
 .post__comment {
-  display: flex;
+  display: grid;
   border-bottom: 1px lightgrey solid;
+  grid-template-columns: 20% 70% 10%;
 }
 
 .comment {
@@ -116,4 +117,8 @@
 .closeCommentBtn:hover {
   cursor: pointer;
   filter: brightness(120%);
+}
+
+.comment-form-div {
+  border-radius: 50%;
 }

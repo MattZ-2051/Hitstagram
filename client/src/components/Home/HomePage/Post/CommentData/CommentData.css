@@ -18,11 +18,10 @@
 .comments-deleteBtn {
   display: flex;
   justify-content: flex-end;
-  padding-right: 30px;
+  padding-right: 15px;
 }
 
 .comments-deleteBtn button {
-  height: 20px;
   align-self: center;
   border-radius: 5px;
   border: none;

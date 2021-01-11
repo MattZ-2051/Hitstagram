@@ -1,7 +1,9 @@
 .userComment {
+  display: flex;
   background-color: white;
   padding: 15px 0;
   padding-left: 15px;
+  justify-content: flex-start;
   font-weight: 700;
   color: black;
 }
