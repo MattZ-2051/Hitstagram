@@ -59,6 +59,11 @@
   height: 100px;
 }
 
+.edit-form__input:focus,
+.edit-form__input-bio:focus {
+  outline: none;
+}
+
 .edit-form__submitBtn {
   padding: 30px 0;
 }
