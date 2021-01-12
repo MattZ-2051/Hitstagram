@@ -94,3 +94,7 @@
 .upload-form__caption input:focus {
   outline: none;
 }
+/*
+input[type="file"] {
+  display: none;
+} */
