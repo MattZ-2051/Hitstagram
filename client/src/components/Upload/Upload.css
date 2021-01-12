@@ -67,14 +67,14 @@
 }
 
 .upload-form__btn-div {
-  padding-top: 30px;
+  padding-top: 15px;
   padding-bottom: 15px;
 }
 
 .upload-form__caption {
   display: flex;
   flex-direction: column;
-  padding: 30px 0;
+  padding: 15px 0;
 }
 
 .upload-form__caption label {
@@ -83,7 +83,7 @@
 }
 
 .upload-form__caption input {
-  height: 100px;
+  height: 70px;
   border-radius: 5px;
   border: lightgrey 2px solid;
   font-size: 16px;
