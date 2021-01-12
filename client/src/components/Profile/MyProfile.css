@@ -129,3 +129,13 @@
 .counts__followers {
   padding-top: 15px;
 }
+
+.upload-modal {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+}
+
+.upload-form__input {
+  color: transparent;
+}

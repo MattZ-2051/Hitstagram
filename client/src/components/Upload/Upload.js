@@ -18,7 +18,8 @@ const Upload = () => {
     setImgPreview(URL.createObjectURL(e.target.files[0]));
   };
 
-  const handleCancel = () => {
+  const handleCancel = (e) => {
+    e.preventDefault();
     setPhotoFile(null);
     setImgPreview(null);
   };
@@ -75,12 +76,10 @@ const Upload = () => {
           <div className="upload-form__btn-div">
             <button className="upload-form__btn">Upload</button>
           </div>
-        </form>
-        <div className="cancel-form__div">
           <button className="cancel-form__btn" onClick={handleCancel}>
             Cancel
           </button>
-        </div>
+        </form>
       </div>
     </>
   );

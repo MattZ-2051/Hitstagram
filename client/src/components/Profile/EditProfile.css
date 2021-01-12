@@ -2,6 +2,7 @@
   width: 450px;
   margin: 0 auto;
   margin-top: 8%;
+  border-radius: 50%;
 }
 
 .edit-page * {
@@ -18,7 +19,7 @@
 }
 
 .edit-page__profileImg {
-  padding: 0 15px;
+  padding-left: 15px;
 }
 
 .edit-page__profileImg img {
@@ -48,7 +49,7 @@
 
 .edit-form__input input {
   border-radius: 5px;
-  border: 1px white solid;
+  border: 1px #568ea3 solid;
   width: 100%;
   height: 30px;
   font-size: 18px;
@@ -59,8 +60,8 @@
   height: 100px;
 }
 
-.edit-form__input:focus,
-.edit-form__input-bio:focus {
+.edit-form__input input:focus,
+.edit-form__input-bio input:focus {
   outline: none;
 }
 
@@ -74,7 +75,13 @@
   background-color: #568ea3;
   border: none;
   height: 30px;
-  font-size: 18px;
+  font-size: 16px;
+  color: white;
+  font-weight: 700;
+}
+
+.edit-form__submitBtn div {
+  padding-top: 20px;
 }
 
 .edit-form__submitBtn button:hover {
@@ -89,4 +96,23 @@
   width: 50%;
   align-self: center;
   justify-content: center;
+}
+
+.modal-btn button {
+  border-radius: 5px;
+  font-size: 18px;
+  border: none;
+  background-color: #568ea3;
+  padding: 5px;
+  color: white;
+  font-weight: 700;
+}
+
+.modal-btn button:hover {
+  cursor: pointer;
+  filter: brightness(120%);
+}
+
+.modal-btn button:focus {
+  outline: none;
 }
