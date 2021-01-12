@@ -61,6 +61,7 @@ const Upload = () => {
           <input
             className="upload-form__input"
             onChange={handleChange}
+            id="file-input"
             type="file"
             name="file"
           />
@@ -74,7 +75,13 @@ const Upload = () => {
             />
           </div>
           <div className="upload-form__btn-div">
-            <button className="upload-form__btn">Upload</button>
+            {imgPreview ? (
+              <button className="upload-form__btn" onClick={handleSubmit}>
+                Confirm
+              </button>
+            ) : (
+              <button className="upload-form__btn">Upload</button>
+            )}
           </div>
           <button className="cancel-form__btn" onClick={handleCancel}>
             Cancel

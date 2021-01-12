@@ -51,7 +51,7 @@ export function ProfilePhotoModal() {
       <div className="upload-modal">
         <form className="upload-form" onSubmit={handleSubmit}>
           <p>Changle Profile Picture</p>
-          <label for="file" id="file-input">
+          <label htmlFor="file" id="file-input">
             <input
               className="upload-form__input"
               onChange={handleChange}
@@ -129,8 +129,6 @@ const MyProfile = () => {
   if (counts === null) {
     return <Loading />;
   }
-
-  console.log(open);
 
   return (
     <>

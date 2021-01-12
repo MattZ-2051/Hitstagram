@@ -5,3 +5,7 @@
   margin: 0;
   background-color: #dddddd;
 }
+
+*:focus {
+  outline: none;
+}
