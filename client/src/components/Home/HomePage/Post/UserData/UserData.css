@@ -5,7 +5,9 @@
   height: 50px;
   background-color: white;
   color: #191414;
-  border-radius: 10px 10px 0 0;
+  border-top: 1px solid lightgray;
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray;
 }
 
 .user * {

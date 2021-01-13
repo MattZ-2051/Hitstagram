@@ -1,6 +1,7 @@
 .postData {
   width: 100%;
   color: white;
+  border: 1px lightgray solid;
 }
 
 .postData * {
@@ -70,25 +71,22 @@
 
 .post__comment__input {
   border: none;
-  background-color: #eeeeee;
   color: black;
-  font-size: 16px;
-  width: 90%;
+  font-size: 14px;
   height: 40px;
-  padding-left: 15px;
+  width: 100%;
+  border-right: 1px solid lightgray;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
 .post__comment__input:focus {
   outline: none;
 }
 
-.comment-form {
-  background-color: #eeeeee;
-}
-
 .viewCommentBtn {
   width: 100%;
-  border-bottom: 1px none;
   height: 30px;
   background-color: white;
   color: #191414;
@@ -98,7 +96,7 @@
   font-weight: 700;
   border: none;
   border-radius: 0 0 10px 10px;
-  border-top: 1px solid grey;
+  border-top: 1px solid lightgray;
 }
 
 .closeCommentBtn {
@@ -119,7 +117,6 @@
 .viewCommentBtn:hover,
 .closeCommentBtn:hover {
   cursor: pointer;
-  filter: brightness(120%);
 }
 
 .comment-form-div {
