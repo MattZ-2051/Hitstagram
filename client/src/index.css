@@ -1,6 +1,11 @@
 /* TODO Add site wide styles */
+@import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
+
 * {
   margin: 0;
-  background-color: #dddddd;
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: whitesmoke;
+}
+
+*:focus {
+  outline: none;
 }

@@ -12,7 +12,7 @@ import Loading from "../../../../Loading/Loading";
 const useStyles = makeStyles((theme) => ({
   likeTrue: {
     fill: "#568ea3",
-    paddingRight: "30px",
+    paddingRight: "10px",
     marginRight: "5px",
     fontSize: "28px",
     paddingTop: "5px",
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
   likeNone: {
     fill: "#191414",
-    paddingRight: "30px",
+    paddingRight: "10px",
     marginRight: "5px",
     fontSize: "28px",
     paddingTop: "5px",
