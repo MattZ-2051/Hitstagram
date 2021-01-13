@@ -21,6 +21,7 @@
 }
 
 .user__username {
+  display: flex;
   font-size: 32px;
   font-weight: 500;
   padding-top: 10px;
