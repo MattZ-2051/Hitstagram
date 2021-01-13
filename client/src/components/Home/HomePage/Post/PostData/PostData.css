@@ -90,7 +90,7 @@
   width: 100%;
   border-bottom: 1px none;
   height: 30px;
-  background-color: #568ea3;
+  background-color: white;
   color: #191414;
   text-align: center;
   padding-left: 15px;
@@ -98,19 +98,22 @@
   font-weight: 700;
   border: none;
   border-radius: 0 0 10px 10px;
+  border-top: 1px solid grey;
 }
 
 .closeCommentBtn {
   width: 100%;
   border-bottom: 1px none;
   height: 30px;
-  background-color: #568ea3;
+  background-color: white;
   color: #191414;
   text-align: center;
   padding-left: 15px;
   font-size: 12px;
   font-weight: 700;
   border: none;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
 }
 
 .viewCommentBtn:hover,
