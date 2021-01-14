@@ -49,7 +49,7 @@
 
 .edit-form__input input {
   border-radius: 5px;
-  border: 1px #568ea3 solid;
+  border: 1px lightgrey solid;
   width: 100%;
   height: 30px;
   font-size: 18px;
@@ -72,12 +72,11 @@
 .edit-form__submitBtn button {
   border-radius: 5px;
   width: 100%;
-  background-color: #568ea3;
-  border: none;
+  border: 1px solid lightblue;
   height: 30px;
   font-size: 16px;
-  color: white;
-  font-weight: 700;
+  color: black;
+  font-weight: 200;
 }
 
 .edit-form__submitBtn div {
@@ -86,7 +85,7 @@
 
 .edit-form__submitBtn button:hover {
   cursor: pointer;
-  filter: brightness(130%);
+  background-color: lightblue;
 }
 
 .edit-page__username {
@@ -100,17 +99,16 @@
 
 .modal-btn button {
   border-radius: 5px;
-  font-size: 18px;
+  font-size: 16px;
   border: none;
-  background-color: #568ea3;
-  padding: 5px;
-  color: white;
-  font-weight: 700;
+  background-color: lightblue;
+  padding: 7px;
+  color: black;
 }
 
 .modal-btn button:hover {
   cursor: pointer;
-  filter: brightness(120%);
+  filter: brightness(90%);
 }
 
 .modal-btn button:focus {

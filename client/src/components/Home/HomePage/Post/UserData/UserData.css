@@ -5,7 +5,9 @@
   height: 50px;
   background-color: white;
   color: #191414;
-  border-radius: 10px 10px 0 0;
+  border-top: 1px solid lightgray;
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray;
 }
 
 .user * {
@@ -19,16 +21,17 @@
 }
 
 .user__username {
+  display: flex;
   font-size: 32px;
   font-weight: 500;
-  padding-top: 10px;
-  width: 60%;
+  padding-top: 5px;
+  width: 67%;
   justify-content: center;
 }
 
 .user__profileImg img {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   object-fit: cover;
   border-radius: 50%;
 }

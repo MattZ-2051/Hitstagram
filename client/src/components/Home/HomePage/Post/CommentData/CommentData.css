@@ -23,8 +23,11 @@
 .comments-deleteBtn button {
   align-self: center;
   border-radius: 5px;
+  font-size: 12px;
   border: none;
-  background-color: #568ea3;
+  padding: 5px;
+  background-color: lightskyblue;
+  font-weight: 700;
 }
 
 .comments-deleteBtn button:hover {

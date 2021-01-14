@@ -6,7 +6,7 @@
   padding: 15px;
   background-color: white;
   align-items: center;
-  border-bottom: 1px grey solid;
+  border-bottom: 1px lightgrey solid;
 }
 
 .navbar__buttons {
@@ -60,7 +60,6 @@
 .exploreIcon:hover,
 .homeIcon:hover {
   cursor: pointer;
-  opacity: 0.9;
   transform: scale(1.1);
 }
 

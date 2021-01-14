@@ -11,7 +11,7 @@ import Loading from "../../../../Loading/Loading";
 
 const useStyles = makeStyles((theme) => ({
   likeTrue: {
-    fill: "#568ea3",
+    fill: "lightskyblue",
     paddingRight: "10px",
     marginRight: "5px",
     fontSize: "28px",
