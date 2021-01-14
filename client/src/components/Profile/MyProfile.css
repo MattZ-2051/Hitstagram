@@ -2,7 +2,7 @@
   display: flex;
   margin-right: 20%;
   margin-left: 20%;
-  border-bottom: #568ea3 1px solid;
+  border-bottom: lightblue 1px solid;
   padding-bottom: 30px;
   color: black;
 }
@@ -39,12 +39,11 @@
 
 .profile__editBtn {
   border-radius: 5px;
-  font-size: 18px;
+  font-size: 16px;
   border: none;
-  background-color: #568ea3;
+  background-color: lightblue;
   padding: 5px;
   color: black;
-  font-weight: 700;
 }
 
 .profile__editBtn:hover {
@@ -128,14 +127,4 @@
 
 .counts__followers {
   padding-top: 15px;
-}
-
-.upload-modal {
-  position: absolute;
-  top: 40%;
-  left: 40%;
-}
-
-.upload-form__input {
-  color: transparent;
 }

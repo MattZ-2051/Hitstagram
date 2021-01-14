@@ -79,6 +79,7 @@
   margin: 0;
   padding: 0;
   text-align: center;
+  border-top: 1px lightgrey solid;
 }
 
 .post__comment__input:focus {
