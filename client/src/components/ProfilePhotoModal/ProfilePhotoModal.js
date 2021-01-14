@@ -5,6 +5,7 @@ import Modal from "@material-ui/core/Modal";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import "./ProfilePhotoModal.css";
 import { makeStyles } from "@material-ui/core/styles";
+import { updateProfile } from "../../store/auth";
 
 const useStyles = makeStyles((theme) => ({
   input: {
@@ -25,16 +26,17 @@ function ProfilePhotoModal() {
   const [imgPreview, setImgPreview] = useState(null);
 
   const handleChange = (e) => {
-    setPhotoFile(e.target.files[0]);
     setImgPreview(URL.createObjectURL(e.target.files[0]));
   };
 
   const postPhoto = async (formData) => {
-    //   dispatch(updateProfile(formData));
+    dispatch(updateProfile(formData));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setPhotoFile(e.target.files[0]);
+
     const formData = new FormData();
     formData.append("file", photoFile);
     await postPhoto(formData);
@@ -64,6 +66,7 @@ function ProfilePhotoModal() {
             id="contained-button-file"
             multiple
             type="file"
+            onChange={handleSubmit}
           />
 
           <div className="upload-modal__btn-div">
