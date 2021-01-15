@@ -33,6 +33,10 @@
   object-fit: cover;
 }
 
+.edit-page__profileImg img:hover {
+  cursor: initial !important;
+}
+
 .edit-form {
   display: flex;
   justify-content: flex-start;
