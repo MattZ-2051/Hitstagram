@@ -16,6 +16,7 @@ const Upload = () => {
   const handleChange = (e) => {
     setPhotoFile(e.target.files[0]);
     setImgPreview(URL.createObjectURL(e.target.files[0]));
+    console.log(photoFile);
   };
 
   const handleCancel = (e) => {
@@ -33,6 +34,7 @@ const Upload = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(photoFile);
     const formData = new FormData();
     const obj = { caption: caption };
     const json = JSON.stringify(obj);

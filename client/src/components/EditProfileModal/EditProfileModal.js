@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import { userUpdate } from "../../store/auth";
 import { useHistory } from "react-router-dom";
+import "./EditProfileModals.css";
 
 export default function ProfilePhotoModal() {
   const [open, setOpen] = useState(false);
@@ -30,6 +31,8 @@ export default function ProfilePhotoModal() {
 
   const handleClose = () => {
     setOpen(false);
+    setBio("");
+    setFullName("");
   };
 
   const body = (

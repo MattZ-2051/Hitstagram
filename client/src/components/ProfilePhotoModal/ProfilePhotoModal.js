@@ -21,12 +21,13 @@ function ProfilePhotoModal() {
   const user = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const [photoFile, setPhotoFile] = useState(null);
-  const userId = useSelector((state) => state.auth.id);
-  const history = useHistory();
   const [imgPreview, setImgPreview] = useState(null);
 
   const handleChange = (e) => {
+    console.log(e.target);
     setImgPreview(URL.createObjectURL(e.target.files[0]));
+    setPhotoFile(e.target.files[0]);
+    console.log(photoFile);
   };
 
   const postPhoto = async (formData) => {
@@ -35,14 +36,13 @@ function ProfilePhotoModal() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setPhotoFile(e.target.files[0]);
-
+    console.log(photoFile);
     const formData = new FormData();
     formData.append("file", photoFile);
     await postPhoto(formData);
 
     setTimeout(() => {
-      history.push(`/my/profile/${userId}`);
+      setOpen(false);
     }, 1000);
   };
 
@@ -53,6 +53,8 @@ function ProfilePhotoModal() {
   const handleClose = (e) => {
     e.preventDefault();
     setOpen(false);
+    setPhotoFile(null);
+    setImgPreview(null);
   };
 
   const body = (
@@ -60,18 +62,29 @@ function ProfilePhotoModal() {
       <div className="upload-modal">
         <form className="upload-modal__form" onSubmit={handleSubmit}>
           <p>Changle Profile Picture</p>
+          {imgPreview ? (
+            <div className="profile__img-modal">
+              <img className="profile__img__pic" src={imgPreview} alt="" />
+            </div>
+          ) : null}
+
           <input
-            accept="image/*"
             className={classes.input}
             id="contained-button-file"
             multiple
             type="file"
-            onChange={handleSubmit}
+            onChange={handleChange}
           />
 
           <div className="upload-modal__btn-div">
             <label htmlFor="contained-button-file">
-              <span className="upload-modal__btn-span">Upload</span>
+              {photoFile ? (
+                <span className="upload-modal__btn-span" onClick={handleSubmit}>
+                  Submit
+                </span>
+              ) : (
+                <span className="upload-modal__btn-span">Upload</span>
+              )}
             </label>
             <button className="upload-modal__btn" onClick={handleClose}>
               Cancel
