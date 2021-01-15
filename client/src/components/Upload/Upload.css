@@ -7,7 +7,7 @@
   flex-direction: column;
   align-items: center;
   margin: auto;
-  margin-top: 8%;
+  margin-top: 3%;
   border: 1px solid lightgrey;
 }
 
@@ -18,22 +18,18 @@
 .upload-form {
   align-items: center;
   padding-bottom: 30px;
+  width: 80%;
 }
 
 .upload img {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   object-fit: cover;
   padding-top: 30px;
 }
 
-.upload-img-preview p {
+.upload__title {
   padding-top: 30px;
-  font-size: 30px;
-}
-
-.upload-form p {
-  padding-top: 50px;
   padding-bottom: 15px;
   text-align: center;
   font-size: 24px;
@@ -92,7 +88,25 @@
 .upload-form__caption input:focus {
   outline: none;
 }
-/*
+
 input[type="file"] {
   display: none;
-} */
+}
+
+.upload__btn-span {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  height: 30px;
+  border-radius: 5px;
+  background-color: lightblue;
+  color: #191414;
+  font-size: 20px;
+  border: none;
+  padding: 1px 0;
+}
+
+.upload__btn-span:hover {
+  cursor: pointer;
+  filter: brightness(90%);
+}

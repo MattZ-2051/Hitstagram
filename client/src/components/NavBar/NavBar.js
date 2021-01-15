@@ -11,6 +11,8 @@ import { useSelector } from "react-redux";
 const NavBar = () => {
   const history = useHistory();
   const userId = useSelector((state) => state.auth.id);
+  const location = history.location.pathname.split("/")[1];
+  console.log(location);
 
   const routeChangeProfile = () => {
     history.push(`/my/profile/${userId}`);

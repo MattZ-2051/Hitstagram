@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
 import Modal from "@material-ui/core/Modal";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import "./ProfilePhotoModal.css";

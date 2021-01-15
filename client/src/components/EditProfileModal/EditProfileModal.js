@@ -21,10 +21,6 @@ export default function ProfilePhotoModal() {
     setOpen(false);
   };
 
-  const profileRouteChange = () => {
-    // history.push(`/profile/img/${user.id}/upload`);
-  };
-
   const handleOpen = () => {
     setOpen(true);
   };
@@ -44,11 +40,10 @@ export default function ProfilePhotoModal() {
               <img
                 className="profile__img__pic"
                 src={user.profileImg}
-                onClick={profileRouteChange}
                 alt="Not found"
               />
             ) : (
-              <AccountCircleIcon onClick={profileRouteChange} />
+              <AccountCircleIcon />
             )}
           </div>
           <div className="edit-page__username">{user.username}</div>
