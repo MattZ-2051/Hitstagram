@@ -26,12 +26,12 @@
   font-size: 12px;
   border: none;
   padding: 5px;
-  background-color: lightskyblue;
+  background-color: lightblue;
   font-weight: 700;
 }
 
 .comments-deleteBtn button:hover {
   cursor: pointer;
 
-  filter: brightness(120%);
+  filter: brightness(70%);
 }

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import { userUpdate } from "../../store/auth";
 import { useHistory } from "react-router-dom";
+import "./EditProfileModals.css";
 
 export default function ProfilePhotoModal() {
   const [open, setOpen] = useState(false);
@@ -20,16 +21,14 @@ export default function ProfilePhotoModal() {
     setOpen(false);
   };
 
-  const profileRouteChange = () => {
-    // history.push(`/profile/img/${user.id}/upload`);
-  };
-
   const handleOpen = () => {
     setOpen(true);
   };
 
   const handleClose = () => {
     setOpen(false);
+    setBio("");
+    setFullName("");
   };
 
   const body = (
@@ -41,11 +40,10 @@ export default function ProfilePhotoModal() {
               <img
                 className="profile__img__pic"
                 src={user.profileImg}
-                onClick={profileRouteChange}
                 alt="Not found"
               />
             ) : (
-              <AccountCircleIcon onClick={profileRouteChange} />
+              <AccountCircleIcon />
             )}
           </div>
           <div className="edit-page__username">{user.username}</div>

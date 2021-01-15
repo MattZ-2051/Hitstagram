@@ -52,3 +52,17 @@
 .upload-modal__btn-div label {
   width: 100px;
 }
+
+.profile__img-modal {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+.profile__img-modal img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}

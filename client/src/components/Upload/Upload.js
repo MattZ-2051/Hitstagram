@@ -4,8 +4,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { newUserPost } from "../../store/post";
 import NavBar from "../NavBar/NavBar";
+import ImageOutlinedIcon from "@material-ui/icons/ImageOutlined";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  icon: {
+    fontSize: "250px",
+    color: "lightblue",
+  },
+}));
 
 const Upload = () => {
+  const classes = useStyles();
   const [photoFile, setPhotoFile] = useState(null);
   const userId = useSelector((state) => state.auth.id);
   const history = useHistory();
@@ -26,6 +36,7 @@ const Upload = () => {
 
   const postPhoto = async (formData) => {
     dispatch(newUserPost(userId, formData));
+    if (photoFile === null) return;
     setTimeout(() => {
       history.push(`my/profile/${userId}`);
     }, 1000);
@@ -48,23 +59,24 @@ const Upload = () => {
     <>
       <NavBar />
       <div className="upload">
+        <p className="upload__title">Select a photo to upload</p>
         <div className="upload-img-preview">
           {imgPreview ? (
             <img src={imgPreview} alt="Not Found" />
           ) : (
-            <p>Upload Photo</p>
+            <ImageOutlinedIcon className={classes.icon} />
           )}
         </div>
 
         <form className="upload-form" onSubmit={handleSubmit}>
-          <p>Select a photo to upload</p>
           <input
             className="upload-form__input"
             onChange={handleChange}
-            id="file-input"
+            id="contained-button"
             type="file"
             name="file"
           />
+
           <div className="upload-form__caption">
             <label htmlFor="caption">Caption</label>
             <input
@@ -80,7 +92,9 @@ const Upload = () => {
                 Confirm
               </button>
             ) : (
-              <button className="upload-form__btn">Upload</button>
+              <label htmlFor="contained-button">
+                <span className="upload__btn-span">Upload</span>
+              </label>
             )}
           </div>
           <button className="cancel-form__btn" onClick={handleCancel}>
