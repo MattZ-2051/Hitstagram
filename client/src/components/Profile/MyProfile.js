@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "./MyProfile.css";
 import ProfilePost from "./ProfilePost";
 import NavBar from "../NavBar/NavBar";
@@ -10,20 +9,9 @@ import ProfilePhotoModal from "../ProfilePhotoModal/ProfilePhotoModal";
 
 const MyProfile = () => {
   const user = useSelector((state) => state.auth);
-  const history = useHistory();
   const fetchWithCSRF = useSelector((state) => state.auth.csrf);
   const [counts, setCounts] = useState(null);
   const posts = useSelector((state) => state.posts.loggedInUserPost);
-  const [open, setOpen] = useState(false);
-
-  const routeChange = () => {
-    history.push(`/profile/${user.id}/edit`);
-  };
-
-  const profilePicRoute = () => {
-    // history.push(`/profile/img/${user.id}/upload`);
-    // setOpen(true);
-  };
 
   useEffect(() => {
     async function fetchData() {
@@ -54,24 +42,18 @@ const MyProfile = () => {
               <EditProfileModal className="profile__editBtn" />
             </div>
           </div>
-          <div className="counts grid">
-            <div className="counts__post">
-              Posts <span>{counts.postCount}</span>
-            </div>
+          <div className="profile__name grid">{user.fullName}</div>
+          <div className="profile__bio grid">
+            {user.bio ? user.bio : <p>No bio yet!</p>}
+          </div>
+          <div className="counts">
+            <div className="counts__post">{counts.postCount} Posts</div>
             <div className="counts__following">
-              Following <span>{counts.followingCount}</span>
+              {counts.followingCount} Following
             </div>
             <div className="counts__followers">
-              Followers <span>{counts.followersCount}</span>
+              {counts.followersCount} Followers
             </div>
-          </div>
-          <div className="profile__name grid">
-            <span>Name </span>
-            {user.fullName}
-          </div>
-          <div className="profile__bio grid">
-            <span>Bio </span>
-            {user.bio ? user.bio : <p>No bio yet!</p>}
           </div>
         </div>
       </div>
