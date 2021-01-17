@@ -24,12 +24,12 @@
   display: flex;
   font-size: 15px;
   padding: 15px 0;
-  height: 30px;
   padding-left: 15px;
 }
 
 .postData__caption__data {
   padding-top: 10px;
+  padding-right: 15px;
   overflow: hidden;
 }
 

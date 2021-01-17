@@ -1,126 +1,42 @@
-/* .login {
-  margin: auto;
-  height: 100vh;
-}
-
-.login-form {
-  display: flex;
-  padding-left: 80px;
-  background-color: #568ea3;
-  justify-content: space-evenly;
-}
-
-.login-form h1 {
-  align-self: center;
-  font-style: italic;
-  font-size: 40px;
-  font-weight: 700;
-}
-
-.login-form * {
-  background-color: #568ea3;
-}
-
-.login-form form {
-  font-size: 30px;
-  padding: 30px;
-}
-
-.login-form__username {
-  padding-right: 30px;
-  display: flex;
-  align-content: center;
-}
-
-.login-form input {
-  border: none;
-  border-bottom: 1px black solid;
-  color: black;
-  font-size: 18px;
-}
-
-.login-form input:focus {
-  outline: none;
-}
-
-.login-form__password {
-  padding-right: 30px;
-  display: flex;
-  align-content: center;
-}
-
-.login-form__username input::placeholder,
-.login-form__password input::placeholder {
-  color: black;
-  font-style: italic;
-  font-size: 20px;
-}
-
 .login-form__btn {
-  display: flex;
+  padding-top: 15px;
+  background-color: white;
 }
 
-.login-form__btn div {
-  padding: 0 15px;
+.link {
+  background-color: white;
+  padding-top: 15px;
 }
 
 .login-form__btn button {
   font-size: 16px;
   font-weight: 700;
-  color: #c0c0c0;
-  background-color: #191414;
+  color: white;
+  background-color: lightskyblue;
   padding: 10px;
   border-radius: 10px;
-  width: 150px;
+  width: 100%;
   border: none;
 }
 
 .login-form__btn button:hover {
   cursor: pointer;
-  filter: brightness(130%);
-  transform: scale(1.1);
+  opacity: 0.8;
 }
-
-.signup-link {
-  padding: 30px;
-  background-color: #568ea3;
-  align-self: center;
-}
-
-.login-images {
-  display: flex;
-  height: 500px;
-  background-color: #191414;
-}
-
-.login-images h1 {
-  width: 40%;
-  text-align: center;
-  align-self: center;
-  color: #c0c0c0;
-  font-style: italic;
-  font-size: 60px;
-  background-color: #191414;
-}
-
-.login-images img {
-  width: 60%;
-  object-fit: cover;
-} */
 
 .github-icon {
   display: flex;
   width: 100%;
   height: 23%;
   justify-content: center;
-  background-color: #568ea3;
+  background-color: lightskyblue;
 }
 
 .github-icon img {
   width: 80px;
   height: 80px;
   padding-top: 30px;
-  background-color: #568ea3;
+  background-color: lightskyblue;
 }
 
 .github-icon img:hover {
@@ -129,7 +45,7 @@
 }
 
 .github-icon p {
-  background-color: #568ea3;
+  background-color: lightskyblue;
   color: #191414;
   font-size: 20px;
   width: 50%;
@@ -139,7 +55,7 @@
 }
 
 .github-icon a {
-  background-color: #568ea3;
+  background-color: lightskyblue;
 }
 
 .app-name {
@@ -149,7 +65,7 @@
   font-family: "Fredoka One", cursive;
   font-size: 56px;
   padding-top: 20px;
-  background-color: lightblue;
+  background-color: lightskyblue;
   border-radius: 20px 20px 0 0;
   color: white;
 }
@@ -159,7 +75,7 @@
   font-size: 20px;
   font-weight: 100;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 1px lightblue;
+  -webkit-text-stroke: 1px lightskyblue;
   background-color: white;
 }
 
@@ -172,10 +88,6 @@
   background-color: white;
   box-shadow: white;
   justify-content: center;
-}
-
-.app_body {
-  display: flex;
 }
 
 .link {
