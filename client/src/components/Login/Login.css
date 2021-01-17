@@ -1,11 +1,10 @@
-.login {
+/* .login {
   margin: auto;
   height: 100vh;
 }
 
 .login-form {
   display: flex;
-  flex-direction: row;
   padding-left: 80px;
   background-color: #568ea3;
   justify-content: space-evenly;
@@ -23,7 +22,6 @@
 }
 
 .login-form form {
-  display: flex;
   font-size: 30px;
   padding: 30px;
 }
@@ -108,7 +106,7 @@
 .login-images img {
   width: 60%;
   object-fit: cover;
-}
+} */
 
 .github-icon {
   display: flex;
@@ -142,4 +140,44 @@
 
 .github-icon a {
   background-color: #568ea3;
+}
+
+.app-name {
+  display: flex;
+  justify-content: center;
+  margin-top: 20%;
+  font-family: "Fredoka One", cursive;
+  font-size: 56px;
+  padding-top: 20px;
+  background-color: lightblue;
+  border-radius: 20px 20px 0 0;
+  color: white;
+}
+
+.sign-in {
+  font-family: "Fredoka One", cursive;
+  font-size: 20px;
+  font-weight: 100;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px lightblue;
+  background-color: white;
+}
+
+.login-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  border-radius: 0 0 20px 20px;
+  background-color: white;
+  box-shadow: white;
+  justify-content: center;
+}
+
+.app_body {
+  display: flex;
+}
+
+.link {
+  background-color: white;
 }
