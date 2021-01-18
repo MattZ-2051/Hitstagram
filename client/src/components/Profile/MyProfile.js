@@ -9,13 +9,12 @@ import ProfilePhotoModal from "../ProfilePhotoModal/ProfilePhotoModal";
 
 const MyProfile = () => {
   const user = useSelector((state) => state.auth);
-  const fetchWithCSRF = useSelector((state) => state.auth.csrf);
   const [counts, setCounts] = useState(null);
   const posts = useSelector((state) => state.posts.loggedInUserPost);
 
   useEffect(() => {
     async function fetchData() {
-      const res = await fetchWithCSRF(`/api/number/${user.id}/counts`, {
+      const res = await fetch(`/api/number/${user.id}/counts`, {
         method: "GET",
       });
       if (res.ok) {
@@ -24,7 +23,7 @@ const MyProfile = () => {
       }
     }
     fetchData();
-  }, [fetchWithCSRF, user.id]);
+  }, [fetch, user.id]);
 
   if (counts === null) {
     return <Loading />;

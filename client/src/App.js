@@ -4,7 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
-import { loadUser, setCsrfFunc } from "./store/auth";
+import * as AuthAction from "./store/auth";
 import Home from "./components/Home/Home";
 import MyProfile from "./components/Profile/MyProfile";
 import Upload from "./components/Upload/Upload";
@@ -34,12 +34,17 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 function App() {
   const [fetchWithCSRF, setFetchWithCSRF] = useState(() => fetch);
   const dispatch = useDispatch();
-  const loadCurrentUser = () => dispatch(loadUser());
+  const loadCurrentUser = () => dispatch(AuthAction.loadUser());
 
   useEffect(() => {
     loadCurrentUser();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
   }, []);
+
+  //   useEffect(() => {
+  //     loadCurrentUser();
+  //     // eslint-disable-next-line react-hooks/exhaustive-deps
+  //   }, []);
 
   //   useEffect(() => {
   //     async function restoreCSRF() {
@@ -49,6 +54,7 @@ function App() {
   //       });
   //       if (response.ok) {
   //         const authData = await response.json();
+  //         console.log(authData);
   //         setFetchWithCSRF(() => {
   //           return (resource, init) => {
   //             if (init.headers) {
@@ -64,10 +70,10 @@ function App() {
   //       }
   //     }
   //     restoreCSRF();
+  //     dispatch(setCsrfFunc(fetchWithCSRF));
   //   }, []);
 
   //   useEffect(() => {
-  //     dispatch(setCsrfFunc(fetchWithCSRF));
   //     // eslint-disable-next-line react-hooks/exhaustive-deps
   //   }, []);
 

@@ -38,6 +38,7 @@ function LogInPage() {
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const history = useHistory();
+  const id = useSelector((state) => state.auth.id);
   const [fetchWithCSRF, setFetchWithCSRF] = useState(() => fetch);
 
   const handleLogin = (e) => {
@@ -52,34 +53,36 @@ function LogInPage() {
     history.push("/");
   };
 
-  useEffect(() => {
-    async function restoreCSRF() {
-      const response = await fetch("/api/csrf/restore", {
-        method: "GET",
-        credentials: "include",
-      });
-      if (response.ok) {
-        const authData = await response.json();
-        setFetchWithCSRF(() => {
-          return (resource, init) => {
-            if (init.headers) {
-              init.headers["X-CSRFToken"] = authData.csrf_token;
-            } else {
-              init.headers = {
-                "X-CSRFToken": authData.csrf_token,
-              };
-            }
-            return fetch(resource, init);
-          };
-        });
-      }
-    }
-    restoreCSRF();
-  }, []);
+  //   useEffect(() => {
+  //     async function restoreCSRF() {
+  //       const response = await fetch("/api/csrf/restore", {
+  //         method: "GET",
+  //         credentials: "include",
+  //       });
+  //       if (response.ok) {
+  //         const authData = await response.json();
+  //         setFetchWithCSRF(() => {
+  //           return (resource, init) => {
+  //             if (init.headers) {
+  //               init.headers["X-CSRFToken"] = authData.csrf_token;
+  //             } else {
+  //               init.headers = {
+  //                 "X-CSRFToken": authData.csrf_token,
+  //               };
+  //             }
+  //             return fetch(resource, init);
+  //           };
+  //         });
+  //       }
+  //     }
+  //     restoreCSRF();
+  //   }, []);
 
-  useEffect(() => {
-    dispatch(setCsrfFunc(fetchWithCSRF));
-  }, [fetchWithCSRF, dispatch]);
+  //   useEffect(() => {
+  //     dispatch(setCsrfFunc(fetchWithCSRF));
+  //     // eslint-disable-next-line react-hooks/exhaustive-deps
+  //   }, []);
+
   return (
     <Container className="app-login" component="main" maxWidth="xs">
       <CssBaseline />

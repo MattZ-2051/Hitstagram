@@ -10,7 +10,6 @@ import Loading from "../Loading/Loading";
 const Profile = () => {
   const history = useHistory();
   const userId = history.location.pathname.split("/")[2];
-  const fetchWithCSRF = useSelector((state) => state.auth.csrf);
   const [user, setUser] = useState({});
   const [posts, setPosts] = useState([]);
   const [counts, setCounts] = useState(null);
@@ -19,12 +18,9 @@ const Profile = () => {
 
   useEffect(() => {
     async function fetchFollow() {
-      const res = await fetchWithCSRF(
-        `/api/follow/${loggedInUserId}/add/${userId}`,
-        {
-          method: "GET",
-        }
-      );
+      const res = await fetch(`/api/follow/${loggedInUserId}/add/${userId}`, {
+        method: "GET",
+      });
 
       if (res.ok) {
         const data = await res.json();
@@ -37,7 +33,7 @@ const Profile = () => {
     }
 
     async function fetchData() {
-      const res = await fetchWithCSRF(`/api/post/${userId}/profile`, {
+      const res = await fetch(`/api/post/${userId}/profile`, {
         method: "GET",
       });
       if (res.ok) {
@@ -49,11 +45,11 @@ const Profile = () => {
 
     fetchFollow();
     fetchData();
-  }, [fetchWithCSRF, loggedInUserId, userId]);
+  }, [fetch, loggedInUserId, userId]);
 
   useEffect(() => {
     async function fetchData() {
-      const res = await fetchWithCSRF(`/api/number/${userId}/counts`, {
+      const res = await fetch(`/api/number/${userId}/counts`, {
         method: "GET",
       });
       if (res.ok) {
@@ -62,31 +58,34 @@ const Profile = () => {
       }
     }
     fetchData();
-  }, [fetchWithCSRF, userId]);
+  }, [fetch, userId]);
 
   if (user.length === 0 || Object.keys(posts).length === 0 || counts === null) {
     return <Loading />;
   }
 
   const handleFollow = async () => {
+    const XSRFTOKEN = await fetch("/api/session/get_csrf");
+    const token = await XSRFTOKEN.json();
     if (checkFollow === false) {
-      const res = await fetchWithCSRF(
-        `/api/follow/${loggedInUserId}/add/${userId}`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-        }
-      );
+      const res = await fetch(`/api/follow/${loggedInUserId}/add/${userId}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRFToken": token.csrfT,
+        },
+      });
       if (res.ok) {
         return;
       }
     } else {
-      const res = await fetchWithCSRF(
-        `/api/follow/${loggedInUserId}/add/${userId}`,
-        {
-          method: "DELETE",
-        }
-      );
+      const res = await fetch(`/api/follow/${loggedInUserId}/add/${userId}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRFToken": token.csrfT,
+        },
+      });
       if (res.ok) {
         return;
       }

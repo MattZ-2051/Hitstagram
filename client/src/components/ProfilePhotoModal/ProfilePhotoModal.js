@@ -23,10 +23,8 @@ function ProfilePhotoModal() {
   const [imgPreview, setImgPreview] = useState(null);
 
   const handleChange = (e) => {
-    console.log(e.target);
     setImgPreview(URL.createObjectURL(e.target.files[0]));
     setPhotoFile(e.target.files[0]);
-    console.log(photoFile);
   };
 
   const postPhoto = async (formData) => {
@@ -35,7 +33,6 @@ function ProfilePhotoModal() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(photoFile);
     const formData = new FormData();
     formData.append("file", photoFile);
     await postPhoto(formData);
