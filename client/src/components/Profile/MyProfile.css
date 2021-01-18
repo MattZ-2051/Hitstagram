@@ -72,38 +72,38 @@
 .counts {
   display: flex;
   padding-top: 15px;
+  padding-left: 50px;
 }
 
 .counts__followers span {
   font-weight: 900;
-  padding-left: 25px;
 }
 
 .counts__following span {
   font-weight: 900;
-  padding-right: 15px;
-  padding-left: 25px;
 }
 
 .counts__post span {
   font-weight: 700;
-  padding-left: 60px;
 }
 
 .counts__followers,
 .counts__post,
 .counts__following {
   font-size: 20px;
+  padding-right: 15px;
 }
 
 .profile__name {
   padding-top: 15px;
+  font-size: 22px;
 }
 
 .profile__bio {
   padding-top: 15px;
   display: flex;
   align-items: center;
+  font-size: 22px;
 }
 
 .profile__bio span {
@@ -123,8 +123,4 @@
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 30px;
   padding-left: 50px;
-}
-
-.counts__followers {
-  padding-top: 15px;
 }

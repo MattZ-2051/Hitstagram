@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     fill: "lightskyblue",
     paddingRight: "10px",
     marginRight: "5px",
-    fontSize: "28px",
+    fontSize: "40px",
     paddingTop: "5px",
     "&:hover": {
       cursor: "pointer",
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     fill: "#191414",
     paddingRight: "10px",
     marginRight: "5px",
-    fontSize: "28px",
+    fontSize: "40px",
     paddingTop: "5px",
     "&:hover": {
       cursor: "pointer",

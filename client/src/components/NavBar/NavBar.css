@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   margin: auto;
-  height: 35px;
   padding: 15px;
   background-color: white;
   align-items: center;
@@ -44,6 +43,7 @@
 
 .navbar__logoutBtn {
   margin-right: 50px;
+  font-size: 30px !important;
 }
 
 .homeIcon,
@@ -51,7 +51,7 @@
 .photoIcon,
 .accountIcon {
   color: #191414;
-  font-size: 30px !important;
+  font-size: 50px !important;
   padding: 0 10px;
 }
 
