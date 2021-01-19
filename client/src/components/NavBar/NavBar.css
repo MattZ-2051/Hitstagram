@@ -35,7 +35,7 @@
 }
 
 .navbar__name img {
-  width: 40px;
+  width: 30px;
   background-color: white;
   border-radius: 50%;
   padding: 5px;
@@ -51,8 +51,8 @@
 .photoIcon,
 .accountIcon {
   color: #191414;
-  font-size: 50px !important;
-  padding: 0 10px !important;
+  font-size: 30px !important;
+  padding: 10px !important;
 }
 
 .accountIcon:hover,
