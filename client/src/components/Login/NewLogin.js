@@ -29,6 +29,20 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
     backgroundColor: "lightblue",
   },
+  cssLabel: {
+    color: "lightskyblue",
+  },
+  cssOutlinedInput: {
+    "&$cssFocused $notchedOutline": {
+      borderColor: "lightskyblue !important",
+      color: "lightskyblue",
+    },
+  },
+  cssFocused: {},
+  notchedOutline: {
+    borderColor: "lightskyblue !important",
+    color: "lightskyblue",
+  },
 }));
 
 function LogInPage() {
@@ -68,6 +82,19 @@ function LogInPage() {
             autoComplete="Username"
             autoFocus
             onChange={(e) => setUsername(e.target.value)}
+            InputLabelProps={{
+              classes: {
+                root: classes.cssLabel,
+                focused: classes.cssFocused,
+              },
+            }}
+            InputProps={{
+              classes: {
+                root: classes.cssOutlinedInput,
+                focused: classes.cssFocused,
+                notchedOutline: classes.notchedOutline,
+              },
+            }}
           />
           <TextField
             variant="outlined"
@@ -80,6 +107,19 @@ function LogInPage() {
             id="password"
             autoComplete="current-password"
             onChange={(e) => setPassword(e.target.value)}
+            InputLabelProps={{
+              classes: {
+                root: classes.cssLabel,
+                focused: classes.cssFocused,
+              },
+            }}
+            InputProps={{
+              classes: {
+                root: classes.cssOutlinedInput,
+                focused: classes.cssFocused,
+                notchedOutline: classes.notchedOutline,
+              },
+            }}
           />
           <div className="login-form__btn">
             <button type="submit" onClick={handleLogin}>

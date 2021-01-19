@@ -29,18 +29,33 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
     backgroundColor: "lightblue",
   },
+  cssLabel: {
+    color: "lightskyblue",
+  },
+  cssOutlinedInput: {
+    "&$cssFocused $notchedOutline": {
+      borderColor: "lightskyblue !important",
+      color: "lightskyblue",
+    },
+  },
+  cssFocused: {},
+  notchedOutline: {
+    borderColor: "lightskyblue !important",
+    color: "lightskyblue",
+  },
 }));
 const Signup = () => {
   const [fullName, setFullName] = useState("");
   const classes = useStyles();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const dispatch = useDispatch();
   const history = useHistory();
 
   const handleSignup = (e) => {
     e.preventDefault();
-    dispatch(signup(fullName, username, password));
+    dispatch(signup(fullName, username, password, confirmPassword));
     history.push("/welcome");
   };
 
@@ -49,19 +64,32 @@ const Signup = () => {
       <CssBaseline />
       <h1 className="app-name">Picstagram</h1>
       <div className="login-component">
-        <h3 className="sign-in"> Log in</h3>
+        <h3 className="sign-in"> Sign in</h3>
         <form noValidate className={classes.form}>
           <TextField
             variant="outlined"
             margin="normal"
             required
             fullWidth
-            id="email"
+            id="username"
             label="Username"
             name="username"
             autoComplete="Username"
             autoFocus
             onChange={(e) => setUsername(e.target.value)}
+            InputLabelProps={{
+              classes: {
+                root: classes.cssLabel,
+                focused: classes.cssFocused,
+              },
+            }}
+            InputProps={{
+              classes: {
+                root: classes.cssOutlinedInput,
+                focused: classes.cssFocused,
+                notchedOutline: classes.notchedOutline,
+              },
+            }}
           />
           <TextField
             variant="outlined"
@@ -74,6 +102,44 @@ const Signup = () => {
             id="password"
             autoComplete="current-password"
             onChange={(e) => setPassword(e.target.value)}
+            InputLabelProps={{
+              classes: {
+                root: classes.cssLabel,
+                focused: classes.cssFocused,
+              },
+            }}
+            InputProps={{
+              classes: {
+                root: classes.cssOutlinedInput,
+                focused: classes.cssFocused,
+                notchedOutline: classes.notchedOutline,
+              },
+            }}
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="confirmPassword"
+            label="Confirm Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            InputLabelProps={{
+              classes: {
+                root: classes.cssLabel,
+                focused: classes.cssFocused,
+              },
+            }}
+            InputProps={{
+              classes: {
+                root: classes.cssOutlinedInput,
+                focused: classes.cssFocused,
+                notchedOutline: classes.notchedOutline,
+              },
+            }}
           />
           <div className="login-form__btn">
             <button type="submit" onClick={handleSignup}>
@@ -82,7 +148,7 @@ const Signup = () => {
           </div>
           <Grid className="link">
             <a href="/login" className="link">
-              Don't have an account sign up!
+              Have an account? Log in
             </a>
           </Grid>
         </form>
