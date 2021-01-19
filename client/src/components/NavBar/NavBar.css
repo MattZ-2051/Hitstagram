@@ -52,7 +52,7 @@
 .accountIcon {
   color: #191414;
   font-size: 50px !important;
-  padding: 0 10px;
+  padding: 0 10px !important;
 }
 
 .accountIcon:hover,
