@@ -65,80 +65,96 @@ function LogInPage() {
   };
 
   return (
-    <Container className="app-login" component="main" maxWidth="xs">
-      <CssBaseline />
-      <h1 className="app-name">Picstagram</h1>
-      <div className="login-component">
-        <h3 className="sign-in"> Log in</h3>
-        <form noValidate className={classes.form}>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Username"
-            name="username"
-            autoComplete="Username"
-            autoFocus
-            onChange={(e) => setUsername(e.target.value)}
-            InputLabelProps={{
-              classes: {
-                root: classes.cssLabel,
-                focused: classes.cssFocused,
-              },
-            }}
-            InputProps={{
-              classes: {
-                root: classes.cssOutlinedInput,
-                focused: classes.cssFocused,
-                notchedOutline: classes.notchedOutline,
-              },
-            }}
+    <>
+      <Container className="app-login" component="main" maxWidth="xs">
+        <CssBaseline />
+        <h1 className="app-name">Picstagram</h1>
+        <div className="login-component">
+          <h3 className="sign-in"> Log in</h3>
+          <form noValidate className={classes.form}>
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Username"
+              name="username"
+              autoComplete="Username"
+              autoFocus
+              onChange={(e) => setUsername(e.target.value)}
+              InputLabelProps={{
+                classes: {
+                  root: classes.cssLabel,
+                  focused: classes.cssFocused,
+                },
+              }}
+              InputProps={{
+                classes: {
+                  root: classes.cssOutlinedInput,
+                  focused: classes.cssFocused,
+                  notchedOutline: classes.notchedOutline,
+                },
+              }}
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+              onChange={(e) => setPassword(e.target.value)}
+              InputLabelProps={{
+                classes: {
+                  root: classes.cssLabel,
+                  focused: classes.cssFocused,
+                },
+              }}
+              InputProps={{
+                classes: {
+                  root: classes.cssOutlinedInput,
+                  focused: classes.cssFocused,
+                  notchedOutline: classes.notchedOutline,
+                },
+              }}
+            />
+            <div className="login-form__btn">
+              <button type="submit" onClick={handleLogin}>
+                Log in
+              </button>
+            </div>
+            <div className="login-form__btn">
+              <button type="submit" onClick={handleDemoLogin}>
+                Demo User
+              </button>
+            </div>
+            <Grid className="link">
+              <a href="/signup" className="link">
+                Don't have an account sign up!
+              </a>
+            </Grid>
+          </form>
+        </div>
+      </Container>
+      <div className="github-icon">
+        <a href="https://github.com/MattZ-2051/Hitstagram">
+          <img
+            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmaxcdn.icons8.com%2FShare%2Ficon%2Fp1em%2FLogos%2Fgithub1600.png&f=1&nofb=1"
+            alt="Not Found"
           />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            onChange={(e) => setPassword(e.target.value)}
-            InputLabelProps={{
-              classes: {
-                root: classes.cssLabel,
-                focused: classes.cssFocused,
-              },
-            }}
-            InputProps={{
-              classes: {
-                root: classes.cssOutlinedInput,
-                focused: classes.cssFocused,
-                notchedOutline: classes.notchedOutline,
-              },
-            }}
-          />
-          <div className="login-form__btn">
-            <button type="submit" onClick={handleLogin}>
-              Log in
-            </button>
-          </div>
-          <div className="login-form__btn">
-            <button type="submit" onClick={handleDemoLogin}>
-              Demo User
-            </button>
-          </div>
-          <Grid className="link">
-            <a href="/signup" className="link">
-              Don't have an account sign up!
-            </a>
-          </Grid>
-        </form>
+        </a>
+        <p>
+          Picstagram is a web application where you can make posts, comment on
+          posts and follow your friends (based off the popular application
+          instagram). If you want to see more of my code click the github icon
+          to go to my github profile!
+        </p>
       </div>
-    </Container>
+    </>
   );
 }
 
