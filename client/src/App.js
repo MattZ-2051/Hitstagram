@@ -16,14 +16,10 @@ import ExplorePage from "./components/ExplorePage/ExplorePage";
 import Welcome from "./components/Welcome/Welcome";
 import LogInPage from "./components/Login/NewLogin";
 import Loading from "./components/Loading/Loading";
+import LoggedOutView from "./components/LoggedOutView";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const needLogin = useSelector((state) => state.auth.id);
-
-  if (needLogin === undefined) {
-    return <Loading />;
-  }
-
   return (
     <>
       <Route
@@ -39,6 +35,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 function App() {
   const dispatch = useDispatch();
   const loadCurrentUser = () => dispatch(AuthAction.loadUser());
+  const needLogin = useSelector((state) => state.auth.id);
 
   useEffect(() => {
     loadCurrentUser();
@@ -47,31 +44,28 @@ function App() {
 
   return (
     <>
-      <Switch>
-        <Route path="/login" exact={true} component={LogInPage} />
-        <Route path="/signup" exact={true} component={Signup} />
-        <PrivateRoute path="/" exact={true} component={Home} />
-        <PrivateRoute path="/upload" exact={true} component={Upload} />
-        <PrivateRoute
-          path="/profile/:id/edit"
-          exact={true}
-          component={EditProfile}
-        />
-        <PrivateRoute path="/post/:id" exact={true} component={SoloPost} />
-        <PrivateRoute path="/profile/:id" exact={true} component={Profile} />
-        <PrivateRoute
-          path="/my/profile/:id"
-          exact={true}
-          component={MyProfile}
-        />
-        <PrivateRoute
-          path="/profile/img/:id/upload"
-          exact={true}
-          component={ProfileImgUpload}
-        />
-        <PrivateRoute path="/explore" exact={true} component={ExplorePage} />
-        <PrivateRoute path="/welcome" exact={true} component={Welcome} />
-      </Switch>
+      {!needLogin && <LoggedOutView />}
+      {needLogin && (
+        <Switch>
+          <Route path="/" exact={true} component={Home} />
+          <Route path="/upload" exact={true} component={Upload} />
+          <Route
+            path="/profile/:id/edit"
+            exact={true}
+            component={EditProfile}
+          />
+          <Route path="/post/:id" exact={true} component={SoloPost} />
+          <Route path="/profile/:id" exact={true} component={Profile} />
+          <Route path="/my/profile/:id" exact={true} component={MyProfile} />
+          <Route
+            path="/profile/img/:id/upload"
+            exact={true}
+            component={ProfileImgUpload}
+          />
+          <Route path="/explore" exact={true} component={ExplorePage} />
+          <Route path="/welcome" exact={true} component={Welcome} />
+        </Switch>
+      )}
     </>
   );
 }
