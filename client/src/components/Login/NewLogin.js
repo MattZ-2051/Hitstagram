@@ -140,7 +140,7 @@ function LogInPage() {
           </form>
         </div>
       </Container>
-      <div className="github-icon">
+      {/* <div className="github-icon">
         <a href="https://github.com/MattZ-2051/Hitstagram">
           <img
             src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmaxcdn.icons8.com%2FShare%2Ficon%2Fp1em%2FLogos%2Fgithub1600.png&f=1&nofb=1"
@@ -153,7 +153,7 @@ function LogInPage() {
           instagram). If you want to see more of my code click the github icon
           to go to my github profile!
         </p>
-      </div>
+      </div> */}
     </>
   );
 }
