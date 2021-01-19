@@ -38,7 +38,6 @@ const PostData = ({ data }) => {
   const classes = useStyles();
   const [comment, setComment] = useState("");
   const userId = useSelector((state) => state.auth.id);
-  const fetchWithCSRF = useSelector((state) => state.auth.csrf);
   const [commentsData, setCommentsData] = useState();
   const [commentUser, setCommentUser] = useState();
   const [hidden, setHidden] = useState(true);
@@ -47,14 +46,16 @@ const PostData = ({ data }) => {
   const [changeIcon, setChangeIcon] = useState(false);
 
   const newComment = async () => {
-    const res = await fetchWithCSRF(
-      `/api/post/${data.id}/${userId}/${1}/comment`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(comment),
-      }
-    );
+    const XSRFTOKEN = await fetch("/api/session/get_csrf");
+    const token = await XSRFTOKEN.json();
+    const res = await fetch(`/api/post/${data.id}/${userId}/${1}/comment`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": token.csrfT,
+      },
+      body: JSON.stringify(comment),
+    });
     if (res.ok) {
       const data = await res.json();
       setCommentUser([...commentUser, data.user]);
@@ -64,17 +65,26 @@ const PostData = ({ data }) => {
   };
 
   const favorite = async () => {
+    const XSRFTOKEN = await fetch("/api/session/get_csrf");
+    const token = await XSRFTOKEN.json();
     if (favorited === false) {
-      const res = await fetchWithCSRF(`/api/post/${data.id}/${userId}/like`, {
+      const res = await fetch(`/api/post/${data.id}/${userId}/like`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRFToken": token.csrfT,
+        },
       });
       if (res.ok) {
         return;
       }
     } else {
-      const res = await fetchWithCSRF(`/api/post/${data.id}/${userId}/like`, {
+      const res = await fetch(`/api/post/${data.id}/${userId}/like`, {
         method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRFToken": token.csrfT,
+        },
       });
 
       if (res.ok) {
@@ -91,7 +101,7 @@ const PostData = ({ data }) => {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await fetchWithCSRF(`/api/post/${data.id}/post/comments`, {
+      const res = await fetch(`/api/post/${data.id}/post/comments`, {
         methods: "GET",
       });
       if (res.ok) {
@@ -102,7 +112,7 @@ const PostData = ({ data }) => {
     }
 
     async function fetchLikes() {
-      const res = await fetchWithCSRF(`/api/post/${data.id}/${userId}/like`, {
+      const res = await fetch(`/api/post/${data.id}/${userId}/like`, {
         method: "GET",
       });
 
@@ -122,7 +132,7 @@ const PostData = ({ data }) => {
     fetchData();
 
     fetchLikes();
-  }, [data.id, fetchWithCSRF, userId]);
+  }, [data.id, fetch, userId]);
 
   const commentViewChange = () => {
     if (hidden === true) {
@@ -138,10 +148,16 @@ const PostData = ({ data }) => {
   };
 
   const deleteComment = async (commentId) => {
-    const res = await fetchWithCSRF(
+    const XSRFTOKEN = await fetch("/api/session/get_csrf");
+    const token = await XSRFTOKEN.json();
+    const res = await fetch(
       `/api/post/${data.id}/${userId}/${commentId}/comment`,
       {
         method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRFToken": token.csrfT,
+        },
       }
     );
     if (res.ok) {

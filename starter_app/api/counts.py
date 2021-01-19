@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from starter_app.models import User, Follower, Post,db
+from starter_app.models import User, Follower, Post, db
 
 bp = Blueprint('number', __name__)
 
@@ -24,5 +24,5 @@ def followers(user_id):
     for follower in followers:
         followers_count += 1
 
-
-    return {'followingCount': following_count, 'postCount': post_count, 'followersCount': followers_count}
+    return {'followingCount': following_count, 'postCount': post_count,
+            'followersCount': followers_count}

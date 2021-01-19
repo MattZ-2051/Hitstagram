@@ -33,10 +33,10 @@ def upload_file_to_s3(file, bucket_name, acl="public-read"):
         )
 
     except Exception as e:
-        # This is a catch all exception, edit this part to fit your needs.
+        # This is a catch all exception
         print("Something Happened: ", e)
         return e
-    # Note your photo url will be different the correct url can be found in
+    # Note photo url will be different the correct url can be found in
     # bucket when you click on an image and check the image info.
     photoUrl = "{}{}".format(
         'https://s3-us-west-2.amazonaws.com/b.a.d/', file.filename)
@@ -47,10 +47,16 @@ def upload_file_to_s3(file, bucket_name, acl="public-read"):
 def upload(user_id):
 
     captionFile = request.files['caption']
+    print('===================================')
+    print(captionFile)
+    print('===================================')
     caption_bytes = captionFile.read()
     non_byte_caption = caption_bytes.decode('UTF-8')
     data = ast.literal_eval(non_byte_caption)
     post_caption = data['caption']
+    print('===================================')
+    print(post_caption)
+    print('===================================')
 
     if "file" not in request.files:
         return "No file key in request.files", 500
