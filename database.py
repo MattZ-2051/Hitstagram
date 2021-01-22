@@ -14,13 +14,13 @@ with app.app_context():
     pollow = User(full_name='Pollow', username='Pollow',
                   password='password', profile_img='https://images.unsplash.com/photo-1602603889213-69cb31a64b0b?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60')
 
-    scar = User(full_name='Full Name', username='Scar',
+    scar = User(full_name='Full Name', username='Oscar',
                 password='password', profile_img='https://images.unsplash.com/photo-1605718665998-85fbd49c5eff?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw2fHx8ZW58MHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60')
 
     andoni = User(full_name='Andoni', username='Demo',
                   password='password', profile_img='https://images.unsplash.com/photo-1605425971671-aed55e6f4660?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60')
 
-    sam = User(full_name='Sam', username='Mr.Sam',
+    sam = User(full_name='Sam', username='Sam',
                password='password', profile_img='https://images.unsplash.com/photo-1605715677594-b784198660ce?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60')
 
     matt = User(full_name='Matt Testing', username='Zaphod',
@@ -42,7 +42,7 @@ with app.app_context():
 
     sam_post = Post(caption='ventore veritatis et quasi architecto', user_id=5, img='https://images.unsplash.com/photo-1605737804470-0d611b7b827c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0MHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60')
 
-    matt_second_post = Post(caption='Bikes are dope', user_id=6, img='https://images.unsplash.com/photo-1605737710291-98fe72919667?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0OHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60')
+    matt_second_post = Post(caption='Bikes are cool', user_id=6, img='https://images.unsplash.com/photo-1605737710291-98fe72919667?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0OHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60')
 
     scar_third_post = Post(caption='ventore veritatis et quasi architecto', user_id=3, img='https://images.unsplash.com/photo-1605763588123-7ff925e74387?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw2NXx8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60')
 
